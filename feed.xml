@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="https://yy1111yang.github.io/feed.xml" rel="self"/>
+  
+  <link href="https://yy1111yang.github.io/"/>
+  <updated>2020-12-10T08:50:48.438Z</updated>
+  <id>https://yy1111yang.github.io/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20201210-test3</title>
+    <link href="https://yy1111yang.github.io/2020/12/10/20201210-test3/"/>
+    <id>https://yy1111yang.github.io/2020/12/10/20201210-test3/</id>
+    <published>2020-12-10T06:39:05.000Z</published>
+    <updated>2020-12-10T08:50:48.438Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/2020/12/10/20201210-test3/nsg01.png" class=""><h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;img src=&quot;/2020/12/10/20201210-test3/nsg01.png&quot; class=&quot;&quot;&gt;
+
+
+&lt;h3 id=&quot;Related-Posts&quot;&gt;&lt;a href=&quot;#Related-Posts&quot; class=&quot;headerlink&quot; title=&quot;Relate</summary>
+      
+    
+    
+    
+    <category term="tech" scheme="https://yy1111yang.github.io/categories/tech/"/>
+    
+    <category term="azure" scheme="https://yy1111yang.github.io/categories/tech/azure/"/>
+    
+    
+    <category term="tech" scheme="https://yy1111yang.github.io/tags/tech/"/>
+    
+    <category term="azure" scheme="https://yy1111yang.github.io/tags/azure/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>test2</title>
+    <link href="https://yy1111yang.github.io/2020/12/10/test2/"/>
+    <id>https://yy1111yang.github.io/2020/12/10/test2/</id>
+    <published>2020-12-10T06:30:25.000Z</published>
+    <updated>2020-12-10T06:30:56.784Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/2020/12/10/test2/nsg01.png" class=""><h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;img src=&quot;/2020/12/10/test2/nsg01.png&quot; class=&quot;&quot;&gt;
+
+&lt;h3 id=&quot;Related-Posts&quot;&gt;&lt;a href=&quot;#Related-Posts&quot; class=&quot;headerlink&quot; title=&quot;Related Posts&quot;&gt;&lt;</summary>
+      
+    
+    
+    
+    <category term="tech" scheme="https://yy1111yang.github.io/categories/tech/"/>
+    
+    <category term="azure" scheme="https://yy1111yang.github.io/categories/tech/azure/"/>
+    
+    
+    <category term="tech" scheme="https://yy1111yang.github.io/tags/tech/"/>
+    
+    <category term="azure" scheme="https://yy1111yang.github.io/tags/azure/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>test</title>
+    <link href="https://yy1111yang.github.io/2020/12/10/test/"/>
+    <id>https://yy1111yang.github.io/2020/12/10/test/</id>
+    <published>2020-12-10T06:18:17.000Z</published>
+    <updated>2020-12-10T06:20:07.504Z</updated>
+    
+    <content type="html"><![CDATA[<!-- ![](nsg01.png) --><img src="/2020/12/10/test/nsg01.png" class="">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;!-- ![](nsg01.png) --&gt;
+&lt;img src=&quot;/2020/12/10/test/nsg01.png&quot; class=&quot;&quot;&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
