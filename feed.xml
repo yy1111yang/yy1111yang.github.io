@@ -6,7 +6,7 @@
   <link href="https://yy1111yang.github.io/feed.xml" rel="self"/>
   
   <link href="https://yy1111yang.github.io/"/>
-  <updated>2020-12-10T08:50:48.438Z</updated>
+  <updated>2020-12-10T10:54:20.892Z</updated>
   <id>https://yy1111yang.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2020test</title>
+    <link href="https://yy1111yang.github.io/2020/12/10/2020test/"/>
+    <id>https://yy1111yang.github.io/2020/12/10/2020test/</id>
+    <published>2020-12-10T10:54:20.000Z</published>
+    <updated>2020-12-10T10:54:20.892Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;Related-Posts&quot;&gt;&lt;a href=&quot;#Related-Posts&quot; class=&quot;headerlink&quot; title=&quot;Related Posts&quot;&gt;&lt;/a&gt;Related Posts&lt;/h3&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>20201210-test3</title>
