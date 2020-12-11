@@ -3,22 +3,22 @@
 
 
     <url>
+        <loc>https://yy1111yang.github.io/tags/cloud/</loc>
+        <lastmod>2020-12-11T07:37:34.975Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://yy1111yang.github.io/tags/cli/</loc>
-        <lastmod>2020-12-11T05:42:29.457Z</lastmod>
+        <lastmod>2020-12-11T07:37:34.975Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://yy1111yang.github.io/tags/azure/</loc>
-        <lastmod>2020-12-11T05:42:29.457Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yy1111yang.github.io/tags/tech/</loc>
-        <lastmod>2020-12-11T05:42:29.457Z</lastmod>
+        <lastmod>2020-12-11T07:37:34.975Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
