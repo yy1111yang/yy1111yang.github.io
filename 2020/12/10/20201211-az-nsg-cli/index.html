@@ -6,25 +6,25 @@
     
 
     
-    <title>20201211-az-nsg-cli | Tech-Blog</title>
+    <title>Azure Nsg 관련 유용한 CLI | Tech-Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="azure,cli,cloud" />
+    <meta name="keywords" content="Cloud,Azure,Powershell" />
     
     <meta name="description" content="Azure 운영중에 nsg에서 보안상 any 룰이 있으면 안되는 경우가 많습니다.그래서 이를 CLI로 체크하는 방법을 공유드립니다.  Any Port가 포함된 룰 찾기 12345678910111213141516171819202122232425# get Any Port rule in NSG$inbound &#x3D; @();$outbound &#x3D; @();$nsgList">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20201211-az-nsg-cli">
+<meta property="og:title" content="Azure Nsg 관련 유용한 CLI">
 <meta property="og:url" content="https://yy1111yang.github.io/2020/12/10/20201211-az-nsg-cli/index.html">
 <meta property="og:site_name" content="Tech-Blog">
 <meta property="og:description" content="Azure 운영중에 nsg에서 보안상 any 룰이 있으면 안되는 경우가 많습니다.그래서 이를 CLI로 체크하는 방법을 공유드립니다.  Any Port가 포함된 룰 찾기 12345678910111213141516171819202122232425# get Any Port rule in NSG$inbound &#x3D; @();$outbound &#x3D; @();$nsgList">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-10T20:29:24.000Z">
-<meta property="article:modified_time" content="2020-12-11T07:32:07.710Z">
+<meta property="article:modified_time" content="2020-12-11T09:55:47.123Z">
 <meta property="article:author" content="Yong Yang">
-<meta property="article:tag" content="azure">
-<meta property="article:tag" content="cli">
-<meta property="article:tag" content="cloud">
+<meta property="article:tag" content="Cloud">
+<meta property="article:tag" content="Azure">
+<meta property="article:tag" content="Powershell">
 <meta name="twitter:card" content="summary">
     
 	<!-- 대표 URL -->
@@ -109,7 +109,7 @@ ga('send', 'pageview');
                                     <a class="main-nav-list-link" href="/">Home</a>
                                 </li>
                             
-                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/azure/">azure</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/azure/cli/">cli</a></li></ul></li></ul>
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Azure/">Azure</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Azure/Powershell/">Powershell</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Azure/Windows/">Windows</a></li></ul></li></ul>
                                 
                                 <li class="main-nav-list-item" >
                                     <a class="main-nav-list-link" href="/about/index.html">About</a>
@@ -171,7 +171,7 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/azure/">azure</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/azure/cli/">cli</a>
+    <a class="page-title-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Azure/Powershell/">Powershell</a>
     </h1>
 </div>
 
@@ -183,7 +183,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-        20201211-az-nsg-cli
+        Azure Nsg 관련 유용한 CLI
         </h1>
     
 
@@ -203,7 +203,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2020/12/10/20201211-az-nsg-cli/" class="article-date">
-     <time datetime="2020-12-11T07:32:07.710Z" itemprop="dateModified">2020-12-11</time>
+     <time datetime="2020-12-11T09:55:47.123Z" itemprop="dateModified">2020-12-11</time>
   </a>
 </div>
 
@@ -213,7 +213,7 @@ ga('send', 'pageview');
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/azure/" rel="tag">azure</a>, <a class="tag-link-link" href="/tags/cli/" rel="tag">cli</a>, <a class="tag-link-link" href="/tags/cloud/" rel="tag">cloud</a>
+        <a class="tag-link-link" href="/tags/Azure/" rel="tag">Azure</a>, <a class="tag-link-link" href="/tags/Cloud/" rel="tag">Cloud</a>, <a class="tag-link-link" href="/tags/Powershell/" rel="tag">Powershell</a>
     </div>
 
                 
@@ -247,7 +247,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://yy1111yang.github.io/2020/12/10/20201211-az-nsg-cli/" data-id="ckiju3fe80000y9gd2g3tadi4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://yy1111yang.github.io/2020/12/10/20201211-az-nsg-cli/" data-id="ckik3kv480005jtgde38bbfsb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -317,10 +317,10 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Yong Yang"
         },
-        "headline": "20201211-az-nsg-cli",
+        "headline": "Azure Nsg 관련 유용한 CLI",
         "image": "https://yy1111yang.github.io",
-        "keywords": "azure cli cloud",
-        "genre": "azure cli",
+        "keywords": "Cloud Azure Powershell",
+        "genre": "Azure Powershell",
         "datePublished": "2020-12-11",
         "dateCreated": "2020-12-11",
         "dateModified": "2020-12-11",
@@ -371,10 +371,20 @@ Any Port가 포함된 룰 찾기
         
 <nav id="article-nav">
     
+        <a href="/2020/12/10/20201211-az-vm-network-connect/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Azure Windows VM 네트워크 연결 확인
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
     
         <a href="/2020/12/10/20201211-az-no-associated-resource-cli/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">20201211-az-no-associated-resource-cli</p>
+        <p class="article-nav-title">Azure에서 사용되지 않는 자원 CLI로 조회하기</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -396,8 +406,17 @@ Any Port가 포함된 룰 찾기
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/azure/">azure</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/azure/cli/">cli</a></p>
-                            <p class="item-title"><a href="/2020/12/10/20201211-az-nsg-cli/" class="title">20201211-az-nsg-cli</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Azure/Windows/">Windows</a></p>
+                            <p class="item-title"><a href="/2020/12/10/20201211-az-vm-network-connect/" class="title">Azure Windows VM 네트워크 연결 확인</a></p>
+                            <p class="item-date"><time datetime="2020-12-10T23:09:26.000Z" itemprop="datePublished">2020-12-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Azure/Powershell/">Powershell</a></p>
+                            <p class="item-title"><a href="/2020/12/10/20201211-az-nsg-cli/" class="title">Azure Nsg 관련 유용한 CLI</a></p>
                             <p class="item-date"><time datetime="2020-12-10T20:29:24.000Z" itemprop="datePublished">2020-12-11</time></p>
                         </div>
                     </li>
@@ -405,8 +424,8 @@ Any Port가 포함된 룰 찾기
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/azure/">azure</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/azure/cli/">cli</a></p>
-                            <p class="item-title"><a href="/2020/12/10/20201211-az-no-associated-resource-cli/" class="title">20201211-az-no-associated-resource-cli</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Azure/Powershell/">Powershell</a></p>
+                            <p class="item-title"><a href="/2020/12/10/20201211-az-no-associated-resource-cli/" class="title">Azure에서 사용되지 않는 자원 CLI로 조회하기</a></p>
                             <p class="item-date"><time datetime="2020-12-10T19:56:02.000Z" itemprop="datePublished">2020-12-11</time></p>
                         </div>
                     </li>
@@ -414,7 +433,7 @@ Any Port가 포함된 룰 찾기
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/azure/">azure</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/azure/cli/">cli</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Azure/Powershell/">Powershell</a></p>
                             <p class="item-title"><a href="/2020/12/10/20201210-az-account-cli/" class="title">Azure Subscription 변경 및 확인하기</a></p>
                             <p class="item-date"><time datetime="2020-12-10T02:37:02.000Z" itemprop="datePublished">2020-12-10</time></p>
                         </div>
@@ -429,7 +448,7 @@ Any Port가 포함된 룰 찾기
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/azure/">azure</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/azure/cli/">cli</a><span class="category-list-count">3</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Azure/">Azure</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Azure/Powershell/">Powershell</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Azure/Windows/">Windows</a><span class="category-list-count">1</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -439,7 +458,7 @@ Any Port가 포함된 룰 찾기
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">4</span></li></ul>
         </div>
     </div>
 
@@ -449,7 +468,7 @@ Any Port가 포함된 룰 찾기
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/azure/" rel="tag">azure</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cli/" rel="tag">cli</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cloud/" rel="tag">cloud</a><span class="tag-list-count">3</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure/" rel="tag">Azure</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud/" rel="tag">Cloud</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Powershell/" rel="tag">Powershell</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -459,7 +478,7 @@ Any Port가 포함된 룰 찾기
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/azure/" style="font-size: 10px;">azure</a> <a href="/tags/cli/" style="font-size: 10px;">cli</a> <a href="/tags/cloud/" style="font-size: 10px;">cloud</a>
+            <a href="/tags/Azure/" style="font-size: 20px;">Azure</a> <a href="/tags/Cloud/" style="font-size: 20px;">Cloud</a> <a href="/tags/Powershell/" style="font-size: 15px;">Powershell</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a>
         </div>
     </div>
 
