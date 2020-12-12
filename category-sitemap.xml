@@ -9,14 +9,21 @@
 
 
     <url>
-        <loc>https://yy1111yang.github.io/categories/Azure/Powershell/</loc>
-        <lastmod>2020-12-11T09:55:47.123Z</lastmod>
+        <loc>https://yy1111yang.github.io/categories/Azure/VM/</loc>
+        <lastmod>2020-12-12T01:43:13.963Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://yy1111yang.github.io/categories/Azure/</loc>
+        <lastmod>2020-12-12T01:43:13.963Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yy1111yang.github.io/categories/Azure/Powershell/</loc>
         <lastmod>2020-12-11T09:55:47.123Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
