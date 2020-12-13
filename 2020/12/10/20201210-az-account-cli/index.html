@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
 
     
 
@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="Cloud,Azure,Powershell" />
+    <meta name="keywords" content="Cloud,Azure,Powershell">
     
     <meta name="description" content="안녕하세요. 첫번째 블로그입니다. Azure Subscription 변경을 위한 함수입니다.보통 Azure CLI와 powershell를 혼용하는 저에게는 2개의 명령어를 같이 칠 수 있도록 하였습니다.yy두개의 명령어 모두 Subscription의 이름을 매개변수로 설정하였습니다. 12345678# subscription name$subName &#x3D; &amp;qu">
 <meta property="og:type" content="article">
@@ -30,7 +30,7 @@
 <meta name="twitter:image" content="https://yy1111yang.github.io/2020/12/10/20201210-az-account-cli/set_account.png">
     
 	<!-- 대표 URL -->
-	<link rel="canonical" href="https://yy1111yang.github.io/2020/12/10/20201210-az-account-cli/"/>
+	<link rel="canonical" href="https://yy1111yang.github.io/2020/12/10/20201210-az-account-cli/">
 
     
 
@@ -85,9 +85,9 @@ ga('send', 'pageview');
 	<script data-ad-client="ca-pub-7206715378013838" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 	
 	<!-- naver search auth -->
-	<meta name="naver-site-verification" content="1bd8dea1b5a3fb060e4d9f488827c180678a8d29" />
+	<meta name="naver-site-verification" content="1bd8dea1b5a3fb060e4d9f488827c180678a8d29">
 	
-<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/feed.xml" title="Azure Cloud" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/feed.xml" title="Azure Cloud" type="application/rss+xml">
 </head>
 
 <body>
@@ -107,13 +107,13 @@ ga('send', 'pageview');
                     <div class="nav-container-inner">
                         <ul id="main-nav">
                             
-                                <li class="main-nav-list-item" >
+                                <li class="main-nav-list-item">
                                     <a class="main-nav-list-link" href="/">Home</a>
                                 </li>
                             
                                     <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Azure/">Azure</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Azure/Powershell/">Powershell</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Azure/VM/">VM</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Azure/Windows/">Windows</a></li></ul></li></ul>
                                 
-                                <li class="main-nav-list-item" >
+                                <li class="main-nav-list-item">
                                     <a class="main-nav-list-link" href="/about/index.html">About</a>
                                 </li>
                             
@@ -122,14 +122,14 @@ ga('send', 'pageview');
                             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <input type="text" class="ins-search-input" placeholder="Type something...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -236,22 +236,22 @@ ga('send', 'pageview');
 <p>Azure Subscription 변경을 위한 함수입니다.<br>보통 Azure CLI와 powershell를 혼용하는 저에게는 2개의 명령어를 같이 칠 수 있도록 하였습니다.yy<br>두개의 명령어 모두 Subscription의 이름을 매개변수로 설정하였습니다.</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># subscription name</span></span><br><span class="line"><span class="variable">$subName</span> = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># powershell </span></span><br><span class="line"><span class="built_in">Set-AzureRmContext</span> <span class="literal">-Subscription</span> <span class="variable">$subName</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># azure CLI</span></span><br><span class="line">az account <span class="built_in">set</span> <span class="literal">-s</span> <span class="variable">$subName</span></span><br></pre></td></tr></table></figure>
 
-<img src="/2020/12/10/20201210-az-account-cli/set_account.png" class="">
+<img src="/2020/12/10/20201210-az-account-cli/set_account.png" class>
 
 
 <p>현재 어느 구독으로 셋팅이 되어 있는지를 확인하고 싶다면 아래의 명령어를 수행하면 됩니다.<br>이것도 마찬가지로 Azure CLI와 Powershell이 별도로 동작합니다.</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># azure CLI</span></span><br><span class="line">az account show</span><br><span class="line"></span><br><span class="line"><span class="comment"># powershell</span></span><br><span class="line"><span class="built_in">Get-AzureRmContext</span></span><br></pre></td></tr></table></figure>
 
-<img src="/2020/12/10/20201210-az-account-cli/az_account_show.png" class="">
+<img src="/2020/12/10/20201210-az-account-cli/az_account_show.png" class>
 
-<img src="/2020/12/10/20201210-az-account-cli/get_azureRmContext.png" class="">
+<img src="/2020/12/10/20201210-az-account-cli/get_azureRmContext.png" class>
 
 
 <p>현재 제가 가지고 있는 모든 구독을 확인하는 방법은 아래와 같습니다.</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># azure CLI</span></span><br><span class="line">az account list</span><br><span class="line"></span><br><span class="line"><span class="comment"># powershell</span></span><br><span class="line"><span class="built_in">Get-AzureRmContext</span> <span class="literal">-ListAvailable</span></span><br></pre></td></tr></table></figure>
 
 <p>저는 현재 구독을 1개만 가지고 있어서 여러개를 조회할 수가 없네요 ㅠ</p>
-<img src="/2020/12/10/20201210-az-account-cli/az_account_list.png" class="">
+<img src="/2020/12/10/20201210-az-account-cli/az_account_list.png" class>
 
 
 <h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3>
@@ -371,7 +371,7 @@ Azure Subscription 변경을 위한 함수입니다.보통 Azure CLI와 powershe
             
                 
                 <li>
-                    <a class="social-tooltip" title="github" href="https://github.com/yy1111yang" target="_blank" rel="noopener">
+                    <a class="social-tooltip" title="github" href="https://github.com/yy1111yang" target="_blank" rel="external nofollow noopener noreferrer">
                         <i class="icon fa fa-github"></i>
                     </a>
                 </li>
@@ -507,7 +507,7 @@ Azure Subscription 변경을 위한 함수입니다.보통 Azure CLI와 powershe
             <ul>
                 
                     <li>
-                        <a target="_blank" rel="noopener" href="https://linkedin.com/in/yy1111yang">LinkedIn</a>
+                        <a target="_blank" rel="external nofollow noopener noreferrer" href="https://linkedin.com/in/yy1111yang">LinkedIn</a>
                     </li>
                 
             </ul>
@@ -533,7 +533,7 @@ Azure Subscription 변경을 위한 함수입니다.보통 Azure CLI와 powershe
                 </h1>
                 <p>&copy; 2020 Yong Yang</p>
                 
-                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                <p>Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank" rel="external nofollow noopener noreferrer">PPOffice</a></p>
                 
             </div>
             <div class="footer-plugins">

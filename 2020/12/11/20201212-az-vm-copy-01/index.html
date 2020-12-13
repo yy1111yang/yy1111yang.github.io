@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
 
     
 
@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="Cloud,Azure,VM" />
+    <meta name="keywords" content="Cloud,Azure,VM">
     
     <meta name="description" content="이번 포스트는 Azure VM 복제입니다.클라우드 환경에서는 자유롭게 vm을 생성할 수 있습니다.그렇다면 기존에 셋팅한 vm을 복제하는 것은 어떻게 할 수 있을까요?여러가지 방법이 있겠지만 이번 포스트에서는 Azure Snapshot을 사용하는 방법을 알려드리겠습니다. 이 방법은 제가 주로 사용하는 방법입니다.VM의 osDisk와 DataDisk를 snap">
 <meta property="og:type" content="article">
@@ -30,7 +30,7 @@
 <meta name="twitter:image" content="https://yy1111yang.github.io/2020/12/11/20201212-az-vm-copy-01/disk_show_01.png">
     
 	<!-- 대표 URL -->
-	<link rel="canonical" href="https://yy1111yang.github.io/2020/12/11/20201212-az-vm-copy-01/"/>
+	<link rel="canonical" href="https://yy1111yang.github.io/2020/12/11/20201212-az-vm-copy-01/">
 
     
 
@@ -85,9 +85,9 @@ ga('send', 'pageview');
 	<script data-ad-client="ca-pub-7206715378013838" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 	
 	<!-- naver search auth -->
-	<meta name="naver-site-verification" content="1bd8dea1b5a3fb060e4d9f488827c180678a8d29" />
+	<meta name="naver-site-verification" content="1bd8dea1b5a3fb060e4d9f488827c180678a8d29">
 	
-<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/feed.xml" title="Azure Cloud" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/feed.xml" title="Azure Cloud" type="application/rss+xml">
 </head>
 
 <body>
@@ -107,13 +107,13 @@ ga('send', 'pageview');
                     <div class="nav-container-inner">
                         <ul id="main-nav">
                             
-                                <li class="main-nav-list-item" >
+                                <li class="main-nav-list-item">
                                     <a class="main-nav-list-link" href="/">Home</a>
                                 </li>
                             
                                     <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Azure/">Azure</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Azure/Powershell/">Powershell</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Azure/VM/">VM</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Azure/Windows/">Windows</a></li></ul></li></ul>
                                 
-                                <li class="main-nav-list-item" >
+                                <li class="main-nav-list-item">
                                     <a class="main-nav-list-link" href="/about/index.html">About</a>
                                 </li>
                             
@@ -122,14 +122,14 @@ ga('send', 'pageview');
                             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <input type="text" class="ins-search-input" placeholder="Type something...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -235,43 +235,43 @@ ga('send', 'pageview');
             <p>이번 포스트는 Azure VM 복제입니다.<br>클라우드 환경에서는 자유롭게 vm을 생성할 수 있습니다.<br>그렇다면 기존에 셋팅한 vm을 복제하는 것은 어떻게 할 수 있을까요?<br>여러가지 방법이 있겠지만 이번 포스트에서는 Azure Snapshot을 사용하는 방법을 알려드리겠습니다.</p>
 <p>이 방법은 제가 주로 사용하는 방법입니다.<br>VM의 osDisk와 DataDisk를 snapshot으로 만든후에 그걸 다시 disk로 만든다. osdisk를 기반으로 vm을 create 하면 됩니다.</p>
 <ol>
-<li>복제하려는 VM의 OS Disk를 들어갑니다. 아래의 화면을 보시면 위쪽에 ‘+Create Snapshot’이 보이실 겁니다. 이 버튼을 클릭합니다.<img src="/2020/12/11/20201212-az-vm-copy-01/disk_show_01.png" class="">
+<li>복제하려는 VM의 OS Disk를 들어갑니다. 아래의 화면을 보시면 위쪽에 ‘+Create Snapshot’이 보이실 겁니다. 이 버튼을 클릭합니다.<img src="/2020/12/11/20201212-az-vm-copy-01/disk_show_01.png" class>
 
 
 </li>
 </ol>
 <ol start="2">
-<li>Snapshot을 만드는 화면으로 이동합니다. 이름과 Storage Type을 선택하고 나머지는 기본값으로 설정하겠습니다. Storage type은 HDD를 선택해도 나중에 Disk 생성후에 Disk 자체에서도 변경할 수 있습니다.<img src="/2020/12/11/20201212-az-vm-copy-01/snapshot_create_01.png" class="">
+<li>Snapshot을 만드는 화면으로 이동합니다. 이름과 Storage Type을 선택하고 나머지는 기본값으로 설정하겠습니다. Storage type은 HDD를 선택해도 나중에 Disk 생성후에 Disk 자체에서도 변경할 수 있습니다.<img src="/2020/12/11/20201212-az-vm-copy-01/snapshot_create_01.png" class>
 
 
 </li>
 </ol>
 <ol start="3">
-<li>아래와 같이 snapshot이 만들어졌습니다. snapshot은 마찬가지로 Disk로도 바로 만들 수 있습니다.<br>상단의 ‘+Create Disk’ 버튼을 클릭합니다.<img src="/2020/12/11/20201212-az-vm-copy-01/snapshot_show_01.png" class="">
+<li>아래와 같이 snapshot이 만들어졌습니다. snapshot은 마찬가지로 Disk로도 바로 만들 수 있습니다.<br>상단의 ‘+Create Disk’ 버튼을 클릭합니다.<img src="/2020/12/11/20201212-az-vm-copy-01/snapshot_show_01.png" class>
 
 
 </li>
 </ol>
 <ol start="4">
-<li>VM을 만드는 화면으로 이동합니다. 아마 이 화면은 친숙하실 겁니다.<br>이름과 사이즈를 선택합니다. 사이즈 선택시에 기본값이 Premium SSD로 선택되어 있는데 저는 osDisk는 Standard SSD로 선택해서 사용합니다. Disk 비용을 절감할 수 있습니다.<img src="/2020/12/11/20201212-az-vm-copy-01/disk_create_01.png" class="">
+<li>VM을 만드는 화면으로 이동합니다. 아마 이 화면은 친숙하실 겁니다.<br>이름과 사이즈를 선택합니다. 사이즈 선택시에 기본값이 Premium SSD로 선택되어 있는데 저는 osDisk는 Standard SSD로 선택해서 사용합니다. Disk 비용을 절감할 수 있습니다.<img src="/2020/12/11/20201212-az-vm-copy-01/disk_create_01.png" class>
 
 
 </li>
 </ol>
 <ol start="5">
-<li>Disk가 완성이 되었습니다. 포털에서 osDisk를 바로 VM으로 만들 수 있도록 지원해주고 있습니다.<br>‘+Create VM’ 버튼을 클릭합니다. vm만드는 화면은 따로 설명은 하지 않겠습니다.<img src="/2020/12/11/20201212-az-vm-copy-01/create_vm_01.png" class="">
+<li>Disk가 완성이 되었습니다. 포털에서 osDisk를 바로 VM으로 만들 수 있도록 지원해주고 있습니다.<br>‘+Create VM’ 버튼을 클릭합니다. vm만드는 화면은 따로 설명은 하지 않겠습니다.<img src="/2020/12/11/20201212-az-vm-copy-01/create_vm_01.png" class>
 
 
 </li>
 </ol>
 <ol start="6">
-<li>VM이 완성이 되었습니다. public IP를 기억합니다.<img src="/2020/12/11/20201212-az-vm-copy-01/vm_show_01.png" class="">
+<li>VM이 완성이 되었습니다. public IP를 기억합니다.<img src="/2020/12/11/20201212-az-vm-copy-01/vm_show_01.png" class>
 
 
 </li>
 </ol>
 <ol start="7">
-<li>Rdp로 해당 vm에 접속하려고 하면 이미 기존의 호스트이름이 박혀 있는것을 확인할 수 있습니다. 이를 통해 해당 vm이 복제가 잘 되었다고 판단할 수 있을 것 같습니다.<img src="/2020/12/11/20201212-az-vm-copy-01/rdp_show_01.png" class="">
+<li>Rdp로 해당 vm에 접속하려고 하면 이미 기존의 호스트이름이 박혀 있는것을 확인할 수 있습니다. 이를 통해 해당 vm이 복제가 잘 되었다고 판단할 수 있을 것 같습니다.<img src="/2020/12/11/20201212-az-vm-copy-01/rdp_show_01.png" class>
 
 
 
@@ -394,7 +394,7 @@ ga('send', 'pageview');
             
                 
                 <li>
-                    <a class="social-tooltip" title="github" href="https://github.com/yy1111yang" target="_blank" rel="noopener">
+                    <a class="social-tooltip" title="github" href="https://github.com/yy1111yang" target="_blank" rel="external nofollow noopener noreferrer">
                         <i class="icon fa fa-github"></i>
                     </a>
                 </li>
@@ -526,7 +526,7 @@ ga('send', 'pageview');
             <ul>
                 
                     <li>
-                        <a target="_blank" rel="noopener" href="https://linkedin.com/in/yy1111yang">LinkedIn</a>
+                        <a target="_blank" rel="external nofollow noopener noreferrer" href="https://linkedin.com/in/yy1111yang">LinkedIn</a>
                     </li>
                 
             </ul>
@@ -552,7 +552,7 @@ ga('send', 'pageview');
                 </h1>
                 <p>&copy; 2020 Yong Yang</p>
                 
-                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                <p>Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank" rel="external nofollow noopener noreferrer">PPOffice</a></p>
                 
             </div>
             <div class="footer-plugins">
