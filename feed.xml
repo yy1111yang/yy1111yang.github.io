@@ -9,11 +9,11 @@
     <atom:link href="https://yy1111yang.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>Azure Cloud</description>
-    <pubDate>Sun, 13 Dec 2020 13:57:55 GMT</pubDate>
+    <pubDate>Sun, 13 Dec 2020 14:39:12 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>Azure LB 연결 후 인터넷이 안되는 현상...</title>
+      <title>Problem internet connection not working in VM after connection LB.</title>
       <link>https://yy1111yang.github.io/2020/12/12/20201213-azure-lb-nat-problem/</link>
       <guid>https://yy1111yang.github.io/2020/12/12/20201213-azure-lb-nat-problem/</guid>
       <pubDate>Sat, 12 Dec 2020 23:03:17 GMT</pubDate>
@@ -57,12 +57,13 @@
       
         
         
-      <description>&lt;p&gt;이번 포스트는 Azure VM 복제입니다.&lt;br&gt;클라우드 환경에서는 자유롭게 vm을 생성할 수 있습니다.&lt;br&gt;그렇다면 기존에 셋팅한 vm을 복제하는 것은 어떻게 할 수 있을까요?&lt;br&gt;여러가지 방법이 있겠지만 이번 포스트에서는 Azure Sna</description>
+      <description>&lt;p&gt;this post about Azure VM Copy using snapshot.&lt;/p&gt;
+&lt;p&gt;The total process is as follow.&lt;br&gt;OsDisk, Datadisk =&amp;gt; snapshot =&amp;gt; OsDisk_copy</description>
         
       
       
       
-      <content:encoded><![CDATA[<p>이번 포스트는 Azure VM 복제입니다.<br>클라우드 환경에서는 자유롭게 vm을 생성할 수 있습니다.<br>그렇다면 기존에 셋팅한 vm을 복제하는 것은 어떻게 할 수 있을까요?<br>여러가지 방법이 있겠지만 이번 포스트에서는 Azure Snapshot을 사용하는 방법을 알려드리겠습니다.</p><p>이 방법은 제가 주로 사용하는 방법입니다.<br>VM의 osDisk와 DataDisk를 snapshot으로 만든후에 그걸 다시 disk로 만든다. osdisk를 기반으로 vm을 create 하면 됩니다.</p><ol><li>복제하려는 VM의 OS Disk를 들어갑니다. 아래의 화면을 보시면 위쪽에 ‘+Create Snapshot’이 보이실 겁니다. 이 버튼을 클릭합니다.<img src="/2020/12/11/20201212-az-vm-copy-01/disk_show_01.png" class=""></li></ol><ol start="2"><li>Snapshot을 만드는 화면으로 이동합니다. 이름과 Storage Type을 선택하고 나머지는 기본값으로 설정하겠습니다. Storage type은 HDD를 선택해도 나중에 Disk 생성후에 Disk 자체에서도 변경할 수 있습니다.<img src="/2020/12/11/20201212-az-vm-copy-01/snapshot_create_01.png" class=""></li></ol><ol start="3"><li>아래와 같이 snapshot이 만들어졌습니다. snapshot은 마찬가지로 Disk로도 바로 만들 수 있습니다.<br>상단의 ‘+Create Disk’ 버튼을 클릭합니다.<img src="/2020/12/11/20201212-az-vm-copy-01/snapshot_show_01.png" class=""></li></ol><ol start="4"><li>VM을 만드는 화면으로 이동합니다. 아마 이 화면은 친숙하실 겁니다.<br>이름과 사이즈를 선택합니다. 사이즈 선택시에 기본값이 Premium SSD로 선택되어 있는데 저는 osDisk는 Standard SSD로 선택해서 사용합니다. Disk 비용을 절감할 수 있습니다.<img src="/2020/12/11/20201212-az-vm-copy-01/disk_create_01.png" class=""></li></ol><ol start="5"><li>Disk가 완성이 되었습니다. 포털에서 osDisk를 바로 VM으로 만들 수 있도록 지원해주고 있습니다.<br>‘+Create VM’ 버튼을 클릭합니다. vm만드는 화면은 따로 설명은 하지 않겠습니다.<img src="/2020/12/11/20201212-az-vm-copy-01/create_vm_01.png" class=""></li></ol><ol start="6"><li>VM이 완성이 되었습니다. public IP를 기억합니다.<img src="/2020/12/11/20201212-az-vm-copy-01/vm_show_01.png" class=""></li></ol><ol start="7"><li>Rdp로 해당 vm에 접속하려고 하면 이미 기존의 호스트이름이 박혀 있는것을 확인할 수 있습니다. 이를 통해 해당 vm이 복제가 잘 되었다고 판단할 수 있을 것 같습니다.<img src="/2020/12/11/20201212-az-vm-copy-01/rdp_show_01.png" class=""></li></ol><h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3>]]></content:encoded>
+      <content:encoded><![CDATA[<p>this post about Azure VM Copy using snapshot.</p><p>The total process is as follow.<br>OsDisk, Datadisk =&gt; snapshot =&gt; OsDisk_copy, Datadisk_copy =&gt; VM_copy</p><p>1, Go to the panel in OsDisk.<br>Click ‘+Create Snapshot’</p><img src="/2020/12/11/20201212-az-vm-copy-01/disk_show_01.png" class=""><p>2, Move screen for create snapshot.<br>type the name, select Storage type.<br>we changed storage type after create disk in disk screen. </p><img src="/2020/12/11/20201212-az-vm-copy-01/snapshot_create_01.png" class=""><p>3, Created snapshot in below.<br>snapshot also create to managed disk directly.<br>Click button ‘+Create Disk’ in upper.</p><img src="/2020/12/11/20201212-az-vm-copy-01/snapshot_show_01.png" class=""><p>4, Go to the screen for create VM.<br>type the name and select the sku.</p><img src="/2020/12/11/20201212-az-vm-copy-01/disk_create_01.png" class=""><p>5, About 30 sec later, created Disk.<br>and suppport create VM Directly using managed disk in Auzre Portal.<br>it’s very useful i think.<br>Click the button ‘+Create VM’ and skip the creating VM. </p><img src="/2020/12/11/20201212-az-vm-copy-01/create_vm_01.png" class=""><p>6, finally deploy VM is done. we memorized public IP for connection RDP.</p><img src="/2020/12/11/20201212-az-vm-copy-01/vm_show_01.png" class=""><p>7, we find the certification name below. it’s VM name copied VM before.<br>So, we know vm copy is successful.</p><img src="/2020/12/11/20201212-az-vm-copy-01/rdp_show_01.png" class=""><h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3>]]></content:encoded>
       
       
       <category domain="https://yy1111yang.github.io/categories/Azure/">Azure</category>

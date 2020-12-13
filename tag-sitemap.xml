@@ -3,6 +3,55 @@
 
 
     <url>
+        <loc>https://yy1111yang.github.io/tags/NAT/</loc>
+        <lastmod>2020-12-13T14:39:12.777Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yy1111yang.github.io/tags/LB/</loc>
+        <lastmod>2020-12-13T14:39:12.777Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yy1111yang.github.io/tags/VM/</loc>
+        <lastmod>2020-12-13T14:39:12.777Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yy1111yang.github.io/tags/Azure/</loc>
+        <lastmod>2020-12-13T14:39:12.777Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yy1111yang.github.io/tags/Cloud/</loc>
+        <lastmod>2020-12-13T14:39:12.777Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yy1111yang.github.io/tags/Copy/</loc>
+        <lastmod>2020-12-13T14:37:58.721Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yy1111yang.github.io/tags/Snapshot/</loc>
+        <lastmod>2020-12-13T14:37:58.721Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://yy1111yang.github.io/tags/Network/</loc>
         <lastmod>2020-12-13T14:23:51.707Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -17,41 +66,6 @@
     </url>
 
     <url>
-        <loc>https://yy1111yang.github.io/tags/Azure/</loc>
-        <lastmod>2020-12-13T14:23:51.707Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yy1111yang.github.io/tags/Cloud/</loc>
-        <lastmod>2020-12-13T14:23:51.707Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yy1111yang.github.io/tags/NAT/</loc>
-        <lastmod>2020-12-13T13:57:55.521Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yy1111yang.github.io/tags/LB/</loc>
-        <lastmod>2020-12-13T13:57:55.521Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yy1111yang.github.io/tags/VM/</loc>
-        <lastmod>2020-12-13T13:57:55.521Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://yy1111yang.github.io/tags/NSG/</loc>
         <lastmod>2020-12-13T13:57:36.445Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -61,20 +75,6 @@
     <url>
         <loc>https://yy1111yang.github.io/tags/Powershell/</loc>
         <lastmod>2020-12-13T13:57:36.445Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yy1111yang.github.io/tags/Copy/</loc>
-        <lastmod>2020-12-13T13:57:28.004Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yy1111yang.github.io/tags/Snapshot/</loc>
-        <lastmod>2020-12-13T13:57:28.004Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
