@@ -6,22 +6,22 @@
     
 
     
-    <title>Azure Windows VM 네트워크 연결 확인 | Azure Cloud</title>
+    <title>How can we check network connection between Azure VM | Azure Cloud</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="keywords" content="Cloud,Azure,Windows,Network">
     
-    <meta name="description" content="이번에는 Azure VM안에서의 네트워크 통신을 확인하는 방법을 포스트 하겠습니다. 먼저 Azure 환경에 아래와 같이 동일한 Vnet에 2대의 vm을 만들었습니다.   10.0.0.4 에서 10.0.0.5로 8080 포트로 연결이 정상적으로 되는지 확인하려고 합니다.사전에 10.0.0.5 서버에서 IIS를 설치한 이후에 listen port를 8080으로">
+    <meta name="description" content="How can we check network connection between VM? First, i deploy two Azure VM in same vnet.   I will check network connection 10.0.0.4 &#x3D;&gt; 10.0.0.5:8080Already i install IIS in 10.0.0.5 and change li">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Azure Windows VM 네트워크 연결 확인">
+<meta property="og:title" content="How can we check network connection between Azure VM">
 <meta property="og:url" content="https://yy1111yang.github.io/2020/12/10/20201211-az-vm-network-connect/index.html">
 <meta property="og:site_name" content="Azure Cloud">
-<meta property="og:description" content="이번에는 Azure VM안에서의 네트워크 통신을 확인하는 방법을 포스트 하겠습니다. 먼저 Azure 환경에 아래와 같이 동일한 Vnet에 2대의 vm을 만들었습니다.   10.0.0.4 에서 10.0.0.5로 8080 포트로 연결이 정상적으로 되는지 확인하려고 합니다.사전에 10.0.0.5 서버에서 IIS를 설치한 이후에 listen port를 8080으로">
+<meta property="og:description" content="How can we check network connection between VM? First, i deploy two Azure VM in same vnet.   I will check network connection 10.0.0.4 &#x3D;&gt; 10.0.0.5:8080Already i install IIS in 10.0.0.5 and change li">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://yy1111yang.github.io/2020/12/10/20201211-az-vm-network-connect/vm_list_01.png">
 <meta property="article:published_time" content="2020-12-10T23:09:26.000Z">
-<meta property="article:modified_time" content="2020-12-13T13:57:58.001Z">
+<meta property="article:modified_time" content="2020-12-13T14:23:51.707Z">
 <meta property="article:author" content="Yong Yang">
 <meta property="article:tag" content="Cloud">
 <meta property="article:tag" content="Azure">
@@ -186,7 +186,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-        Azure Windows VM 네트워크 연결 확인
+        How can we check network connection between Azure VM
         </h1>
     
 
@@ -206,7 +206,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2020/12/10/20201211-az-vm-network-connect/" class="article-date">
-     <time datetime="2020-12-13T13:57:58.001Z" itemprop="dateModified">2020-12-13</time>
+     <time datetime="2020-12-13T14:23:51.707Z" itemprop="dateModified">2020-12-13</time>
   </a>
 </div>
 
@@ -233,61 +233,60 @@ ga('send', 'pageview');
 
             
 
-            <p>이번에는 Azure VM안에서의 네트워크 통신을 확인하는 방법을 포스트 하겠습니다.</p>
-<p>먼저 Azure 환경에 아래와 같이 동일한 Vnet에 2대의 vm을 만들었습니다.</p>
+            <p>How can we check network connection between VM?</p>
+<p>First, i deploy two Azure VM in same vnet.</p>
 <img src="/2020/12/10/20201211-az-vm-network-connect/vm_list_01.png" class>
 
-<p>10.0.0.4 에서 10.0.0.5로 8080 포트로 연결이 정상적으로 되는지 확인하려고 합니다.<br>사전에 10.0.0.5 서버에서 IIS를 설치한 이후에 listen port를 8080으로 변경하였습니다.<br>IIS 설치 및 셋팅 관련 포스트는 추후 다시 올리도록 하겠습니다.</p>
-<p>포트 체크를 telnet이나 ping으로 하시는 분들이 많은데 저는 아래의 powershell 명령어로 체크하겠습니다.</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Test-NetConnection</span> [<span class="type">IP</span> <span class="type">Address</span> <span class="type">or</span> <span class="type">ComputerName</span>] <span class="literal">-port</span> [<span class="type">Port</span> <span class="type">Number</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 아래와 같이 실행하면 됩니다.</span></span><br><span class="line"><span class="built_in">Test-NetConnection</span> <span class="number">10.0</span>.<span class="number">0.5</span> <span class="literal">-port</span> <span class="number">80</span></span><br></pre></td></tr></table></figure>
-<p>음.. 아래와 같이 TcpTestSucceded:False가 나옵니다.</p>
+<p>I will check network connection 10.0.0.4 =&gt; 10.0.0.5:8080<br>Already i install IIS in 10.0.0.5 and change listen port 80 to 8080.<br>Usually we can telnet or ping.<br>But i use powershell command following cmd. </p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Test-NetConnection</span> [<span class="type">IP</span> <span class="type">Address</span> <span class="type">or</span> <span class="type">ComputerName</span>] <span class="literal">-port</span> [<span class="type">Port</span> <span class="type">Number</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Exmaple</span></span><br><span class="line"><span class="built_in">Test-NetConnection</span> <span class="number">10.0</span>.<span class="number">0.5</span> <span class="literal">-port</span> <span class="number">80</span></span><br></pre></td></tr></table></figure>
+
+<p>Oops… i return TcpTestSucceded:False.</p>
 <img src="/2020/12/10/20201211-az-vm-network-connect/test_netconnection_01.png" class>
 
-
 <ol>
-<li>윈도우 방화벽 확인하기<br>window 접속하신후에 ‘Window firewall with Advanced Security’ 창을 엽니다.<img src="/2020/12/10/20201211-az-vm-network-connect/window_firewall_01.png" class>
+<li>Check Windows firewall.<br>First, We open ‘Window firewall with Advanced Security’ in Windows.<img src="/2020/12/10/20201211-az-vm-network-connect/window_firewall_01.png" class>
 
 </li>
 </ol>
-<p>왼쪽 사이드바에서 ‘Inbound Rule’을 오른쪽 마우스로 클릭하여 룰 추가를 클릭합니다.<br>아래의 화면이 나타나면 ‘Port’를 클릭하고 next를 클릭합니다.</p>
+<p>Right Click on ‘InboundRule’ in left sidebar, and add a rule.<br>Click ‘Port’ then ‘next’ like under the picture.</p>
 <img src="/2020/12/10/20201211-az-vm-network-connect/window_firewall_02.png" class>
 
-<p>Protocol(TCP)선택 후에 open할 포트를 입력합니다. 여기서는 8080을 입력합니다.</p>
+<p>Select ‘Protocol(TCP)’ then type port for open. we should type 8080 in case.</p>
 <img src="/2020/12/10/20201211-az-vm-network-connect/window_firewall_03.png" class>
 
-<p>Allow, Block을 선택하는 창입니다. 저희는 허용정책을 만들어야 하기 때문에 ‘Allow the connection’을 선택합니다.</p>
+<p>And then we select Allow, Block about rule.<br>We have to Allow connection, so we select ‘Allow the connection’</p>
 <img src="/2020/12/10/20201211-az-vm-network-connect/window_firewall_04.png" class>
 
-<p>기본값(모두 선택)을 선택합니다.</p>
+<p>Select Default value.</p>
 <img src="/2020/12/10/20201211-az-vm-network-connect/window_firewall_05.png" class>
 
-<p>룰의 이름 및 상세정보를 입력합니다. 원하는 이름으로 적어주시면 됩니다.</p>
+<p>And type rule name and description you want.</p>
 <img src="/2020/12/10/20201211-az-vm-network-connect/window_firewall_06.png" class>
 
-<p>룰이 추가가 된 것을 확인할 수 있습니다. 왼쪽의 녹색원이 켜져 있어야 룰이 적용(Enable)이 된 것입니다.</p>
+<p>We checked rule added. left green light means rule enabled.</p>
 <img src="/2020/12/10/20201211-az-vm-network-connect/window_firewall_07.png" class>
 
-<p>자.. 다시 한번 체크를 해보겠습니다.<br>하지만 윈도우 방화벽을 열었음에도 아직 통신이 되지 않습니다 ㅠ. 다른 문제가 있는것 같습니다.</p>
+<p>Ok. we check network connection again.<br>But.. we can’t reach destination…</p>
 <img src="/2020/12/10/20201211-az-vm-network-connect/test_netconnection_02.png" class>
 
 <ol start="2">
-<li>azure trouble shoot 활용하기<br>아마 Azure 네트워크상의 막히는 구간이 존재하는것 같은 느낌이 듭니다. nsg룰이 1,2개면 어느 룰에 의해서 막혔는지 간단하게 찾을 수 있지만<br>실제 운영을 하다보면 룰이 100개 이상이 되는 경우도 존재합니다. 이럴때에는 Azure Portal에서 Trouble Shoot이라는 기능을 활용하면 좋습니다.</li>
+<li>Using azure trouble shoot<br>Maybe i think it block in NSG.<br>If we have under 10 rule in NSG, we find the block rule easily.<br>But over 10 rule, it’s too hard find it.<br>Then we use Azure Troble Shoot.</li>
 </ol>
-<p>Azure Portal에서 VM선택 &gt; Connection troubleshoot &gt; Use Network Watcher for detailed connectio tracing</p>
+<p>In VM panel, in Azure Portal. &gt; Connection troubleshoot &gt; Use Network Watcher for detailed connectio tracing</p>
 <img src="/2020/12/10/20201211-az-vm-network-connect/troubleshoot_01.png" class>
 
-<p>Specify manually를 선택후에 Target IP(10.0.0.5)를 입력합니다. 아래에 포트도 8080을 입력합니다. ‘Check’버튼 클릭.</p>
+<p>Select ‘Specify manually’, then type Target IP(10.0.0.5).<br>Type port 8080 below input box.<br>Then Click ‘Check’</p>
 <img src="/2020/12/10/20201211-az-vm-network-connect/troubleshoot_02.png" class>
 
-<p>결과가 나왔습니다. 상태가 Unreachable이네요.. 아래의 원인을 보면 10.0.0.4의 status에 문제가 있네요. 클릭을 해보았습니다.<br>8080-outbound-allow라는 룰에 의해 막혀있다고 나옵니다.</p>
+<p>We return result. if you check first time, it’s longer then you think.<br>Because install network watcher.<br>Then the status is Unreachable.<br>We find the problem about status of 10.0.0.4.<br>Then Click the row about 10.0.0.4.<br>It blocked rule named 8080-outbound-allow.</p>
 <img src="/2020/12/10/20201211-az-vm-network-connect/troubleshoot_03.png" class>
 
 <ol start="3">
-<li>azure nsg 확인하기<br>위에서 막혔다고 표시된 룰을 확인하러 NSG에 들어옵니다.<br>Allow를 해야 하는데 실수로 Deny를 한것 같습니다. ㅠ Allow로 수정해줍니다. <img src="/2020/12/10/20201211-az-vm-network-connect/troubleshoot_04.png" class>
+<li>check azure nsg<br>We go to NSG cause block problem.<br>Oops, i added Deny Rule. not Allow. i changed action to Allow <img src="/2020/12/10/20201211-az-vm-network-connect/troubleshoot_04.png" class>
 
 </li>
 </ol>
-<p>다시 상태를 확인하니 이번에는 연결에 성공하였습니다.!!!</p>
+<p>And then i check status, we finally connection succecssful</p>
 <img src="/2020/12/10/20201211-az-vm-network-connect/test_netconnection_03.png" class>
 
 
@@ -368,7 +367,7 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Yong Yang"
         },
-        "headline": "Azure Windows VM 네트워크 연결 확인",
+        "headline": "How can we check network connection between Azure VM",
         "image": "https://yy1111yang.github.io/2020/12/10/20201211-az-vm-network-connect/vm_list_01.png",
         "keywords": "Cloud Azure Windows Network",
         "genre": "Azure Windows",
@@ -376,12 +375,12 @@ ga('send', 'pageview');
         "dateCreated": "2020-12-11",
         "dateModified": "2020-12-13",
         "url": "https://yy1111yang.github.io/2020/12/10/20201211-az-vm-network-connect/",
-        "description": "이번에는 Azure VM안에서의 네트워크 통신을 확인하는 방법을 포스트 하겠습니다.
-먼저 Azure 환경에 아래와 같이 동일한 Vnet에 2대의 vm을 만들었습니다.
+        "description": "How can we check network connection between VM?
+First, i deploy two Azure VM in same vnet.
 
 
-10.0.0.4 에서 10.0.0.5로 8080 포트로 연결이 정상적으로 되는지 확인하려고 합니다.사전에 10.0.0.5 서버에서 IIS를 설치한 이후에 listen port를 8080으로",
-        "wordCount": 322
+I will check network connection 10.0.0.4 =&gt; 10.0.0.5:8080Already i install IIS in 10.0.0.5 and change li",
+        "wordCount": 336
     }
 </script>
 
@@ -477,7 +476,7 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Azure/Windows/">Windows</a></p>
-                            <p class="item-title"><a href="/2020/12/10/20201211-az-vm-network-connect/" class="title">Azure Windows VM 네트워크 연결 확인</a></p>
+                            <p class="item-title"><a href="/2020/12/10/20201211-az-vm-network-connect/" class="title">How can we check network connection between Azure VM</a></p>
                             <p class="item-date"><time datetime="2020-12-10T23:09:26.000Z" itemprop="datePublished">2020-12-11</time></p>
                         </div>
                     </li>
