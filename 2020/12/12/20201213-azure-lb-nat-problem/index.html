@@ -6,23 +6,31 @@
     
 
     
-    <title>Tag: Powershell | Azure Cloud</title>
+    <title>Azure LB 연결 후 인터넷이 안되는 현상... | Azure Cloud</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="description" content="Azure Cloud">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Azure Cloud">
-<meta property="og:url" content="https://yy1111yang.github.io/tags/Powershell/index.html">
+    <meta name="keywords" content="Cloud,Azure,VM">
+    
+    <meta name="description" content="Azure VM은 public Ip를 연결하지 않아도 기본적으로 인터넷 연결을 제공합니다. 물론 Production 환경에서는 적합하지는 않습니다. 그런데 LB를 연결하면 이상하게도 인터넷 연결이 안됩니다. ㅠ위의 현상은 아래의 조건이 결합되어 발생하게 됩니다.  Standard LB의 백엔드 VM 해당 VM은 Az Set에 연결  현재까지 한국지역에는 Z">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Azure LB 연결 후 인터넷이 안되는 현상...">
+<meta property="og:url" content="https://yy1111yang.github.io/2020/12/12/20201213-azure-lb-nat-problem/index.html">
 <meta property="og:site_name" content="Azure Cloud">
-<meta property="og:description" content="Azure Cloud">
+<meta property="og:description" content="Azure VM은 public Ip를 연결하지 않아도 기본적으로 인터넷 연결을 제공합니다. 물론 Production 환경에서는 적합하지는 않습니다. 그런데 LB를 연결하면 이상하게도 인터넷 연결이 안됩니다. ㅠ위의 현상은 아래의 조건이 결합되어 발생하게 됩니다.  Standard LB의 백엔드 VM 해당 VM은 Az Set에 연결  현재까지 한국지역에는 Z">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yy1111yang.github.io/2020/12/12/20201213-azure-lb-nat-problem/01.create_vm_01.png">
+<meta property="article:published_time" content="2020-12-12T23:03:17.000Z">
+<meta property="article:modified_time" content="2020-12-13T09:19:26.790Z">
 <meta property="article:author" content="Yong Yang">
-<meta property="article:tag" content="Cloud Azure Powershell">
+<meta property="article:tag" content="Cloud">
+<meta property="article:tag" content="Azure">
+<meta property="article:tag" content="VM">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yy1111yang.github.io/2020/12/12/20201213-azure-lb-nat-problem/01.create_vm_01.png">
     
 	<!-- 대표 URL -->
-	<link rel="canonical" href="https://yy1111yang.github.io/tags/powershell/">
+	<link rel="canonical" href="https://yy1111yang.github.io/2020/12/12/20201213-azure-lb-nat-problem/">
 
     
 
@@ -165,118 +173,246 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-tag"></i>Tag: <em>Powershell</em>
+    <a class="page-title-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Azure/VM/">VM</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-							
-
-    
-    
+							<article id="post-20201213-azure-lb-nat-problem" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2020" class="archive-year"><i class="icon fa fa-calendar-o"></i>2020</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Azure/Powershell/">Powershell</a>
-            </div>
-            <div class="date"><time datetime="2020-12-10T20:29:24.000Z" itemprop="datePublished">2020-12-11</time></div>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2020/12/10/20201211-az-nsg-cli/">Azure Nsg 관련 유용한 CLI</a>
+        Azure LB 연결 후 인터넷이 안되는 현상...
         </h1>
     
 
-        <p class="article-excerpt">
-            Azure 운영중에 nsg에서 보안상 any 룰이 있으면 안되는 경우가 많습니다.그래서 이를 CLI로 체크하는 방법을 공유드립니다.
-
-Any Port가 포함된 룰 찾기
-12345678910111213141516171819202122232425# get Any Port rule in NSG$inbound = @();$outbound = @();$nsgList
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
+            </header>
         
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Azure/Powershell/">Powershell</a>
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2020/12/12/20201213-azure-lb-nat-problem/" class="article-date">
+       <time datetime="2020-12-12T23:03:17.000Z" itemprop="datePublished">2020-12-13</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2020/12/12/20201213-azure-lb-nat-problem/" class="article-date">
+     <time datetime="2020-12-13T09:19:26.790Z" itemprop="dateModified">2020-12-13</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Azure/" rel="tag">Azure</a>, <a class="tag-link-link" href="/tags/Cloud/" rel="tag">Cloud</a>, <a class="tag-link-link" href="/tags/VM/" rel="tag">VM</a>
+    </div>
+
+                
+
+                
+
             </div>
-            <div class="date"><time datetime="2020-12-10T19:56:02.000Z" itemprop="datePublished">2020-12-11</time></div>
-        </div>
         
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2020/12/10/20201211-az-no-associated-resource-cli/">Azure에서 사용되지 않는 자원 CLI로 조회하기</a>
-        </h1>
-    
+        
+        <div class="article-entry" itemprop="articleBody">
+            
 
-        <p class="article-excerpt">
-            안녕하세요. Azure Cloud를 사용하다보면 아무래도 급하게 자원을 만들고 차마 지우지 못해서 방치되는 자원들이 많이 있습니다.특히나 자원의 개수가 100개 이상이 된다면 포탈에서 사람이 일일이 찾기란 쉽지 않습니다.그래서 저 역시 이런 고민을 해서 아래와 같이 CLI를 통해서 검색을 통해서 주기적으로 사용되지 않는 자원들을 관리해주었습니다.
-현재 VM
-        </p>
+            
+
+            
+
+            <p>Azure VM은 public Ip를 연결하지 않아도 기본적으로 인터넷 연결을 제공합니다. 물론 Production 환경에서는 적합하지는 않습니다.</p>
+<p>그런데 LB를 연결하면 이상하게도 인터넷 연결이 안됩니다. ㅠ<br>위의 현상은 아래의 조건이 결합되어 발생하게 됩니다.</p>
+<ol>
+<li>Standard LB의 백엔드 VM</li>
+<li>해당 VM은 Az Set에 연결</li>
+</ol>
+<p>현재까지 한국지역에는 Zone이라는 개념이 없어서 이중화를 위해서는 Az Set을 사용하고 있습니다.<br>Az Set을 사용한다면 LB도 거의 셋트로 사용이 되기 때문에 아마 많은 분들이 알고 계실 수도 있을것 같습니다.</p>
+<p>위의 문제를 해결하기 위해서는 몇 가지 방법이 존재합니다.</p>
+<ol>
+<li><p>LB를 Basic Sku로 변경.<br>Basic 기능이라 Standard보다 SLA나 기타 성능이 안 좋을 점은 감안해야 합니다.</p>
+</li>
+<li><p>NAT 처리를 한다.<br>outbound Nat 처리를 하는 방법은 또 2가지로 나뉩니다.</p>
+</li>
+</ol>
+<ul>
+<li><p>Public Load balancer 활용<br>Az Set 단위로 연결 가능</p>
+</li>
+<li><p>Nat Gateway 활용<br>서브넷 단위로 연결(Az Set 포함됨)</p>
+</li>
+</ul>
+<p>그럼 위의 문제들을 데모로 체크해보고 해결하는 내용도 이어서 진행하겠습니다.</p>
+<p>Az set에 연결된 VM을 1대 만든다.<br>Az set을 별도로 만들어도 되지만 아래의 화면에서 동시에 만들면 편합니다.</p>
+<img src="/2020/12/12/20201213-azure-lb-nat-problem/01.create_vm_01.png" class>
+
+<p>VM이 만들어졌습니다. 해당 IP로 접근하겠습니다.</p>
+<img src="/2020/12/12/20201213-azure-lb-nat-problem/02.vm_show_01.png" class>
+
+<p>VM안에 들어와서 인터넷이 정상적으로 되는지 체크해보겠습니다.<br>네이버 페이지가 열리며 네이버의 IP 주소와의 연결도 정상입니다.</p>
+<img src="/2020/12/12/20201213-azure-lb-nat-problem/03.internet_test_01.png" class>
+
+<p>이제 Standard LB를 만들어보겠습니다. 아래의 화면처럼 Type과 Sku를 선택해주세요.</p>
+<img src="/2020/12/12/20201213-azure-lb-nat-problem/04.create_lb_01.png" class>
+
+<p>LB가 만들어졌스니다. 아래의 화면에서 Backend Pool을 등록합니다.<br>probe나 rule을 셋팅하지 않아도 동일한 현상이 발생하므로 이 과정은 생략합니다.</p>
+<img src="/2020/12/12/20201213-azure-lb-nat-problem/05.lb_show_01.png" class>
+
+<p>다시 VM으로 들어와서 인터넷 연결을 확인합니다. 갑자기 되지 않습니다.<br>LB로 인해 Default gateway가 변경된 것 같습니다.</p>
+<img src="/2020/12/12/20201213-azure-lb-nat-problem/06.internet_test_02.png" class>
+
+<p>이제 이 문제를 해결하기 위해 앞에서 언급했던 NAT LB를 만들어 보겠습니다.<br>아래와 같이 Public LoadBalancer를 만듭니다.</p>
+<img src="/2020/12/12/20201213-azure-lb-nat-problem/07.create_plb_01.png" class>
+
+<p>아래와 같이 백엔드 풀을 등록합니다.</p>
+<img src="/2020/12/12/20201213-azure-lb-nat-problem/08.setting_plb_01.png" class>
+
+<p>백엔드 풀을 등록후에는 Outbound Rule을 등록합니다.</p>
+<img src="/2020/12/12/20201213-azure-lb-nat-problem/08.setting_plb_02.png" class>
+
+<p>FrontendIp와 백엔드 풀을 선택하고 나머지는 기본값으로 설정합니다.</p>
+<img src="/2020/12/12/20201213-azure-lb-nat-problem/08.setting_plb_03.png" class>
+
+<p>설정을 완료하고 다시 VM에서 인터넷 연결이 정상적인지 체크합니다.<br>이번에는 NAT IP까지 확인을 위해서 whatismyip로 접속해봅니다.<br>LB의 frontIp가 찍히는 것을 확인 할 수 있습니다.<br>정상적으로 NAT 처리가 되었습니다.</p>
+<img src="/2020/12/12/20201213-azure-lb-nat-problem/09.internet_test_01.png" class>
+
+<p>이제 NAT gateway도 연결해보기 위해서 LB를 삭제합니다.</p>
+<img src="/2020/12/12/20201213-azure-lb-nat-problem/10.delete_plb.png" class>
+
+<p>다시 인터넷 연결을 확인합니다. NAT가 안되니 다시 안됩니다.</p>
+<img src="/2020/12/12/20201213-azure-lb-nat-problem/11.internet_test_01.png" class>
+
+<p>NAT GATEWAY를 만듭니다. 아래 화면에서는 이름과 리소스그룹이름만 입력합니다.</p>
+<img src="/2020/12/12/20201213-azure-lb-nat-problem/12.create_natgateway_01.png" class>
+
+<p>Outbound IP에 대한 설정을 추가합니다. Public Ip를 하나 만들어주고 Public IP의 prefix를 선택합니다. 저는 2개만 잡겠습니다.</p>
+<img src="/2020/12/12/20201213-azure-lb-nat-problem/12.create_natgateway_02.png" class>
+
+<p>Gateway와 연동할 서브넷을 설정합니다.</p>
+<img src="/2020/12/12/20201213-azure-lb-nat-problem/12.create_natgateway_03.png" class>
+
+<p>설정이 완료가 되면 다시 VM으로 들어갑니다. 인터넷 연결이 정상적으로 됩니다.<br>또한 whatismyip에 찍히는 ip를 보면 아까 prefix의 범위에 있는 ip라는 것을 확인 할 수 있습니다.</p>
+<img src="/2020/12/12/20201213-azure-lb-nat-problem/14.internet_test_01.png" class>
+
+
+<h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3>
+        </div>
+		<footer class="article-footer">
+            
+
+
+
+    <a data-url="https://yy1111yang.github.io/2020/12/12/20201213-azure-lb-nat-problem/" data-id="ckimunhf40000kggdbeyrgqoi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
     </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Yong Yang"
+        },
+        "headline": "Azure LB 연결 후 인터넷이 안되는 현상...",
+        "image": "https://yy1111yang.github.io/2020/12/12/20201213-azure-lb-nat-problem/01.create_vm_01.png",
+        "keywords": "Cloud Azure VM",
+        "genre": "Azure VM",
+        "datePublished": "2020-12-13",
+        "dateCreated": "2020-12-13",
+        "dateModified": "2020-12-13",
+        "url": "https://yy1111yang.github.io/2020/12/12/20201213-azure-lb-nat-problem/",
+        "description": "Azure VM은 public Ip를 연결하지 않아도 기본적으로 인터넷 연결을 제공합니다. 물론 Production 환경에서는 적합하지는 않습니다.
+그런데 LB를 연결하면 이상하게도 인터넷 연결이 안됩니다. ㅠ위의 현상은 아래의 조건이 결합되어 발생하게 됩니다.
+
+Standard LB의 백엔드 VM
+해당 VM은 Az Set에 연결
+
+현재까지 한국지역에는 Z",
+        "wordCount": 331
+    }
+</script>
+
 </article>
-    
-        </div>
-    
 
+    <section id="comments">
     
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
         
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Azure/Powershell/">Powershell</a>
-            </div>
-            <div class="date"><time datetime="2020-12-10T02:37:02.000Z" itemprop="datePublished">2020-12-10</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2020/12/10/20201210-az-account-cli/">Azure Subscription 변경 및 확인하기</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            안녕하세요. 첫번째 블로그입니다.
-Azure Subscription 변경을 위한 함수입니다.보통 Azure CLI와 powershell를 혼용하는 저에게는 2개의 명령어를 같이 칠 수 있도록 하였습니다.yy두개의 명령어 모두 Subscription의 이름을 매개변수로 설정하였습니다.
-12345678# subscription name$subName = &qu
-        </p>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
-</article>
-    
-        </div>
-    
 
 
-    </div></section>
+    
+    </section>
 
 
 
@@ -300,6 +436,19 @@ Azure Subscription 변경을 위한 함수입니다.보통 Azure CLI와 powershe
     </div>
 	
 	
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2020/12/11/20201212-az-vm-copy-01/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Azure VM Copy</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
     <div class="widgets-container">
         
             
@@ -455,11 +604,13 @@ Azure Subscription 변경을 위한 함수입니다.보통 Azure CLI와 powershe
     var disqus_shortname = 'hexo-theme-hueman';
     
     
+    var disqus_url = 'https://yy1111yang.github.io/2020/12/12/20201213-azure-lb-nat-problem/';
+    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>
