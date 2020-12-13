@@ -198,15 +198,14 @@ ga('send', 'pageview');
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2020/12/10/20201211-az-nsg-cli/">Azure Nsg 관련 유용한 CLI</a>
+        <a href="/2020/12/10/20201211-az-nsg-cli/">Useful CLI about Azure NSG</a>
         </h1>
     
 
         <p class="article-excerpt">
-            Azure 운영중에 nsg에서 보안상 any 룰이 있으면 안되는 경우가 많습니다.그래서 이를 CLI로 체크하는 방법을 공유드립니다.
-
-Any Port가 포함된 룰 찾기
-12345678910111213141516171819202122232425# get Any Port rule in NSG$inbound = @();$outbound = @();$nsgList
+            
+Search Rule include ‘Any Port’
+12345678910111213141516171819202122232425# get Any Port rule in NSG$inbound = @();$outbound = @();$nsgList = az network nsg list | convertFrom-Jsonforeach($nsg in $nsgL
         </p>
     </div>
 </article>
@@ -228,13 +227,12 @@ Any Port가 포함된 룰 찾기
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2020/12/10/20201211-az-no-associated-resource-cli/">Azure에서 사용되지 않는 자원 CLI로 조회하기</a>
+        <a href="/2020/12/10/20201211-az-no-associated-resource-cli/">Search Unused Resource in Azure using CLI</a>
         </h1>
     
 
         <p class="article-excerpt">
-            안녕하세요. Azure Cloud를 사용하다보면 아무래도 급하게 자원을 만들고 차마 지우지 못해서 방치되는 자원들이 많이 있습니다.특히나 자원의 개수가 100개 이상이 된다면 포탈에서 사람이 일일이 찾기란 쉽지 않습니다.그래서 저 역시 이런 고민을 해서 아래와 같이 CLI를 통해서 검색을 통해서 주기적으로 사용되지 않는 자원들을 관리해주었습니다.
-현재 VM
+            Hi. sometimes, we forgot delete unused resource.It cause only delete Azure VM not include attached resource such as disk, nic, nsg, public Ip.Especially, you have over 100 resource in subscription… it
         </p>
     </div>
 </article>
@@ -260,14 +258,14 @@ Any Port가 포함된 룰 찾기
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2020/12/10/20201210-az-account-cli/">Azure Subscription 변경 및 확인하기</a>
+        <a href="/2020/12/10/20201210-az-account-cli/">Azure Subscription change, check in CLI and powershell</a>
         </h1>
     
 
         <p class="article-excerpt">
-            안녕하세요. 첫번째 블로그입니다.
-Azure Subscription 변경을 위한 함수입니다.보통 Azure CLI와 powershell를 혼용하는 저에게는 2개의 명령어를 같이 칠 수 있도록 하였습니다.yy두개의 명령어 모두 Subscription의 이름을 매개변수로 설정하였습니다.
-12345678# subscription name$subName = &qu
+            Hi. It’s first Blog.
+This is function for change Azure Subscription in CLI and Powershell.Normally, i mix and use az cli and powershell, so I execute following command.
+12345678# subscription name$sub
         </p>
     </div>
 </article>
@@ -325,7 +323,7 @@ Azure Subscription 변경을 위한 함수입니다.보통 Azure CLI와 powershe
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Azure/VM/">VM</a></p>
-                            <p class="item-title"><a href="/2020/12/11/20201212-az-vm-copy-01/" class="title">Azure VM Copy</a></p>
+                            <p class="item-title"><a href="/2020/12/11/20201212-az-vm-copy-01/" class="title">Azure VM Copy using Snapshot</a></p>
                             <p class="item-date"><time datetime="2020-12-11T16:14:00.000Z" itemprop="datePublished">2020-12-12</time></p>
                         </div>
                     </li>
@@ -343,7 +341,7 @@ Azure Subscription 변경을 위한 함수입니다.보통 Azure CLI와 powershe
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Azure/Powershell/">Powershell</a></p>
-                            <p class="item-title"><a href="/2020/12/10/20201211-az-nsg-cli/" class="title">Azure Nsg 관련 유용한 CLI</a></p>
+                            <p class="item-title"><a href="/2020/12/10/20201211-az-nsg-cli/" class="title">Useful CLI about Azure NSG</a></p>
                             <p class="item-date"><time datetime="2020-12-10T20:29:24.000Z" itemprop="datePublished">2020-12-11</time></p>
                         </div>
                     </li>
@@ -352,7 +350,7 @@ Azure Subscription 변경을 위한 함수입니다.보통 Azure CLI와 powershe
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Azure/Powershell/">Powershell</a></p>
-                            <p class="item-title"><a href="/2020/12/10/20201211-az-no-associated-resource-cli/" class="title">Azure에서 사용되지 않는 자원 CLI로 조회하기</a></p>
+                            <p class="item-title"><a href="/2020/12/10/20201211-az-no-associated-resource-cli/" class="title">Search Unused Resource in Azure using CLI</a></p>
                             <p class="item-date"><time datetime="2020-12-10T19:56:02.000Z" itemprop="datePublished">2020-12-11</time></p>
                         </div>
                     </li>
@@ -386,7 +384,7 @@ Azure Subscription 변경을 위한 함수입니다.보통 Azure CLI와 powershe
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure/" rel="tag">Azure</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud/" rel="tag">Cloud</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Powershell/" rel="tag">Powershell</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VM/" rel="tag">VM</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure/" rel="tag">Azure</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud/" rel="tag">Cloud</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Copy/" rel="tag">Copy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LB/" rel="tag">LB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NAT/" rel="tag">NAT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSG/" rel="tag">NSG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/" rel="tag">Network</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Powershell/" rel="tag">Powershell</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Snapshot/" rel="tag">Snapshot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Subscription/" rel="tag">Subscription</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unused-Resource/" rel="tag">Unused Resource</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VM/" rel="tag">VM</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -396,7 +394,7 @@ Azure Subscription 변경을 위한 함수입니다.보통 Azure CLI와 powershe
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Azure/" style="font-size: 20px;">Azure</a> <a href="/tags/Cloud/" style="font-size: 20px;">Cloud</a> <a href="/tags/Powershell/" style="font-size: 16.67px;">Powershell</a> <a href="/tags/VM/" style="font-size: 13.33px;">VM</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a>
+            <a href="/tags/Azure/" style="font-size: 20px;">Azure</a> <a href="/tags/Cloud/" style="font-size: 20px;">Cloud</a> <a href="/tags/Copy/" style="font-size: 10px;">Copy</a> <a href="/tags/LB/" style="font-size: 10px;">LB</a> <a href="/tags/NAT/" style="font-size: 10px;">NAT</a> <a href="/tags/NSG/" style="font-size: 10px;">NSG</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Powershell/" style="font-size: 16.67px;">Powershell</a> <a href="/tags/Snapshot/" style="font-size: 10px;">Snapshot</a> <a href="/tags/Subscription/" style="font-size: 10px;">Subscription</a> <a href="/tags/Unused-Resource/" style="font-size: 10px;">Unused Resource</a> <a href="/tags/VM/" style="font-size: 13.33px;">VM</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a>
         </div>
     </div>
 

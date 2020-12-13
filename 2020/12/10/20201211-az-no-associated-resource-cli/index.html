@@ -6,25 +6,26 @@
     
 
     
-    <title>Azure에서 사용되지 않는 자원 CLI로 조회하기 | Azure Cloud</title>
+    <title>Search Unused Resource in Azure using CLI | Azure Cloud</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="Cloud,Azure,Powershell">
+    <meta name="keywords" content="Cloud,Azure,Powershell,Unused Resource">
     
-    <meta name="description" content="안녕하세요. Azure Cloud를 사용하다보면 아무래도 급하게 자원을 만들고 차마 지우지 못해서 방치되는 자원들이 많이 있습니다.특히나 자원의 개수가 100개 이상이 된다면 포탈에서 사람이 일일이 찾기란 쉽지 않습니다.그래서 저 역시 이런 고민을 해서 아래와 같이 CLI를 통해서 검색을 통해서 주기적으로 사용되지 않는 자원들을 관리해주었습니다. 현재 VM">
+    <meta name="description" content="Hi. sometimes, we forgot delete unused resource.It cause only delete Azure VM not include attached resource such as disk, nic, nsg, public Ip.Especially, you have over 100 resource in subscription… it">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Azure에서 사용되지 않는 자원 CLI로 조회하기">
+<meta property="og:title" content="Search Unused Resource in Azure using CLI">
 <meta property="og:url" content="https://yy1111yang.github.io/2020/12/10/20201211-az-no-associated-resource-cli/index.html">
 <meta property="og:site_name" content="Azure Cloud">
-<meta property="og:description" content="안녕하세요. Azure Cloud를 사용하다보면 아무래도 급하게 자원을 만들고 차마 지우지 못해서 방치되는 자원들이 많이 있습니다.특히나 자원의 개수가 100개 이상이 된다면 포탈에서 사람이 일일이 찾기란 쉽지 않습니다.그래서 저 역시 이런 고민을 해서 아래와 같이 CLI를 통해서 검색을 통해서 주기적으로 사용되지 않는 자원들을 관리해주었습니다. 현재 VM">
+<meta property="og:description" content="Hi. sometimes, we forgot delete unused resource.It cause only delete Azure VM not include attached resource such as disk, nic, nsg, public Ip.Especially, you have over 100 resource in subscription… it">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-10T19:56:02.000Z">
-<meta property="article:modified_time" content="2020-12-11T09:54:29.334Z">
+<meta property="article:modified_time" content="2020-12-13T13:54:05.357Z">
 <meta property="article:author" content="Yong Yang">
 <meta property="article:tag" content="Cloud">
 <meta property="article:tag" content="Azure">
 <meta property="article:tag" content="Powershell">
+<meta property="article:tag" content="Unused Resource">
 <meta name="twitter:card" content="summary">
     
 	<!-- 대표 URL -->
@@ -183,7 +184,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-        Azure에서 사용되지 않는 자원 CLI로 조회하기
+        Search Unused Resource in Azure using CLI
         </h1>
     
 
@@ -203,7 +204,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2020/12/10/20201211-az-no-associated-resource-cli/" class="article-date">
-     <time datetime="2020-12-11T09:54:29.334Z" itemprop="dateModified">2020-12-11</time>
+     <time datetime="2020-12-13T13:54:05.357Z" itemprop="dateModified">2020-12-13</time>
   </a>
 </div>
 
@@ -213,7 +214,7 @@ ga('send', 'pageview');
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Azure/" rel="tag">Azure</a>, <a class="tag-link-link" href="/tags/Cloud/" rel="tag">Cloud</a>, <a class="tag-link-link" href="/tags/Powershell/" rel="tag">Powershell</a>
+        <a class="tag-link-link" href="/tags/Azure/" rel="tag">Azure</a>, <a class="tag-link-link" href="/tags/Cloud/" rel="tag">Cloud</a>, <a class="tag-link-link" href="/tags/Powershell/" rel="tag">Powershell</a>, <a class="tag-link-link" href="/tags/Unused-Resource/" rel="tag">Unused Resource</a>
     </div>
 
                 
@@ -230,17 +231,17 @@ ga('send', 'pageview');
 
             
 
-            <p>안녕하세요. Azure Cloud를 사용하다보면 아무래도 급하게 자원을 만들고 차마 지우지 못해서 방치되는 자원들이 많이 있습니다.<br>특히나 자원의 개수가 100개 이상이 된다면 포탈에서 사람이 일일이 찾기란 쉽지 않습니다.<br>그래서 저 역시 이런 고민을 해서 아래와 같이 CLI를 통해서 검색을 통해서 주기적으로 사용되지 않는 자원들을 관리해주었습니다.</p>
-<p>현재 VM에 붙어 있지 않고 방치된 Disk를 조회합니다. -Disk는 가만히 있어도 돈이 나가기 때문에 바로 삭제를 해주는 것이 좋습니다.</p>
+            <p>Hi. sometimes, we forgot delete unused resource.<br>It cause only delete Azure VM not include attached resource such as disk, nic, nsg, public Ip.<br>Especially, you have over 100 resource in subscription… it’s hard to check it.<br>But, if you use CLI in this post, you can easy find it.</p>
+<p>Firts, we search unattached managed disk. it’s very important!! because managed disk incur cost even if not used.</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">write-host</span> <span class="string">&#x27;no associated disk searching...&#x27;</span></span><br><span class="line"><span class="variable">$results</span> = <span class="selector-tag">@</span>()</span><br><span class="line"><span class="variable">$diskList</span> = az disk list | <span class="built_in">convertFrom-Json</span></span><br><span class="line"><span class="variable">$results</span> += <span class="variable">$diskList</span> | <span class="built_in">foreach-object</span> <span class="literal">-parallel</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(!<span class="variable">$_</span>.managedBy) &#123;</span><br><span class="line">                <span class="variable">$noDisk</span> = <span class="variable">$_</span>.id <span class="operator">-split</span> <span class="string">&quot;/&quot;</span></span><br><span class="line">                <span class="variable">$details</span> = <span class="selector-tag">@</span>&#123;</span><br><span class="line">                                rgName=<span class="variable">$noDisk</span>[<span class="number">4</span>]</span><br><span class="line">                                noAttachedDisk=<span class="variable">$noDisk</span>[<span class="number">8</span>]</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">New-Object</span> PSObject <span class="literal">-Property</span> <span class="variable">$details</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">write-host</span> (<span class="variable">$results</span> | <span class="built_in">select-object</span> rgName, noAttachedDisk | <span class="built_in">Sort-Object</span> &#123; <span class="variable">$_</span>.rgName&#125; | <span class="built_in">format-table</span> | <span class="built_in">Out-String</span>) <span class="literal">-ForegroundColor</span> Red</span><br></pre></td></tr></table></figure>
 
-<p>현재 사용하지 않는 public IP를 조회합니다.</p>
+<p>Second, Return Public ip No Associated In VM and Public Load Balancer.<br>Public Ip also incur cost even if not used.</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">write-host</span> <span class="string">&#x27;no associated ip searching...&#x27;</span></span><br><span class="line"><span class="variable">$results</span> = <span class="selector-tag">@</span>()</span><br><span class="line"><span class="variable">$ipList</span> = az network public<span class="literal">-ip</span> list | <span class="built_in">convertFrom-Json</span></span><br><span class="line"><span class="variable">$results</span> += <span class="variable">$ipList</span> | <span class="built_in">foreach-object</span> <span class="literal">-parallel</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(!<span class="variable">$_</span>.ipConfiguration) &#123;</span><br><span class="line">                                <span class="variable">$noIp</span> = <span class="variable">$_</span>.id <span class="operator">-split</span> <span class="string">&quot;/&quot;</span></span><br><span class="line">                                <span class="comment">#write-host $noIp[4] : $noIp[8] -ForegroundColor Red</span></span><br><span class="line">                                <span class="variable">$details</span> = <span class="selector-tag">@</span>&#123;</span><br><span class="line">                                                rgName=<span class="variable">$noIp</span>[<span class="number">4</span>]</span><br><span class="line">                                                noAssocatedIP=<span class="variable">$noIp</span>[<span class="number">8</span>]</span><br><span class="line">                                &#125;</span><br><span class="line">                                <span class="keyword">return</span> <span class="built_in">New-Object</span> PSObject <span class="literal">-Property</span> <span class="variable">$details</span></span><br><span class="line">                &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">write-host</span> ( <span class="variable">$results</span> | <span class="built_in">select-object</span> rgName, noAssocatedIp | <span class="built_in">Sort-Object</span> &#123; <span class="variable">$_</span>.rgName&#125; | <span class="built_in">format-table</span> | <span class="built_in">out-string</span> ) <span class="literal">-ForegroundColor</span> Red</span><br></pre></td></tr></table></figure>
 
-<p>VM에 붙어있지 않은 NIC을 조회합니다. -NIC은 별도의 비용이 발생되지 않으니 급하게 지우지는 않아도 됩니다.</p>
+<p>Third, Search Network Interface No Associated in VM.<br>but NIC not incur cost.</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">write-host</span> <span class="string">&#x27;no associated nic searching...&#x27;</span></span><br><span class="line"><span class="variable">$results</span>= <span class="selector-tag">@</span>()</span><br><span class="line"><span class="variable">$nicList</span> = az network nic list | <span class="built_in">convertFrom-Json</span></span><br><span class="line"><span class="variable">$results</span> += <span class="variable">$nicList</span> | <span class="built_in">foreach-object</span> <span class="literal">-parallel</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(!<span class="variable">$_</span>.virtualMachine) &#123;</span><br><span class="line">                                <span class="variable">$noNic</span> = <span class="variable">$_</span>.id <span class="operator">-split</span> <span class="string">&quot;/&quot;</span></span><br><span class="line">                                <span class="variable">$details</span> = <span class="selector-tag">@</span>&#123;</span><br><span class="line">                                                rgName=<span class="variable">$noNic</span>[<span class="number">4</span>]</span><br><span class="line">                                                noAttachedNic=<span class="variable">$noNic</span>[<span class="number">8</span>]</span><br><span class="line">                                &#125;</span><br><span class="line">                                <span class="keyword">return</span> <span class="built_in">New-Object</span> PSObject <span class="literal">-Property</span> <span class="variable">$details</span></span><br><span class="line">                &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">write-host</span> ( <span class="variable">$results</span> | <span class="built_in">select-object</span> rgName, noAttachedNic | <span class="built_in">Sort-Object</span> &#123; <span class="variable">$_</span>.rgName&#125; | <span class="built_in">format-table</span> | <span class="built_in">out-string</span> ) <span class="literal">-ForegroundColor</span> Red</span><br></pre></td></tr></table></figure>
 
-<p>사용되지 않는 NSG를 조회합니다. 이 소스는 생각보다 느립니다. 다른 개선안이 있다면 댓글로 알려주시면 감사하겠습니다.<br>-NSG는 별도의 비용이 발생되지 않습니다.</p>
+<p>Return no associated NSG(Network Security Group).<br>if you have many NSG, this command a little slow.<br>and NSG not incur cost.</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">write-host</span> <span class="string">&#x27;no assocated nsg searching...&#x27;</span></span><br><span class="line"><span class="variable">$results</span> = <span class="selector-tag">@</span>()</span><br><span class="line"><span class="variable">$nsgList</span> = az network nsg list | <span class="built_in">convertFrom-Json</span></span><br><span class="line"><span class="variable">$results</span> += <span class="variable">$nsgList</span> | <span class="built_in">foreach-object</span> <span class="literal">-Parallel</span> &#123;</span><br><span class="line">                <span class="variable">$rtnNsg</span> = <span class="built_in">Get-AzNetworkSecurityGroup</span> <span class="literal">-name</span> <span class="variable">$_</span>.name</span><br><span class="line">                <span class="keyword">if</span>(!<span class="variable">$rtnNsg</span>.NetworkInterfaces <span class="operator">-and</span> !<span class="variable">$rtnNsg</span>.Subnets) &#123;</span><br><span class="line">                                <span class="variable">$noNsg</span> = <span class="variable">$_</span>.id <span class="operator">-split</span> <span class="string">&quot;/&quot;</span></span><br><span class="line">                                <span class="variable">$details</span> = <span class="selector-tag">@</span>&#123;</span><br><span class="line">                                                rgName=<span class="variable">$noNsg</span>[<span class="number">4</span>]</span><br><span class="line">                                                noAssocatedNsg=<span class="variable">$noNsg</span>[<span class="number">8</span>]</span><br><span class="line">                                &#125;</span><br><span class="line">                                <span class="keyword">return</span> <span class="built_in">New-Object</span> PSObject <span class="literal">-Property</span> <span class="variable">$details</span></span><br><span class="line">                &#125;</span><br><span class="line">&#125; <span class="literal">-ThrottleLimit</span> <span class="number">20</span></span><br><span class="line"><span class="built_in">write-host</span> ( <span class="variable">$results</span> | <span class="built_in">select-object</span> rgName, noAssocatedNsg | <span class="built_in">Sort-Object</span> &#123; <span class="variable">$_</span>.rgName&#125; | <span class="built_in">format-table</span> | <span class="built_in">out-string</span> ) <span class="literal">-ForegroundColor</span> Red</span><br></pre></td></tr></table></figure>
 
 
@@ -321,17 +322,16 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Yong Yang"
         },
-        "headline": "Azure에서 사용되지 않는 자원 CLI로 조회하기",
+        "headline": "Search Unused Resource in Azure using CLI",
         "image": "https://yy1111yang.github.io",
-        "keywords": "Cloud Azure Powershell",
+        "keywords": "Cloud Azure Powershell Unused Resource",
         "genre": "Azure Powershell",
         "datePublished": "2020-12-11",
         "dateCreated": "2020-12-11",
-        "dateModified": "2020-12-11",
+        "dateModified": "2020-12-13",
         "url": "https://yy1111yang.github.io/2020/12/10/20201211-az-no-associated-resource-cli/",
-        "description": "안녕하세요. Azure Cloud를 사용하다보면 아무래도 급하게 자원을 만들고 차마 지우지 못해서 방치되는 자원들이 많이 있습니다.특히나 자원의 개수가 100개 이상이 된다면 포탈에서 사람이 일일이 찾기란 쉽지 않습니다.그래서 저 역시 이런 고민을 해서 아래와 같이 CLI를 통해서 검색을 통해서 주기적으로 사용되지 않는 자원들을 관리해주었습니다.
-현재 VM",
-        "wordCount": 1536
+        "description": "Hi. sometimes, we forgot delete unused resource.It cause only delete Azure VM not include attached resource such as disk, nic, nsg, public Ip.Especially, you have over 100 resource in subscription… it",
+        "wordCount": 1553
     }
 </script>
 
@@ -377,7 +377,7 @@ ga('send', 'pageview');
         <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
-            Azure Nsg 관련 유용한 CLI
+            Useful CLI about Azure NSG
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
@@ -386,7 +386,7 @@ ga('send', 'pageview');
     
         <a href="/2020/12/10/20201210-az-account-cli/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">Azure Subscription 변경 및 확인하기</p>
+        <p class="article-nav-title">Azure Subscription change, check in CLI and powershell</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -418,7 +418,7 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Azure/VM/">VM</a></p>
-                            <p class="item-title"><a href="/2020/12/11/20201212-az-vm-copy-01/" class="title">Azure VM Copy</a></p>
+                            <p class="item-title"><a href="/2020/12/11/20201212-az-vm-copy-01/" class="title">Azure VM Copy using Snapshot</a></p>
                             <p class="item-date"><time datetime="2020-12-11T16:14:00.000Z" itemprop="datePublished">2020-12-12</time></p>
                         </div>
                     </li>
@@ -436,7 +436,7 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Azure/Powershell/">Powershell</a></p>
-                            <p class="item-title"><a href="/2020/12/10/20201211-az-nsg-cli/" class="title">Azure Nsg 관련 유용한 CLI</a></p>
+                            <p class="item-title"><a href="/2020/12/10/20201211-az-nsg-cli/" class="title">Useful CLI about Azure NSG</a></p>
                             <p class="item-date"><time datetime="2020-12-10T20:29:24.000Z" itemprop="datePublished">2020-12-11</time></p>
                         </div>
                     </li>
@@ -445,7 +445,7 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Azure/Powershell/">Powershell</a></p>
-                            <p class="item-title"><a href="/2020/12/10/20201211-az-no-associated-resource-cli/" class="title">Azure에서 사용되지 않는 자원 CLI로 조회하기</a></p>
+                            <p class="item-title"><a href="/2020/12/10/20201211-az-no-associated-resource-cli/" class="title">Search Unused Resource in Azure using CLI</a></p>
                             <p class="item-date"><time datetime="2020-12-10T19:56:02.000Z" itemprop="datePublished">2020-12-11</time></p>
                         </div>
                     </li>
@@ -479,7 +479,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure/" rel="tag">Azure</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud/" rel="tag">Cloud</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Powershell/" rel="tag">Powershell</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VM/" rel="tag">VM</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure/" rel="tag">Azure</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud/" rel="tag">Cloud</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Copy/" rel="tag">Copy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LB/" rel="tag">LB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NAT/" rel="tag">NAT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSG/" rel="tag">NSG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/" rel="tag">Network</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Powershell/" rel="tag">Powershell</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Snapshot/" rel="tag">Snapshot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Subscription/" rel="tag">Subscription</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unused-Resource/" rel="tag">Unused Resource</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VM/" rel="tag">VM</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -489,7 +489,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Azure/" style="font-size: 20px;">Azure</a> <a href="/tags/Cloud/" style="font-size: 20px;">Cloud</a> <a href="/tags/Powershell/" style="font-size: 16.67px;">Powershell</a> <a href="/tags/VM/" style="font-size: 13.33px;">VM</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a>
+            <a href="/tags/Azure/" style="font-size: 20px;">Azure</a> <a href="/tags/Cloud/" style="font-size: 20px;">Cloud</a> <a href="/tags/Copy/" style="font-size: 10px;">Copy</a> <a href="/tags/LB/" style="font-size: 10px;">LB</a> <a href="/tags/NAT/" style="font-size: 10px;">NAT</a> <a href="/tags/NSG/" style="font-size: 10px;">NSG</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Powershell/" style="font-size: 16.67px;">Powershell</a> <a href="/tags/Snapshot/" style="font-size: 10px;">Snapshot</a> <a href="/tags/Subscription/" style="font-size: 10px;">Subscription</a> <a href="/tags/Unused-Resource/" style="font-size: 10px;">Unused Resource</a> <a href="/tags/VM/" style="font-size: 13.33px;">VM</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a>
         </div>
     </div>
 
