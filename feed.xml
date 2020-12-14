@@ -3,14 +3,49 @@
   xmlns:atom="http://www.w3.org/2005/Atom"
   xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Azure Cloud</title>
+    <title>Azure Cloud Blog</title>
     <link>https://yy1111yang.github.io/</link>
     
     <atom:link href="https://yy1111yang.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
-    <description>Azure Cloud</description>
-    <pubDate>Mon, 14 Dec 2020 02:20:51 GMT</pubDate>
+    <description>Azure Cloud Blog</description>
+    <pubDate>Mon, 14 Dec 2020 04:31:52 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Search unused resource using resource-graph-explorer</title>
+      <link>https://yy1111yang.github.io/2020/12/13/20201214-resource-graph/</link>
+      <guid>https://yy1111yang.github.io/2020/12/13/20201214-resource-graph/</guid>
+      <pubDate>Sun, 13 Dec 2020 18:23:14 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;Today, i post about search unused resource using resource-graph-explorer &amp;amp; dashboard&lt;/p&gt;
+&lt;p&gt;You move to ‘Resource-Graph-Explorer’ in </description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>Today, i post about search unused resource using resource-graph-explorer &amp; dashboard</p><p>You move to ‘Resource-Graph-Explorer’ in Azure Portal.<br>and then you can query anything.</p><p>First, you query this command. it’s same query under the picture.</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># disabled nic Accelerate</span></span><br><span class="line">Resources</span><br><span class="line">| <span class="built_in">where</span> <span class="built_in">type</span> == <span class="string">&quot;microsoft.network/networkinterfaces&quot;</span> and properties [<span class="string">&quot;enableAcceleratedNetworking&quot;</span>] == <span class="string">&quot;false&quot;</span></span><br><span class="line">| project resourceGroup, name</span><br></pre></td></tr></table></figure><p>*note: i capture without ‘|project resourceGroup, name’ </p><p>And you can save query. Click ‘save as’ button.</p><img src="/2020/12/13/20201214-resource-graph/01.query_sample.png" class=""><p>Type the name appropriate about query function.<br>you can choice type ‘private’, ‘public’. this time, i saved ‘private’</p><img src="/2020/12/13/20201214-resource-graph/02.save_query.png" class=""><p>Then, you find query name changed.<br>and we pin to dashboard this query. Click the button ‘pin to dashboard’</p><img src="/2020/12/13/20201214-resource-graph/03.query_name_change.png" class=""><p>Create new dashboard with private. then Click ‘create’ button</p><img src="/2020/12/13/20201214-resource-graph/04.pin_dashboard.png" class=""><p>it’s working good. then i added additional query in dashboard.</p><img src="/2020/12/13/20201214-resource-graph/05.view_dashboard.png" class=""><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># no associated Nic</span></span><br><span class="line">Resources</span><br><span class="line">| <span class="built_in">where</span> <span class="built_in">type</span> == <span class="string">&quot;microsoft.network/networkinterfaces&quot;</span> and isnull(properties.virtualMachine)</span><br><span class="line">| project resourceGroup, name</span><br></pre></td></tr></table></figure><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># no custom dns settings</span></span><br><span class="line">Resources</span><br><span class="line">| <span class="built_in">where</span> <span class="built_in">type</span> == <span class="string">&quot;microsoft.network/networkinterfaces&quot;</span> and array_length(properties.dnsSettings.appliedDnsServers) == <span class="number">0</span></span><br><span class="line">| project resourceGroup, name</span><br></pre></td></tr></table></figure><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># no attached managed disks</span></span><br><span class="line">Resources</span><br><span class="line">| <span class="built_in">where</span> <span class="built_in">type</span> == <span class="string">&quot;microsoft.compute/disks&quot;</span> and isempty(managedBy)</span><br><span class="line">| project resourceGroup, name</span><br></pre></td></tr></table></figure><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># no assocated nsg</span></span><br><span class="line">Resources</span><br><span class="line">| <span class="built_in">where</span> <span class="built_in">type</span> == <span class="string">&quot;microsoft.network/networksecuritygroups&quot;</span> and isnull(properties.networkInterfaces)</span><br><span class="line">and isnull(properties.subnets)</span><br><span class="line">| project resourceGroup, name</span><br></pre></td></tr></table></figure><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># no associated pip</span></span><br><span class="line">Resources</span><br><span class="line">| <span class="built_in">where</span> <span class="built_in">type</span> == <span class="string">&quot;microsoft.network/publicipaddresses&quot;</span></span><br><span class="line">| <span class="built_in">where</span> isnull(properties.ipConfiguration) or isempty(properties.ipConfiguration)</span><br><span class="line">| project resourceGroup, name</span><br></pre></td></tr></table></figure><p>Then, i added all query to dashboard.<br>It’s good job!</p><img src="/2020/12/13/20201214-resource-graph/06.finish_dashboard.png" class=""><h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3>]]></content:encoded>
+      
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/VM/">VM</category>
+      
+      
+      <category domain="https://yy1111yang.github.io/tags/Cloud/">Cloud</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Resource/">Resource</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Graph/">Graph</category>
+      
+      
+      <comments>https://yy1111yang.github.io/2020/12/13/20201214-resource-graph/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Internet connection not working in VM after connection LB.</title>
