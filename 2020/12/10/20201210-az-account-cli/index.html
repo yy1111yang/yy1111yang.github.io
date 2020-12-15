@@ -12,15 +12,15 @@
     
     <meta name="keywords" content="Cloud,Azure,Powershell,Subscription">
     
-    <meta name="description" content="Hi. It’s first Blog. This is function for change Azure Subscription in CLI and Powershell.Normally, i mix and use az cli and powershell, so I execute following command. 12345678# subscription name$sub">
+    <meta name="description" content="Change Current Subscription.1234567$subName &#x3D; &quot;&quot;# powershell Set-AzureRmContext -Subscription $subName# azure CLIaz account set -s $subName  Show Current Subscription.12345# azure CLIaz acco">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Azure Subscription change, check in CLI and powershell">
 <meta property="og:url" content="https://yy1111yang.github.io/2020/12/10/20201210-az-account-cli/index.html">
 <meta property="og:site_name" content="Azure Cloud Blog">
-<meta property="og:description" content="Hi. It’s first Blog. This is function for change Azure Subscription in CLI and Powershell.Normally, i mix and use az cli and powershell, so I execute following command. 12345678# subscription name$sub">
+<meta property="og:description" content="Change Current Subscription.1234567$subName &#x3D; &quot;&quot;# powershell Set-AzureRmContext -Subscription $subName# azure CLIaz account set -s $subName  Show Current Subscription.12345# azure CLIaz acco">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-10T02:37:02.000Z">
-<meta property="article:modified_time" content="2020-12-13T13:38:25.032Z">
+<meta property="article:modified_time" content="2020-12-15T04:07:31.078Z">
 <meta property="article:author" content="Yong Yang">
 <meta property="article:tag" content="Cloud">
 <meta property="article:tag" content="Azure">
@@ -204,7 +204,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2020/12/10/20201210-az-account-cli/" class="article-date">
-     <time datetime="2020-12-13T13:38:25.032Z" itemprop="dateModified">2020-12-13</time>
+     <time datetime="2020-12-15T04:07:31.078Z" itemprop="dateModified">2020-12-15</time>
   </a>
 </div>
 
@@ -231,15 +231,11 @@ ga('send', 'pageview');
 
             
 
-            <p>Hi. It’s first Blog.</p>
-<p>This is function for change Azure Subscription in CLI and Powershell.<br>Normally, i mix and use az cli and powershell, so I execute following command.</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># subscription name</span></span><br><span class="line"><span class="variable">$subName</span> = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># powershell </span></span><br><span class="line"><span class="built_in">Set-AzureRmContext</span> <span class="literal">-Subscription</span> <span class="variable">$subName</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># azure CLI</span></span><br><span class="line">az account <span class="built_in">set</span> <span class="literal">-s</span> <span class="variable">$subName</span></span><br></pre></td></tr></table></figure>
+            <h2 id="Change-Current-Subscription"><a href="#Change-Current-Subscription" class="headerlink" title="Change Current Subscription."></a>Change Current Subscription.</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$subName</span> = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># powershell </span></span><br><span class="line"><span class="built_in">Set-AzureRmContext</span> <span class="literal">-Subscription</span> <span class="variable">$subName</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># azure CLI</span></span><br><span class="line">az account <span class="built_in">set</span> <span class="literal">-s</span> <span class="variable">$subName</span></span><br></pre></td></tr></table></figure>
 
-<p>If you want checke current set subscription, you execute following command.</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># azure CLI</span></span><br><span class="line">az account show</span><br><span class="line"></span><br><span class="line"><span class="comment"># powershell</span></span><br><span class="line"><span class="built_in">Get-AzureRmContext</span></span><br></pre></td></tr></table></figure>
+<h2 id="Show-Current-Subscription"><a href="#Show-Current-Subscription" class="headerlink" title="Show Current Subscription."></a>Show Current Subscription.</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># azure CLI</span></span><br><span class="line">az account show</span><br><span class="line"></span><br><span class="line"><span class="comment"># powershell</span></span><br><span class="line"><span class="built_in">Get-AzureRmContext</span></span><br></pre></td></tr></table></figure>
 
-<p>And this command for search all subscription available</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># azure CLI</span></span><br><span class="line">az account list</span><br><span class="line"></span><br><span class="line"><span class="comment"># powershell</span></span><br><span class="line"><span class="built_in">Get-AzureRmContext</span> <span class="literal">-ListAvailable</span></span><br></pre></td></tr></table></figure>
+<h2 id="List-Available-Subscription"><a href="#List-Available-Subscription" class="headerlink" title="List Available Subscription."></a>List Available Subscription.</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># azure CLI</span></span><br><span class="line">az account list</span><br><span class="line"></span><br><span class="line"><span class="comment"># powershell</span></span><br><span class="line"><span class="built_in">Get-AzureRmContext</span> <span class="literal">-ListAvailable</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3>
         </div>
@@ -324,12 +320,12 @@ ga('send', 'pageview');
         "genre": "Azure Powershell",
         "datePublished": "2020-12-10",
         "dateCreated": "2020-12-10",
-        "dateModified": "2020-12-13",
+        "dateModified": "2020-12-15",
         "url": "https://yy1111yang.github.io/2020/12/10/20201210-az-account-cli/",
-        "description": "Hi. It’s first Blog.
-This is function for change Azure Subscription in CLI and Powershell.Normally, i mix and use az cli and powershell, so I execute following command.
-12345678# subscription name$sub",
-        "wordCount": 141
+        "description": "Change Current Subscription.1234567$subName = &quot;&quot;# powershell Set-AzureRmContext -Subscription $subName# azure CLIaz account set -s $subName
+
+Show Current Subscription.12345# azure CLIaz acco",
+        "wordCount": 117
     }
 </script>
 

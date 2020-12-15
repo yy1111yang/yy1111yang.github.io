@@ -203,9 +203,7 @@ ga('send', 'pageview');
     
 
         <p class="article-excerpt">
-            
-Search Rule include ‘Any Port’
-12345678910111213141516171819202122232425# get Any Port rule in NSG$inbound = @();$outbound = @();$nsgList = az network nsg list | convertFrom-Jsonforeach($nsg in $nsgL
+            Search Rule include ‘Any Port’123456789101112131415161718192021222324$inbound = @();$outbound = @();$nsgList = az network nsg list | convertFrom-Jsonforeach($nsg in $nsgList) &#123;        foreach($ru
         </p>
     </div>
 </article>
@@ -263,9 +261,9 @@ Search Rule include ‘Any Port’
     
 
         <p class="article-excerpt">
-            Hi. It’s first Blog.
-This is function for change Azure Subscription in CLI and Powershell.Normally, i mix and use az cli and powershell, so I execute following command.
-12345678# subscription name$sub
+            Change Current Subscription.1234567$subName = &quot;&quot;# powershell Set-AzureRmContext -Subscription $subName# azure CLIaz account set -s $subName
+
+Show Current Subscription.12345# azure CLIaz acco
         </p>
     </div>
 </article>

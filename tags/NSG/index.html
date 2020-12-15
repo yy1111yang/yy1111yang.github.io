@@ -231,9 +231,7 @@ Today, we search NSG using Log analytics and Network Watcher in Azure portal.Bef
     
 
         <p class="article-excerpt">
-            
-Search Rule include ‘Any Port’
-12345678910111213141516171819202122232425# get Any Port rule in NSG$inbound = @();$outbound = @();$nsgList = az network nsg list | convertFrom-Jsonforeach($nsg in $nsgL
+            Search Rule include ‘Any Port’123456789101112131415161718192021222324$inbound = @();$outbound = @();$nsgList = az network nsg list | convertFrom-Jsonforeach($nsg in $nsgList) &#123;        foreach($ru
         </p>
     </div>
 </article>
