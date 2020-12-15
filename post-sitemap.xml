@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://yy1111yang.github.io/2020/12/10/20201211-az-nsg-cli/</loc>
+        <lastmod>2020-12-15T02:29:16.323Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://yy1111yang.github.io/2020/12/14/20201215-nsg-visualize/</loc>
         <lastmod>2020-12-15T01:18:29.543Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -51,14 +59,6 @@
     <url>
         <loc>https://yy1111yang.github.io/2020/12/10/20201211-az-vm-network-connect/</loc>
         <lastmod>2020-12-13T14:23:51.707Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://yy1111yang.github.io/2020/12/10/20201211-az-nsg-cli/</loc>
-        <lastmod>2020-12-13T13:57:36.445Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
