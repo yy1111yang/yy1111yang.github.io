@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://yy1111yang.github.io/2020/12/10/20201211-az-vm-network-connect/vm_list_01.png">
 <meta property="article:published_time" content="2020-12-10T23:09:26.000Z">
-<meta property="article:modified_time" content="2020-12-13T14:23:51.707Z">
+<meta property="article:modified_time" content="2020-12-15T07:58:19.212Z">
 <meta property="article:author" content="Yong Yang">
 <meta property="article:tag" content="Cloud">
 <meta property="article:tag" content="Azure">
@@ -206,7 +206,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2020/12/10/20201211-az-vm-network-connect/" class="article-date">
-     <time datetime="2020-12-13T14:23:51.707Z" itemprop="dateModified">2020-12-13</time>
+     <time datetime="2020-12-15T07:58:19.212Z" itemprop="dateModified">2020-12-15</time>
   </a>
 </div>
 
@@ -234,27 +234,25 @@ ga('send', 'pageview');
             
 
             <p>How can we check network connection between VM?</p>
-<p>First, i deploy two Azure VM in same vnet.</p>
+<p>First, i <code>deploy two Azure VM in same vnet.</code></p>
 <img src="/2020/12/10/20201211-az-vm-network-connect/vm_list_01.png" class>
 
-<p>I will check network connection 10.0.0.4 =&gt; 10.0.0.5:8080<br>Already i install IIS in 10.0.0.5 and change listen port 80 to 8080.<br>Usually we can telnet or ping.<br>But i use powershell command following cmd. </p>
+<p>I will check network connection <code>10.0.0.4 =&gt; 10.0.0.5:8080</code><br>Already i install IIS in 10.0.0.5 and change listen port 80 to 8080.<br>Usually we can telnet or ping.<br>But i use powershell command as following. </p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Test-NetConnection</span> [<span class="type">IP</span> <span class="type">Address</span> <span class="type">or</span> <span class="type">ComputerName</span>] <span class="literal">-port</span> [<span class="type">Port</span> <span class="type">Number</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Exmaple</span></span><br><span class="line"><span class="built_in">Test-NetConnection</span> <span class="number">10.0</span>.<span class="number">0.5</span> <span class="literal">-port</span> <span class="number">80</span></span><br></pre></td></tr></table></figure>
 
-<p>Oops… i return TcpTestSucceded:False.</p>
+<p>Oops… I return TcpTestSucceded:<code>False</code>.</p>
 <img src="/2020/12/10/20201211-az-vm-network-connect/test_netconnection_01.png" class>
 
-<ol>
-<li>Check Windows firewall.<br>First, We open ‘Window firewall with Advanced Security’ in Windows.<img src="/2020/12/10/20201211-az-vm-network-connect/window_firewall_01.png" class>
+<h5 id="1-Check-Windows-firewall"><a href="#1-Check-Windows-firewall" class="headerlink" title="1. Check Windows firewall."></a>1. Check Windows firewall.</h5><p>First, We open <code>Window Firewall with Advanced Security</code> in Windows.</p>
+<img src="/2020/12/10/20201211-az-vm-network-connect/window_firewall_01.png" class>
 
-</li>
-</ol>
-<p>Right Click on ‘InboundRule’ in left sidebar, and add a rule.<br>Click ‘Port’ then ‘next’ like under the picture.</p>
+<p>Right Click on <code>InboundRule</code> in left sidebar, and add a rule.<br>Click <code>Port</code> then <code>next</code> like under the picture.</p>
 <img src="/2020/12/10/20201211-az-vm-network-connect/window_firewall_02.png" class>
 
-<p>Select ‘Protocol(TCP)’ then type port for open. we should type 8080 in case.</p>
+<p>Select <code>Protocol(TCP)</code> then type port for open. we should type 8080 in case.</p>
 <img src="/2020/12/10/20201211-az-vm-network-connect/window_firewall_03.png" class>
 
-<p>And then we select Allow, Block about rule.<br>We have to Allow connection, so we select ‘Allow the connection’</p>
+<p>And then we select Allow, Block about rule.<br>We have to Allow connection, so we select <code>Allow the connection</code></p>
 <img src="/2020/12/10/20201211-az-vm-network-connect/window_firewall_04.png" class>
 
 <p>Select Default value.</p>
@@ -269,24 +267,20 @@ ga('send', 'pageview');
 <p>Ok. we check network connection again.<br>But.. we can’t reach destination…</p>
 <img src="/2020/12/10/20201211-az-vm-network-connect/test_netconnection_02.png" class>
 
-<ol start="2">
-<li>Using azure trouble shoot<br>Maybe i think it block in NSG.<br>If we have under 10 rule in NSG, we find the block rule easily.<br>But over 10 rule, it’s too hard find it.<br>Then we use Azure Troble Shoot.</li>
-</ol>
-<p>In VM panel, in Azure Portal. &gt; Connection troubleshoot &gt; Use Network Watcher for detailed connectio tracing</p>
+<h5 id="2-Using-azure-trouble-shoot"><a href="#2-Using-azure-trouble-shoot" class="headerlink" title="2. Using azure trouble shoot"></a>2. Using azure trouble shoot</h5><p>Maybe i think it block in NSG.<br>If we have under 10 rule in NSG, we find the block rule easily.<br>But over 10 rule, it’s too hard find it.<br>Then we use Azure Troble Shoot.</p>
+<p>In VM panel, in <strong>Azure Portal. &gt; Connection troubleshoot &gt; Use Network Watcher for detailed connectio tracing</strong></p>
 <img src="/2020/12/10/20201211-az-vm-network-connect/troubleshoot_01.png" class>
 
-<p>Select ‘Specify manually’, then type Target IP(10.0.0.5).<br>Type port 8080 below input box.<br>Then Click ‘Check’</p>
+<p>Select <code>Specify manually</code>, then type Target IP(10.0.0.5).<br>Type port 8080 below input box.<br>Then Click <code>Check</code></p>
 <img src="/2020/12/10/20201211-az-vm-network-connect/troubleshoot_02.png" class>
 
-<p>We return result. if you check first time, it’s longer then you think.<br>Because install network watcher.<br>Then the status is Unreachable.<br>We find the problem about status of 10.0.0.4.<br>Then Click the row about 10.0.0.4.<br>It blocked rule named 8080-outbound-allow.</p>
+<p>We return result. if you check first time, it’s longer then you think.<br>Because install network watcher.<br>Then the status is Unreachable.<br>We find the problem about status of 10.0.0.4.<br>Then Click the row about 10.0.0.4.<br><strong>It blocked rule named 8080-outbound-allow.</strong></p>
 <img src="/2020/12/10/20201211-az-vm-network-connect/troubleshoot_03.png" class>
 
-<ol start="3">
-<li>check azure nsg<br>We go to NSG cause block problem.<br>Oops, i added Deny Rule. not Allow. i changed action to Allow <img src="/2020/12/10/20201211-az-vm-network-connect/troubleshoot_04.png" class>
+<h5 id="3-check-azure-nsg"><a href="#3-check-azure-nsg" class="headerlink" title="3. check azure nsg"></a>3. check azure nsg</h5><p>We go to NSG cause block problem.<br>Oops, i added Deny Rule. not Allow. i changed action to Allow </p>
+<img src="/2020/12/10/20201211-az-vm-network-connect/troubleshoot_04.png" class>
 
-</li>
-</ol>
-<p>And then i check status, we finally connection succecssful</p>
+<p>And then i check status, we finally connection <code>succecssful</code></p>
 <img src="/2020/12/10/20201211-az-vm-network-connect/test_netconnection_03.png" class>
 
 
@@ -373,14 +367,14 @@ ga('send', 'pageview');
         "genre": "Azure Windows",
         "datePublished": "2020-12-11",
         "dateCreated": "2020-12-11",
-        "dateModified": "2020-12-13",
+        "dateModified": "2020-12-15",
         "url": "https://yy1111yang.github.io/2020/12/10/20201211-az-vm-network-connect/",
         "description": "How can we check network connection between VM?
 First, i deploy two Azure VM in same vnet.
 
 
 I will check network connection 10.0.0.4 =&gt; 10.0.0.5:8080Already i install IIS in 10.0.0.5 and change li",
-        "wordCount": 336
+        "wordCount": 359
     }
 </script>
 
