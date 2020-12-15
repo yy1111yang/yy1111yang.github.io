@@ -3,6 +3,34 @@
 
 
     <url>
+        <loc>https://yy1111yang.github.io/tags/Move/</loc>
+        <lastmod>2020-12-15T08:12:54.059Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yy1111yang.github.io/tags/Copy/</loc>
+        <lastmod>2020-12-15T08:12:54.059Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yy1111yang.github.io/tags/Azure/</loc>
+        <lastmod>2020-12-15T08:12:54.059Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yy1111yang.github.io/tags/Cloud/</loc>
+        <lastmod>2020-12-15T08:12:54.059Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://yy1111yang.github.io/tags/NAT/</loc>
         <lastmod>2020-12-15T08:05:12.334Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -18,20 +46,6 @@
 
     <url>
         <loc>https://yy1111yang.github.io/tags/VM/</loc>
-        <lastmod>2020-12-15T08:05:12.334Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yy1111yang.github.io/tags/Azure/</loc>
-        <lastmod>2020-12-15T08:05:12.334Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yy1111yang.github.io/tags/Cloud/</loc>
         <lastmod>2020-12-15T08:05:12.334Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -80,13 +94,6 @@
     </url>
 
     <url>
-        <loc>https://yy1111yang.github.io/tags/Copy/</loc>
-        <lastmod>2020-12-15T06:04:14.423Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://yy1111yang.github.io/tags/Snapshot/</loc>
         <lastmod>2020-12-15T06:04:14.423Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -110,13 +117,6 @@
     <url>
         <loc>https://yy1111yang.github.io/tags/Subscription/</loc>
         <lastmod>2020-12-15T04:07:31.078Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yy1111yang.github.io/tags/Move/</loc>
-        <lastmod>2020-12-15T00:19:47.253Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

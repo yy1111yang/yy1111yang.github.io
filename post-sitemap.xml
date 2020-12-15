@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://yy1111yang.github.io/2020/12/14/20201214-az-vm-copy-other-sub/</loc>
+        <lastmod>2020-12-15T08:12:54.059Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://yy1111yang.github.io/2020/12/12/20201213-azure-lb-nat-problem/</loc>
         <lastmod>2020-12-15T08:05:12.334Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -67,14 +75,6 @@
     <url>
         <loc>https://yy1111yang.github.io/2020/12/10/20201210-az-account-cli/</loc>
         <lastmod>2020-12-15T04:07:31.078Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://yy1111yang.github.io/2020/12/14/20201214-az-vm-copy-other-sub/</loc>
-        <lastmod>2020-12-15T00:19:47.253Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
