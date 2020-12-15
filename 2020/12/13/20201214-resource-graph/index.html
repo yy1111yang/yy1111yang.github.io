@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="Cloud,Azure,Resource,Graph">
     
-    <meta name="description" content="Today, i post about search unused resource using resource-graph-explorer &amp; dashboard You move to ‘Resource-Graph-Explorer’ in Azure Portal.and then you can query anything. First, you query this co">
+    <meta name="description" content="Today, i post about search unused resource using resource-graph-explorer &amp; dashboard You move to ‘Resource-Graph-Explorer’ in Azure Portal.And then you can query anything. First, you query this co">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Search unused resource using resource-graph-explorer">
 <meta property="og:url" content="https://yy1111yang.github.io/2020/12/13/20201214-resource-graph/index.html">
 <meta property="og:site_name" content="Azure Cloud Blog">
-<meta property="og:description" content="Today, i post about search unused resource using resource-graph-explorer &amp; dashboard You move to ‘Resource-Graph-Explorer’ in Azure Portal.and then you can query anything. First, you query this co">
+<meta property="og:description" content="Today, i post about search unused resource using resource-graph-explorer &amp; dashboard You move to ‘Resource-Graph-Explorer’ in Azure Portal.And then you can query anything. First, you query this co">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://yy1111yang.github.io/2020/12/13/20201214-resource-graph/01.query_sample.png">
 <meta property="article:published_time" content="2020-12-13T18:23:14.000Z">
-<meta property="article:modified_time" content="2020-12-14T04:31:52.829Z">
+<meta property="article:modified_time" content="2020-12-15T06:20:17.702Z">
 <meta property="article:author" content="Yong Yang">
 <meta property="article:tag" content="Cloud">
 <meta property="article:tag" content="Azure">
@@ -206,7 +206,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2020/12/13/20201214-resource-graph/" class="article-date">
-     <time datetime="2020-12-14T04:31:52.829Z" itemprop="dateModified">2020-12-14</time>
+     <time datetime="2020-12-15T06:20:17.702Z" itemprop="dateModified">2020-12-15</time>
   </a>
 </div>
 
@@ -234,35 +234,39 @@ ga('send', 'pageview');
             
 
             <p>Today, i post about search unused resource using resource-graph-explorer &amp; dashboard</p>
-<p>You move to ‘Resource-Graph-Explorer’ in Azure Portal.<br>and then you can query anything.</p>
+<p>You move to ‘Resource-Graph-Explorer’ in Azure Portal.<br>And then you can query anything.</p>
 <p>First, you query this command. it’s same query under the picture.</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># disabled nic Accelerate</span></span><br><span class="line">Resources</span><br><span class="line">| <span class="built_in">where</span> <span class="built_in">type</span> == <span class="string">&quot;microsoft.network/networkinterfaces&quot;</span> and properties [<span class="string">&quot;enableAcceleratedNetworking&quot;</span>] == <span class="string">&quot;false&quot;</span></span><br><span class="line">| project resourceGroup, name</span><br></pre></td></tr></table></figure>
-<p>*note: i capture without ‘|project resourceGroup, name’ </p>
-<p>And you can save query. Click ‘save as’ button.</p>
 <img src="/2020/12/13/20201214-resource-graph/01.query_sample.png" class>
 
-<p>Type the name appropriate about query function.<br>you can choice type ‘private’, ‘public’. this time, i saved ‘private’</p>
+<p><strong>disabled nic Accelerate</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Resources</span><br><span class="line">| <span class="built_in">where</span> <span class="built_in">type</span> == <span class="string">&quot;microsoft.network/networkinterfaces&quot;</span> and properties [<span class="string">&quot;enableAcceleratedNetworking&quot;</span>] == <span class="string">&quot;false&quot;</span></span><br><span class="line">| project resourceGroup, name</span><br></pre></td></tr></table></figure>
+<p><strong>note: i capture without</strong> <code>|project resourceGroup, name</code></p>
+<p>And you can save query. Click <code>save as</code> button.<br>Type the name appropriate about query function.<br>You can choice type <code>private</code>, <code>public</code>. this time, i saved <code>private</code></p>
 <img src="/2020/12/13/20201214-resource-graph/02.save_query.png" class>
 
-<p>Then, you find query name changed.<br>and we pin to dashboard this query. Click the button ‘pin to dashboard’</p>
+<p>Then, you find query name changed.<br>And we pin to dashboard this query. Click the button <code>pin to dashboard</code></p>
 <img src="/2020/12/13/20201214-resource-graph/03.query_name_change.png" class>
 
-<p>Create new dashboard with private. then Click ‘create’ button</p>
+<p>Create new dashboard with private. then Click <code>create</code> button</p>
 <img src="/2020/12/13/20201214-resource-graph/04.pin_dashboard.png" class>
 
-<p>it’s working good. then i added additional query in dashboard.</p>
+<p>It’s working good. then i added additional query in dashboard.</p>
 <img src="/2020/12/13/20201214-resource-graph/05.view_dashboard.png" class>
 
+<p>*<em>no associated Nic</em></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Resources</span><br><span class="line">| <span class="built_in">where</span> <span class="built_in">type</span> == <span class="string">&quot;microsoft.network/networkinterfaces&quot;</span> and isnull(properties.virtualMachine)</span><br><span class="line">| project resourceGroup, name</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># no associated Nic</span></span><br><span class="line">Resources</span><br><span class="line">| <span class="built_in">where</span> <span class="built_in">type</span> == <span class="string">&quot;microsoft.network/networkinterfaces&quot;</span> and isnull(properties.virtualMachine)</span><br><span class="line">| project resourceGroup, name</span><br></pre></td></tr></table></figure>
+<p><strong>no custom dns settings</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Resources</span><br><span class="line">| <span class="built_in">where</span> <span class="built_in">type</span> == <span class="string">&quot;microsoft.network/networkinterfaces&quot;</span> and array_length(properties.dnsSettings.appliedDnsServers) == <span class="number">0</span></span><br><span class="line">| project resourceGroup, name</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># no custom dns settings</span></span><br><span class="line">Resources</span><br><span class="line">| <span class="built_in">where</span> <span class="built_in">type</span> == <span class="string">&quot;microsoft.network/networkinterfaces&quot;</span> and array_length(properties.dnsSettings.appliedDnsServers) == <span class="number">0</span></span><br><span class="line">| project resourceGroup, name</span><br></pre></td></tr></table></figure>
+<p><strong>no attached managed disks</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Resources</span><br><span class="line">| <span class="built_in">where</span> <span class="built_in">type</span> == <span class="string">&quot;microsoft.compute/disks&quot;</span> and isempty(managedBy)</span><br><span class="line">| project resourceGroup, name</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># no attached managed disks</span></span><br><span class="line">Resources</span><br><span class="line">| <span class="built_in">where</span> <span class="built_in">type</span> == <span class="string">&quot;microsoft.compute/disks&quot;</span> and isempty(managedBy)</span><br><span class="line">| project resourceGroup, name</span><br></pre></td></tr></table></figure>
+<p><strong>no assocated nsg</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Resources</span><br><span class="line">| <span class="built_in">where</span> <span class="built_in">type</span> == <span class="string">&quot;microsoft.network/networksecuritygroups&quot;</span> and isnull(properties.networkInterfaces)</span><br><span class="line">and isnull(properties.subnets)</span><br><span class="line">| project resourceGroup, name</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># no assocated nsg</span></span><br><span class="line">Resources</span><br><span class="line">| <span class="built_in">where</span> <span class="built_in">type</span> == <span class="string">&quot;microsoft.network/networksecuritygroups&quot;</span> and isnull(properties.networkInterfaces)</span><br><span class="line">and isnull(properties.subnets)</span><br><span class="line">| project resourceGroup, name</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># no associated pip</span></span><br><span class="line">Resources</span><br><span class="line">| <span class="built_in">where</span> <span class="built_in">type</span> == <span class="string">&quot;microsoft.network/publicipaddresses&quot;</span></span><br><span class="line">| <span class="built_in">where</span> isnull(properties.ipConfiguration) or isempty(properties.ipConfiguration)</span><br><span class="line">| project resourceGroup, name</span><br></pre></td></tr></table></figure>
+<p><strong>no associated pip</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Resources</span><br><span class="line">| <span class="built_in">where</span> <span class="built_in">type</span> == <span class="string">&quot;microsoft.network/publicipaddresses&quot;</span></span><br><span class="line">| <span class="built_in">where</span> isnull(properties.ipConfiguration) or isempty(properties.ipConfiguration)</span><br><span class="line">| project resourceGroup, name</span><br></pre></td></tr></table></figure>
 
 <p>Then, i added all query to dashboard.<br>It’s good job!</p>
 <img src="/2020/12/13/20201214-resource-graph/06.finish_dashboard.png" class>
@@ -352,12 +356,12 @@ ga('send', 'pageview');
         "genre": "Azure VM",
         "datePublished": "2020-12-14",
         "dateCreated": "2020-12-14",
-        "dateModified": "2020-12-14",
+        "dateModified": "2020-12-15",
         "url": "https://yy1111yang.github.io/2020/12/13/20201214-resource-graph/",
         "description": "Today, i post about search unused resource using resource-graph-explorer &amp; dashboard
-You move to ‘Resource-Graph-Explorer’ in Azure Portal.and then you can query anything.
+You move to ‘Resource-Graph-Explorer’ in Azure Portal.And then you can query anything.
 First, you query this co",
-        "wordCount": 309
+        "wordCount": 284
     }
 </script>
 

@@ -9,6 +9,30 @@
 
 
     <url>
+        <loc>https://yy1111yang.github.io/2020/12/14/20201215-nsg-visualize/</loc>
+        <lastmod>2020-12-15T06:41:02.702Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://yy1111yang.github.io/2020/12/13/20201214-resource-graph/</loc>
+        <lastmod>2020-12-15T06:20:17.702Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://yy1111yang.github.io/2020/12/11/20201212-az-vm-copy-01/</loc>
+        <lastmod>2020-12-15T06:04:14.423Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://yy1111yang.github.io/2020/12/10/20201211-az-nsg-cli/</loc>
         <lastmod>2020-12-15T04:10:35.205Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -33,14 +57,6 @@
     </url>
 
     <url>
-        <loc>https://yy1111yang.github.io/2020/12/14/20201215-nsg-visualize/</loc>
-        <lastmod>2020-12-15T01:18:29.543Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://yy1111yang.github.io/2020/12/14/20201214-az-vm-copy-other-sub/</loc>
         <lastmod>2020-12-15T00:19:47.253Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -49,24 +65,8 @@
     </url>
 
     <url>
-        <loc>https://yy1111yang.github.io/2020/12/13/20201214-resource-graph/</loc>
-        <lastmod>2020-12-14T04:31:52.829Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://yy1111yang.github.io/2020/12/12/20201213-azure-lb-nat-problem/</loc>
         <lastmod>2020-12-14T02:20:51.801Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://yy1111yang.github.io/2020/12/11/20201212-az-vm-copy-01/</loc>
-        <lastmod>2020-12-13T14:37:58.721Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

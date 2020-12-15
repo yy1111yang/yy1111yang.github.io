@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="Cloud,Azure,VM,Snapshot,Copy">
     
-    <meta name="description" content="this post about Azure VM Copy using snapshot. The total process is as follow.OsDisk, Datadisk &#x3D;&gt; snapshot &#x3D;&gt; OsDisk_copy, Datadisk_copy &#x3D;&gt; VM_copy 1, Go to the panel in OsDisk.Click ‘+Create">
+    <meta name="description" content="This post about Azure VM Copy using snapshot. The total process is as follow. OsDisk, Datadisk &#x3D;&gt; snapshot snapshot &#x3D;&gt; OsDisk_copy, Datadisk_copy OsDisk_copy, Datadisk_copy &#x3D;&gt; VM_copy    1. C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Azure VM Copy using Snapshot">
 <meta property="og:url" content="https://yy1111yang.github.io/2020/12/11/20201212-az-vm-copy-01/index.html">
 <meta property="og:site_name" content="Azure Cloud Blog">
-<meta property="og:description" content="this post about Azure VM Copy using snapshot. The total process is as follow.OsDisk, Datadisk &#x3D;&gt; snapshot &#x3D;&gt; OsDisk_copy, Datadisk_copy &#x3D;&gt; VM_copy 1, Go to the panel in OsDisk.Click ‘+Create">
+<meta property="og:description" content="This post about Azure VM Copy using snapshot. The total process is as follow. OsDisk, Datadisk &#x3D;&gt; snapshot snapshot &#x3D;&gt; OsDisk_copy, Datadisk_copy OsDisk_copy, Datadisk_copy &#x3D;&gt; VM_copy    1. C">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://yy1111yang.github.io/2020/12/11/20201212-az-vm-copy-01/disk_show_01.png">
 <meta property="article:published_time" content="2020-12-11T16:14:00.000Z">
-<meta property="article:modified_time" content="2020-12-13T14:37:58.721Z">
+<meta property="article:modified_time" content="2020-12-15T06:04:14.423Z">
 <meta property="article:author" content="Yong Yang">
 <meta property="article:tag" content="Cloud">
 <meta property="article:tag" content="Azure">
@@ -207,7 +207,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2020/12/11/20201212-az-vm-copy-01/" class="article-date">
-     <time datetime="2020-12-13T14:37:58.721Z" itemprop="dateModified">2020-12-13</time>
+     <time datetime="2020-12-15T06:04:14.423Z" itemprop="dateModified">2020-12-15</time>
   </a>
 </div>
 
@@ -234,27 +234,32 @@ ga('send', 'pageview');
 
             
 
-            <p>this post about Azure VM Copy using snapshot.</p>
-<p>The total process is as follow.<br>OsDisk, Datadisk =&gt; snapshot =&gt; OsDisk_copy, Datadisk_copy =&gt; VM_copy</p>
-<p>1, Go to the panel in OsDisk.<br>Click ‘+Create Snapshot’</p>
+            <p>This post about Azure VM Copy using snapshot.</p>
+<h3 id="The-total-process-is-as-follow"><a href="#The-total-process-is-as-follow" class="headerlink" title="The total process is as follow."></a>The total process is as follow.</h3><ol>
+<li>OsDisk, Datadisk =&gt; snapshot</li>
+<li>snapshot =&gt; OsDisk_copy, Datadisk_copy</li>
+<li>OsDisk_copy, Datadisk_copy =&gt; VM_copy  </li>
+</ol>
+<p><strong>1. Create Snapshot.</strong><br>Go to the panel in OsDisk. Click <code>+Create Snapshot</code></p>
 <img src="/2020/12/11/20201212-az-vm-copy-01/disk_show_01.png" class>
 
-<p>2, Move screen for create snapshot.<br>type the name, select Storage type.<br>we changed storage type after create disk in disk screen. </p>
+<p>Move screen for create snapshot.<br>Type the name, select Storage type.<br>We can changed storage type after create disk in disk screen. </p>
 <img src="/2020/12/11/20201212-az-vm-copy-01/snapshot_create_01.png" class>
 
-<p>3, Created snapshot in below.<br>snapshot also create to managed disk directly.<br>Click button ‘+Create Disk’ in upper.</p>
+
+<p><strong>2. Create Disk_Copy.</strong><br>Snapshot also create to managed disk directly.<br>Click button <code>+Create Disk</code> in upper.</p>
 <img src="/2020/12/11/20201212-az-vm-copy-01/snapshot_show_01.png" class>
 
-<p>4, Go to the screen for create VM.<br>type the name and select the sku.</p>
+<p>Go to the screen for create VM.<br>Type the name and select the sku.</p>
 <img src="/2020/12/11/20201212-az-vm-copy-01/disk_create_01.png" class>
 
-<p>5, About 30 sec later, created Disk.<br>and suppport create VM Directly using managed disk in Auzre Portal.<br>it’s very useful i think.<br>Click the button ‘+Create VM’ and skip the creating VM. </p>
+<p><strong>3. Create VM</strong><br>About 30 sec later, created Disk.<br>And suppport create VM Directly using managed disk in Auzre Portal.<br>It’s very useful i think.<br>Click the button <code>+Create VM</code> and skip the creating VM. </p>
 <img src="/2020/12/11/20201212-az-vm-copy-01/create_vm_01.png" class>
 
-<p>6, finally deploy VM is done. we memorized public IP for connection RDP.</p>
+<p>Finally deploy VM is done. we memorized public IP for connection RDP.</p>
 <img src="/2020/12/11/20201212-az-vm-copy-01/vm_show_01.png" class>
 
-<p>7, we find the certification name below. it’s VM name copied VM before.<br>So, we know vm copy is successful.</p>
+<p>We find the certification name below. it’s VM name copied VM before.<br>So, we know vm copy is successful.</p>
 <img src="/2020/12/11/20201212-az-vm-copy-01/rdp_show_01.png" class>
 
 
@@ -341,12 +346,16 @@ ga('send', 'pageview');
         "genre": "Azure VM",
         "datePublished": "2020-12-12",
         "dateCreated": "2020-12-12",
-        "dateModified": "2020-12-13",
+        "dateModified": "2020-12-15",
         "url": "https://yy1111yang.github.io/2020/12/11/20201212-az-vm-copy-01/",
-        "description": "this post about Azure VM Copy using snapshot.
-The total process is as follow.OsDisk, Datadisk =&gt; snapshot =&gt; OsDisk_copy, Datadisk_copy =&gt; VM_copy
-1, Go to the panel in OsDisk.Click ‘+Create ",
-        "wordCount": 157
+        "description": "This post about Azure VM Copy using snapshot.
+The total process is as follow.
+OsDisk, Datadisk =&gt; snapshot
+snapshot =&gt; OsDisk_copy, Datadisk_copy
+OsDisk_copy, Datadisk_copy =&gt; VM_copy  
+
+1. C",
+        "wordCount": 167
     }
 </script>
 

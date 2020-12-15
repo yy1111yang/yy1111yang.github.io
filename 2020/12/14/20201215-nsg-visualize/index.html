@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://yy1111yang.github.io/2020/12/14/20201215-nsg-visualize/01.show_nsg.png">
 <meta property="article:published_time" content="2020-12-14T15:23:51.000Z">
-<meta property="article:modified_time" content="2020-12-15T01:18:29.543Z">
+<meta property="article:modified_time" content="2020-12-15T06:41:02.702Z">
 <meta property="article:author" content="Yong Yang">
 <meta property="article:tag" content="Cloud">
 <meta property="article:tag" content="Azure">
@@ -206,7 +206,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2020/12/14/20201215-nsg-visualize/" class="article-date">
-     <time datetime="2020-12-15T01:18:29.543Z" itemprop="dateModified">2020-12-15</time>
+     <time datetime="2020-12-15T06:41:02.702Z" itemprop="dateModified">2020-12-15</time>
   </a>
 </div>
 
@@ -234,29 +234,29 @@ ga('send', 'pageview');
             
 
             <p>We usually allow, block network flow using NSG in Azure.<br>So, it’s very important to search NSG flow log.</p>
-<p>Today, we search NSG using Log analytics and Network Watcher in Azure portal.<br>Before start, you ready one storage account to store NSG flow log.</p>
-<p>First, move the NSG panel, and click the ‘NSG Flow logs’<br>we know ‘status’ means log collect status, and ‘traffic Analytics’ means sending log data to log analytics</p>
+<p>Today, <strong>we search NSG using Log analytics and Network Watcher in Azure portal.</strong><br>Before start, you ready one storage account to store NSG flow log.</p>
+<p>Firstly, move the NSG panel, and click the <code>NSG Flow logs</code><br>we know <code>status</code> means log collect status.<br>And <code>traffic Analytics</code> means sending log data to log analytics</p>
 <img src="/2020/12/14/20201215-nsg-visualize/01.show_nsg.png" class>
 
-<p>Then, click the row, and enable Status.<br>I preffer version2, and select storage account to store log data before you crated.<br>Retention 0 is permanent.</p>
+<p><strong>Then, click the row, and enable Status.</strong><br>I prefer version2, and select storage account to store log data before you crated.<br>Retention 0 means permanent.</p>
 <img src="/2020/12/14/20201215-nsg-visualize/02.flow_setting_01.png" class>
 
-<p>Scroll down, you can see Traffic Analytis Status.<br>Turn on Status.<br>and select interval. i think 1 hour is too long.</p>
+<p>Scroll down, you can see Traffic Analytis Status.<br><strong>Turn on Status also.</strong><br>And select interval. i think 1 hour is too long.</p>
 <img src="/2020/12/14/20201215-nsg-visualize/02.flow_setting_02.png" class>
 
-<p>And then select log analytics workspace. you don’t have it, you can create in here. don’t worry about it.</p>
+<p>And then select log analytics workspace.<br>You don’t have it, you can create in here. don’t worry about it.</p>
 <img src="/2020/12/14/20201215-nsg-visualize/03.flow_setting_03.png" class>
 
-<p>then save the settings.</p>
+<p>Then <code>save</code> the settings.</p>
 <img src="/2020/12/14/20201215-nsg-visualize/03.flow_setting_04.png" class>
 
 <p>Oops. i have a problem like this.<br>I have to solve this problem for save the settings.</p>
 <img src="/2020/12/14/20201215-nsg-visualize/04.flow_error.png" class>
 
-<p>Open additional page in azure portal. then go to the Subscription &gt; Resource Providers.<br>and search ‘Microsoft.insights’. it’s not registered… Click ‘Register’.</p>
+<p>Open additional page in azure portal. then go to the <code>Subscription &gt; Resource Providers</code>.<br>And search <code>Microsoft.insights</code>. it’s not registered… Click <code>Register</code>.</p>
 <img src="/2020/12/14/20201215-nsg-visualize/05.provider_register.png" class>
 
-<p>check the change the status. good well.!</p>
+<p>Check the change the status. good well.!</p>
 <img src="/2020/12/14/20201215-nsg-visualize/05.provider_register_done.png" class>
 
 <p>And try save flow log settings again. it’s good working well.</p>
@@ -271,7 +271,7 @@ ga('send', 'pageview');
 <p>This is query editor. default query is setted automatically for search all row data.</p>
 <img src="/2020/12/14/20201215-nsg-visualize/08.traffic_query_editor.png" class>
 
-<p>I recommend just two additional code under the picture.<br>1, where condition. - you can search specific Ip, Port.<br>2, summarized. - you can aggregated data easily.</p>
+<p>I recommend just two additional code under the picture.<br>1, <code>where condition</code> - you can search specific Ip, Port.<br>2, <code>summarized</code> - you can aggregated data easily.</p>
 <img src="/2020/12/14/20201215-nsg-visualize/09.query_result.png" class>
 
 <p>Thanks</p>
@@ -362,7 +362,7 @@ ga('send', 'pageview');
         "url": "https://yy1111yang.github.io/2020/12/14/20201215-nsg-visualize/",
         "description": "We usually allow, block network flow using NSG in Azure.So, it’s very important to search NSG flow log.
 Today, we search NSG using Log analytics and Network Watcher in Azure portal.Before start, you r",
-        "wordCount": 298
+        "wordCount": 297
     }
 </script>
 
