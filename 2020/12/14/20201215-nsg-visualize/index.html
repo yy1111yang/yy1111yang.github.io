@@ -6,23 +6,32 @@
     
 
     
-    <title>Tag: Move | Azure Cloud Blog</title>
+    <title>How can search NSG flow log easily? | Azure Cloud Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="description" content="Azure Cloud Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Azure Cloud Blog">
-<meta property="og:url" content="https://yy1111yang.github.io/tags/Move/index.html">
+    <meta name="keywords" content="Cloud,Azure,NSG,Log Analytics">
+    
+    <meta name="description" content="We usually allow, block network flow using NSG in Azure.So, it’s very important to search NSG flow log. Today, we search NSG using Log analytics and Network Watcher in Azure portal.Before start, you r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How can search NSG flow log easily?">
+<meta property="og:url" content="https://yy1111yang.github.io/2020/12/14/20201215-nsg-visualize/index.html">
 <meta property="og:site_name" content="Azure Cloud Blog">
-<meta property="og:description" content="Azure Cloud Blog">
+<meta property="og:description" content="We usually allow, block network flow using NSG in Azure.So, it’s very important to search NSG flow log. Today, we search NSG using Log analytics and Network Watcher in Azure portal.Before start, you r">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yy1111yang.github.io/2020/12/14/20201215-nsg-visualize/01.show_nsg.png">
+<meta property="article:published_time" content="2020-12-14T15:23:51.000Z">
+<meta property="article:modified_time" content="2020-12-15T01:18:29.543Z">
 <meta property="article:author" content="Yong Yang">
-<meta property="article:tag" content="Cloud Azure Powershell">
+<meta property="article:tag" content="Cloud">
+<meta property="article:tag" content="Azure">
+<meta property="article:tag" content="NSG">
+<meta property="article:tag" content="Log Analytics">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yy1111yang.github.io/2020/12/14/20201215-nsg-visualize/01.show_nsg.png">
     
 	<!-- 대표 URL -->
-	<link rel="canonical" href="https://yy1111yang.github.io/tags/move/">
+	<link rel="canonical" href="https://yy1111yang.github.io/2020/12/14/20201215-nsg-visualize/">
 
     
 
@@ -165,55 +174,210 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-tag"></i>Tag: <em>Move</em>
+    <a class="page-title-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Azure/VM/">VM</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Azure/VM/NSG/">NSG</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-							
-
-    
-    
+							<article id="post-20201215-nsg-visualize" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2020" class="archive-year"><i class="icon fa fa-calendar-o"></i>2020</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Azure/VM/">VM</a>
-            </div>
-            <div class="date"><time datetime="2020-12-14T01:21:32.000Z" itemprop="datePublished">2020-12-14</time></div>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2020/12/14/20201214-az-vm-copy-other-sub/">How can i move vm to other subscription.</a>
+        How can search NSG flow log easily?
         </h1>
     
 
-        <p class="article-excerpt">
-            Hi. Sometimes we use POC subscription not PROD subscription.Then if you done POC, you move to resources include VM, LB, etc…Maybe VM move to another subscription not share tenant too difficult.
-So i t
-        </p>
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2020/12/14/20201215-nsg-visualize/" class="article-date">
+       <time datetime="2020-12-14T15:23:51.000Z" itemprop="datePublished">2020-12-15</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2020/12/14/20201215-nsg-visualize/" class="article-date">
+     <time datetime="2020-12-15T01:18:29.543Z" itemprop="dateModified">2020-12-15</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Azure/" rel="tag">Azure</a>, <a class="tag-link-link" href="/tags/Cloud/" rel="tag">Cloud</a>, <a class="tag-link-link" href="/tags/Log-Analytics/" rel="tag">Log Analytics</a>, <a class="tag-link-link" href="/tags/NSG/" rel="tag">NSG</a>
     </div>
-</article>
-    
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>We usually allow, block network flow using NSG in Azure.<br>So, it’s very important to search NSG flow log.</p>
+<p>Today, we search NSG using Log analytics and Network Watcher in Azure portal.<br>Before start, you ready one storage account to store NSG flow log.</p>
+<p>First, move the NSG panel, and click the ‘NSG Flow logs’<br>we know ‘status’ means log collect status, and ‘traffic Analytics’ means sending log data to log analytics</p>
+<img src="/2020/12/14/20201215-nsg-visualize/01.show_nsg.png" class>
+
+<p>Then, click the row, and enable Status.<br>I preffer version2, and select storage account to store log data before you crated.<br>Retention 0 is permanent.</p>
+<img src="/2020/12/14/20201215-nsg-visualize/02.flow_setting_01.png" class>
+
+<p>Scroll down, you can see Traffic Analytis Status.<br>Turn on Status.<br>and select interval. i think 1 hour is too long.</p>
+<img src="/2020/12/14/20201215-nsg-visualize/02.flow_setting_02.png" class>
+
+<p>And then select log analytics workspace. you don’t have it, you can create in here. don’t worry about it.</p>
+<img src="/2020/12/14/20201215-nsg-visualize/03.flow_setting_03.png" class>
+
+<p>then save the settings.</p>
+<img src="/2020/12/14/20201215-nsg-visualize/03.flow_setting_04.png" class>
+
+<p>Oops. i have a problem like this.<br>I have to solve this problem for save the settings.</p>
+<img src="/2020/12/14/20201215-nsg-visualize/04.flow_error.png" class>
+
+<p>Open additional page in azure portal. then go to the Subscription &gt; Resource Providers.<br>and search ‘Microsoft.insights’. it’s not registered… Click ‘Register’.</p>
+<img src="/2020/12/14/20201215-nsg-visualize/05.provider_register.png" class>
+
+<p>check the change the status. good well.!</p>
+<img src="/2020/12/14/20201215-nsg-visualize/05.provider_register_done.png" class>
+
+<p>And try save flow log settings again. it’s good working well.</p>
+<img src="/2020/12/14/20201215-nsg-visualize/06.nsg_flow_done.png" class>
+
+<p>So, it’s turn to search the log. move the network watcher &gt; Traffic Analytics.<br>Initial settings spend about 20,30 minunte like under picture.</p>
+<img src="/2020/12/14/20201215-nsg-visualize/07.show_network_watcher.png" class>
+
+<p>After about 20 min, you can check flow dashboard following picture.<br>it divided inbound, outbound.<br>and divided allow, block.<br>if you wanna search about this, click the bar. then move the query editor.</p>
+<img src="/2020/12/14/20201215-nsg-visualize/08.traffic_dashboard.png" class>
+
+<p>This is query editor. default query is setted automatically for search all row data.</p>
+<img src="/2020/12/14/20201215-nsg-visualize/08.traffic_query_editor.png" class>
+
+<p>I recommend just two additional code under the picture.<br>1, where condition. - you can search specific Ip, Port.<br>2, summarized. - you can aggregated data easily.</p>
+<img src="/2020/12/14/20201215-nsg-visualize/09.query_result.png" class>
+
+<p>Thanks</p>
+<h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3>
         </div>
+		<footer class="article-footer">
+            
+
+
+
+    <a data-url="https://yy1111yang.github.io/2020/12/14/20201215-nsg-visualize/" data-id="ckip9xjb700000jgd6i1c7nx1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Yong Yang"
+        },
+        "headline": "How can search NSG flow log easily?",
+        "image": "https://yy1111yang.github.io/2020/12/14/20201215-nsg-visualize/01.show_nsg.png",
+        "keywords": "Cloud Azure NSG Log Analytics",
+        "genre": "Azure VM NSG",
+        "datePublished": "2020-12-15",
+        "dateCreated": "2020-12-15",
+        "dateModified": "2020-12-15",
+        "url": "https://yy1111yang.github.io/2020/12/14/20201215-nsg-visualize/",
+        "description": "We usually allow, block network flow using NSG in Azure.So, it’s very important to search NSG flow log.
+Today, we search NSG using Log analytics and Network Watcher in Azure portal.Before start, you r",
+        "wordCount": 298
+    }
+</script>
+
+</article>
+
+    <section id="comments">
     
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
 
 
-    </div></section>
+    
+    </section>
 
 
 
@@ -237,6 +401,19 @@ So i t
     </div>
 	
 	
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2020/12/14/20201214-az-vm-copy-other-sub/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">How can i move vm to other subscription.</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
     <div class="widgets-container">
         
             
@@ -392,11 +569,13 @@ So i t
     var disqus_shortname = 'hexo-theme-hueman';
     
     
+    var disqus_url = 'https://yy1111yang.github.io/2020/12/14/20201215-nsg-visualize/';
+    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>

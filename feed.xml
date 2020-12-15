@@ -9,8 +9,45 @@
     <atom:link href="https://yy1111yang.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>Azure Cloud Blog</description>
-    <pubDate>Tue, 15 Dec 2020 00:19:47 GMT</pubDate>
+    <pubDate>Tue, 15 Dec 2020 01:18:29 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>How can search NSG flow log easily?</title>
+      <link>https://yy1111yang.github.io/2020/12/14/20201215-nsg-visualize/</link>
+      <guid>https://yy1111yang.github.io/2020/12/14/20201215-nsg-visualize/</guid>
+      <pubDate>Mon, 14 Dec 2020 15:23:51 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;We usually allow, block network flow using NSG in Azure.&lt;br&gt;So, it’s very important to search NSG flow log.&lt;/p&gt;
+&lt;p&gt;Today, we search NSG u</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>We usually allow, block network flow using NSG in Azure.<br>So, it’s very important to search NSG flow log.</p><p>Today, we search NSG using Log analytics and Network Watcher in Azure portal.<br>Before start, you ready one storage account to store NSG flow log.</p><p>First, move the NSG panel, and click the ‘NSG Flow logs’<br>we know ‘status’ means log collect status, and ‘traffic Analytics’ means sending log data to log analytics</p><img src="/2020/12/14/20201215-nsg-visualize/01.show_nsg.png" class=""><p>Then, click the row, and enable Status.<br>I preffer version2, and select storage account to store log data before you crated.<br>Retention 0 is permanent.</p><img src="/2020/12/14/20201215-nsg-visualize/02.flow_setting_01.png" class=""><p>Scroll down, you can see Traffic Analytis Status.<br>Turn on Status.<br>and select interval. i think 1 hour is too long.</p><img src="/2020/12/14/20201215-nsg-visualize/02.flow_setting_02.png" class=""><p>And then select log analytics workspace. you don’t have it, you can create in here. don’t worry about it.</p><img src="/2020/12/14/20201215-nsg-visualize/03.flow_setting_03.png" class=""><p>then save the settings.</p><img src="/2020/12/14/20201215-nsg-visualize/03.flow_setting_04.png" class=""><p>Oops. i have a problem like this.<br>I have to solve this problem for save the settings.</p><img src="/2020/12/14/20201215-nsg-visualize/04.flow_error.png" class=""><p>Open additional page in azure portal. then go to the Subscription &gt; Resource Providers.<br>and search ‘Microsoft.insights’. it’s not registered… Click ‘Register’.</p><img src="/2020/12/14/20201215-nsg-visualize/05.provider_register.png" class=""><p>check the change the status. good well.!</p><img src="/2020/12/14/20201215-nsg-visualize/05.provider_register_done.png" class=""><p>And try save flow log settings again. it’s good working well.</p><img src="/2020/12/14/20201215-nsg-visualize/06.nsg_flow_done.png" class=""><p>So, it’s turn to search the log. move the network watcher &gt; Traffic Analytics.<br>Initial settings spend about 20,30 minunte like under picture.</p><img src="/2020/12/14/20201215-nsg-visualize/07.show_network_watcher.png" class=""><p>After about 20 min, you can check flow dashboard following picture.<br>it divided inbound, outbound.<br>and divided allow, block.<br>if you wanna search about this, click the bar. then move the query editor.</p><img src="/2020/12/14/20201215-nsg-visualize/08.traffic_dashboard.png" class=""><p>This is query editor. default query is setted automatically for search all row data.</p><img src="/2020/12/14/20201215-nsg-visualize/08.traffic_query_editor.png" class=""><p>I recommend just two additional code under the picture.<br>1, where condition. - you can search specific Ip, Port.<br>2, summarized. - you can aggregated data easily.</p><img src="/2020/12/14/20201215-nsg-visualize/09.query_result.png" class=""><p>Thanks</p><h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3>]]></content:encoded>
+      
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/VM/">VM</category>
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/VM/NSG/">NSG</category>
+      
+      
+      <category domain="https://yy1111yang.github.io/tags/Cloud/">Cloud</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/NSG/">NSG</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Log-Analytics/">Log Analytics</category>
+      
+      
+      <comments>https://yy1111yang.github.io/2020/12/14/20201215-nsg-visualize/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>How can i move vm to other subscription.</title>
