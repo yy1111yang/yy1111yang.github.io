@@ -9,8 +9,42 @@
     <atom:link href="https://yy1111yang.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>Azure Cloud Blog</description>
-    <pubDate>Tue, 15 Dec 2020 06:41:02 GMT</pubDate>
+    <pubDate>Wed, 16 Dec 2020 05:44:44 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Latency Check bentween  Azure VM</title>
+      <link>https://yy1111yang.github.io/2020/12/15/20201216-latte-test/</link>
+      <guid>https://yy1111yang.github.io/2020/12/15/20201216-latte-test/</guid>
+      <pubDate>Tue, 15 Dec 2020 19:30:42 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;This time, Check Latency between Azure VM.&lt;br&gt;And i use &lt;code&gt;latte&lt;/code&gt; for check latency.&lt;br&gt;&lt;a href=&quot;https://gallery.technet.microso</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>This time, Check Latency between Azure VM.<br>And i use <code>latte</code> for check latency.<br><a href="https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b">latte download</a></p><p><strong>Ready two virtual machine. one is src VM. Other one is Target VM.</strong></p><img src="/2020/12/15/20201216-latte-test/01.show_vm.png" class=""><p>And Target VM allow firewall about <code>latte</code>.<br>So, execute under command.</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">netsh advfirewall firewall add rule program=&lt;<span class="built_in">path</span>&gt;\latte.exe name=&quot;Latte&quot; protocol=any <span class="built_in">dir</span>=<span class="keyword">in</span> action=allow enable=yes profile=ANY</span><br><span class="line"></span><br><span class="line">netsh advfirewall firewall add rule program=c:\tools\latte.exe name=&quot;Latte&quot; protocol=any <span class="built_in">dir</span>=<span class="keyword">in</span> action=allow enable=yes profile=ANY</span><br></pre></td></tr></table></figure><img src="/2020/12/15/20201216-latte-test/02.firewall_set.png" class=""><p><strong>Start Latte in Target VM</strong></p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">latte -a &lt;Receiver IP address&gt;:&lt;port&gt; -i &lt;iterations&gt;</span><br><span class="line"></span><br><span class="line">latte -a <span class="number">10</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">5</span>:<span class="number">5005</span> -i <span class="number">65100</span></span><br></pre></td></tr></table></figure><p><strong>Execute Command in CMD</strong></p><img src="/2020/12/15/20201216-latte-test/03.target_latte_show.png" class=""><p><strong>Start Latte in Src VM</strong></p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">latte -c -a &lt;Receiver IP address&gt;:&lt;port&gt; -i &lt;iterations&gt;</span><br><span class="line"></span><br><span class="line">latte -c -a <span class="number">10</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">5</span>:<span class="number">5005</span> -i <span class="number">65100</span></span><br></pre></td></tr></table></figure><p><strong>Execute Command in CMD</strong><br>We Check latency <code>551.19(usec)</code> between VMs</p><img src="/2020/12/15/20201216-latte-test/04.sender_latte_show.png" class=""><p>And i <strong>enable Network Accelerate.</strong><br>It’s only turn on using CLI not portal. </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$list &#x3D; az network nic list | ConvertFrom-Json</span><br><span class="line">foreach($item in $list) &#123;</span><br><span class="line">az network nic update --accelerated-networking true -n $item.name -g $item.resourceGroup --no-wait</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><img src="/2020/12/15/20201216-latte-test/05.accelerate_nic.png" class=""><p>Also, We can check value in portal in below.</p><img src="/2020/12/15/20201216-latte-test/05.check_nic.png" class=""><p>And I test latte again.<br>Result <code>Turn on Network Accelerate - 97.36(usec)</code></p><img src="/2020/12/15/20201216-latte-test/06.latte_test_accelerate_nic.png" class=""><p>For more faster, I Create** Proximity_placement_group**</p><img src="/2020/12/15/20201216-latte-test/07.create_proximity.png" class=""><p>Type the name.</p><img src="/2020/12/15/20201216-latte-test/07.create_proximity_02.png" class=""><p>Set Proximity_placement_group in two VM.<br><code>VM &gt; Configuration &gt; Proximity_placement_group</code></p><img src="/2020/12/15/20201216-latte-test/08.set_proximity.png" class=""><p>Result <code>Configure Proximity_Group and Network Accelerate</code></p><img src="/2020/12/15/20201216-latte-test/09.latte_test_proximity.png" class=""><p>And I additional test only configure Proximity_placement_group without network accelerate.</p><img src="/2020/12/15/20201216-latte-test/10.latte_test_only_proximity.png" class=""><p>Then I summary today result belo table. thanks.</p><table><thead><tr><th>Case</th><th align="right">Latency(usec)</th></tr></thead><tbody><tr><td><code>default</code></td><td align="right"><code>551.19</code></td></tr><tr><td><code>NIC Accelerate</code></td><td align="right"><code>97.36</code></td></tr><tr><td><code>Proximity_placement_group</code></td><td align="right"><code>303.51</code></td></tr><tr><td><code>Nic Accelerate + Proximity_placement_group</code></td><td align="right"><code>83.91</code></td></tr></tbody></table><h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3>]]></content:encoded>
+      
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/VM/">VM</category>
+      
+      
+      <category domain="https://yy1111yang.github.io/tags/Cloud/">Cloud</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Network/">Network</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Latency/">Latency</category>
+      
+      
+      <comments>https://yy1111yang.github.io/2020/12/15/20201216-latte-test/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>How can search NSG flow log easily?</title>
