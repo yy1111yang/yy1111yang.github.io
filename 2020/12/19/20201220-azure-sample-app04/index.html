@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="Cloud,Azure,StaticWeb,Function,Cosmos">
     
-    <meta name="description" content="Related PostsAzure app architecure - Summary  Azure app architecure - step01    Azure app architecure - step02  Azure app architecure - step03  Azure app architecure - step05">
+    <meta name="description" content="create Vue.js in local.  Install vue-cli using cmd. 12npm install @vue&#x2F;cli -gnpm i -g @vue&#x2F;cli-init  Create Vue-Project using vue-cli. 1vue init webpack user-frontend  And enter value you want.I enter">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Azure app architecure - step04">
 <meta property="og:url" content="https://yy1111yang.github.io/2020/12/19/20201220-azure-sample-app04/index.html">
 <meta property="og:site_name" content="Azure Cloud Blog">
-<meta property="og:description" content="Related PostsAzure app architecure - Summary  Azure app architecure - step01    Azure app architecure - step02  Azure app architecure - step03  Azure app architecure - step05">
+<meta property="og:description" content="create Vue.js in local.  Install vue-cli using cmd. 12npm install @vue&#x2F;cli -gnpm i -g @vue&#x2F;cli-init  Create Vue-Project using vue-cli. 1vue init webpack user-frontend  And enter value you want.I enter">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://yy1111yang.github.io/2020/12/19/20201220-azure-sample-app04/02.step04.png">
 <meta property="article:published_time" content="2020-12-19T18:54:03.000Z">
-<meta property="article:modified_time" content="2020-12-20T04:07:46.560Z">
+<meta property="article:modified_time" content="2020-12-20T08:34:03.162Z">
 <meta property="article:author" content="Yong Yang">
 <meta property="article:tag" content="Cloud">
 <meta property="article:tag" content="Azure">
@@ -207,7 +207,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2020/12/19/20201220-azure-sample-app04/" class="article-date">
-     <time datetime="2020-12-20T04:07:46.560Z" itemprop="dateModified">2020-12-20</time>
+     <time datetime="2020-12-20T08:34:03.162Z" itemprop="dateModified">2020-12-20</time>
   </a>
 </div>
 
@@ -234,8 +234,42 @@ ga('send', 'pageview');
 
             
 
-            <img src="/2020/12/19/20201220-azure-sample-app04/02.step04.png" class>
+            <h3 id="create-Vue-js-in-local"><a href="#create-Vue-js-in-local" class="headerlink" title="create Vue.js in local."></a>create Vue.js in local.</h3><img src="/2020/12/19/20201220-azure-sample-app04/02.step04.png" class>
 
+<p><strong>Install</strong> vue-cli using cmd.</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install @vue/cli -g</span><br><span class="line">npm i -g @vue/cli-init</span><br></pre></td></tr></table></figure>
+
+<p>Create <strong>Vue-Project</strong> using vue-cli.</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue init webpack user-frontend</span><br></pre></td></tr></table></figure>
+
+<p>And enter value you want.<br>I enter defalult vaules.</p>
+<p>After created project, execute vue project using cmd.</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> user-frontend</span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+
+<img src="/2020/12/19/20201220-azure-sample-app04/01.test_default_screen.png" class>
+
+<p><strong>Add axios Module</strong></p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install axios@<span class="number">0</span>.<span class="number">21</span>.<span class="number">0</span> --save</span><br></pre></td></tr></table></figure>
+
+<p>And change code in <code>src\main.js</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>	<span class="comment">// import axios</span></span><br><span class="line"></span><br><span class="line">Vue.config.productionTip = <span class="literal">false</span></span><br><span class="line">Vue.prototype.axios = axios <span class="comment">// configure axios</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  render: <span class="function"><span class="params">h</span> =&gt;</span> h(App),</span><br><span class="line">&#125;).$mount(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>And remove the code <code>&lt;img src=&quot;./assets/logo.png&quot;&gt;</code> in <code>src/App.vue</code> for remove img.</p>
+<p>And change the code in <code>src\components\HelloWorld.vue</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">    &lt;button v-on:click&#x3D;&quot;findUser&quot;&gt;Search User&lt;&#x2F;button&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;example&quot;&gt;</span><br><span class="line">        &lt;table id&#x3D;&quot;userList&quot;&gt;</span><br><span class="line">            &lt;thead&gt;</span><br><span class="line">                &lt;tr&gt;</span><br><span class="line">                    &lt;th&gt;Name&lt;&#x2F;th&gt;</span><br><span class="line">                    &lt;th&gt;Age&lt;&#x2F;th&gt;</span><br><span class="line">                    &lt;th&gt;Sex&lt;&#x2F;th&gt;</span><br><span class="line">                &lt;&#x2F;tr&gt;</span><br><span class="line">            &lt;&#x2F;thead&gt;</span><br><span class="line">            &lt;tbody id&#x3D;&quot;contacts&quot;&gt;</span><br><span class="line">                &lt;tr v-for&#x3D;&quot;user in users&quot; v-bind:key&#x3D;&quot;user.name&quot;&gt;</span><br><span class="line">                    &lt;td&gt;&#123;&#123;user.name&#125;&#125;&lt;&#x2F;td&gt;</span><br><span class="line">                    &lt;td&gt;&#123;&#123;user.age&#125;&#125;&lt;&#x2F;td&gt;</span><br><span class="line">                    &lt;td&gt;&#123;&#123;user.sex&#125;&#125;&lt;&#x2F;td&gt;</span><br><span class="line">                &lt;&#x2F;tr&gt;</span><br><span class="line">            &lt;&#x2F;tbody&gt;</span><br><span class="line">        &lt;&#x2F;table&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#39;app&#39;,</span><br><span class="line">  data: function () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      users: []</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    findUser: function () &#123;</span><br><span class="line">      &#x2F;&#x2F;const baseURI &#x3D; &#39;http:&#x2F;&#x2F;localhost:7071&#x2F;api&#39;;</span><br><span class="line">      const baseURI &#x3D; &lt;function endpoint&gt; &#x2F;&#x2F; change user URL</span><br><span class="line">      this.axios.get(&#96;$&#123;baseURI&#125;&#x2F;find-user&#96;)</span><br><span class="line">      .then((result) &#x3D;&gt; &#123;</span><br><span class="line">        this.users &#x3D; result.data</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">#app &#123;</span><br><span class="line">  font-family: &#39;Avenir&#39;, Helvetica, Arial, sans-serif;</span><br><span class="line">  -webkit-font-smoothing: antialiased;</span><br><span class="line">  -moz-osx-font-smoothing: grayscale;</span><br><span class="line">  color: #2c3e50;</span><br><span class="line">  max-width: 560px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>And retry exectue vue server.</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+<p>We find changed screen like this.<br>Then if we click button named <strong>Search User</strong>, <strong>occur error</strong> like this.</p>
+<img src="/2020/12/19/20201220-azure-sample-app04/02.change_screen.png" class>
+
+<p>To solve this problem, you enable CORS in Azure Function in portal.<br><strong>Enable Access-control-Allow-Credential</strong><br><strong>Add localhost:8080</strong><br>Then save.</p>
+<img src="/2020/12/19/20201220-azure-sample-app04/03.enable_cors.png" class>
+
+<p>After change, we retry click button, then we return data successfully.</p>
+<img src="/2020/12/19/20201220-azure-sample-app04/04.get_result.png" class>
+
+<p><strong>We finish make a simple vue project in local.</strong></p>
 <h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3><a href="/2020/12/19/20201220-azure-sample-app/" title="Azure app architecure - Summary">Azure app architecure - Summary</a> <br>
 <a href="/2020/12/19/20201220-azure-sample-app01/" title="Azure app architecure - step01">Azure app architecure - step01</a> <br>  
 <a href="/2020/12/19/20201220-azure-sample-app02/" title="Azure app architecure - step02">Azure app architecure - step02</a> <br>
@@ -325,14 +359,16 @@ ga('send', 'pageview');
         "dateCreated": "2020-12-20",
         "dateModified": "2020-12-20",
         "url": "https://yy1111yang.github.io/2020/12/19/20201220-azure-sample-app04/",
-        "description": "
+        "description": "create Vue.js in local.
 
-Related PostsAzure app architecure - Summary 
-Azure app architecure - step01   
-Azure app architecure - step02 
-Azure app architecure - step03 
-Azure app architecure - step05",
-        "wordCount": 65
+Install vue-cli using cmd.
+12npm install @vue/cli -gnpm i -g @vue/cli-init
+
+Create Vue-Project using vue-cli.
+1vue init webpack user-frontend
+
+And enter value you want.I enter",
+        "wordCount": 820
     }
 </script>
 
