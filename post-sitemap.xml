@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://yy1111yang.github.io/2020/12/19/20201220-azure-sample-app05/</loc>
+        <lastmod>2020-12-20T08:57:35.451Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://yy1111yang.github.io/2020/12/19/20201220-azure-sample-app04/</loc>
         <lastmod>2020-12-20T08:34:03.162Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -43,14 +51,6 @@
     <url>
         <loc>https://yy1111yang.github.io/2020/12/19/20201220-azure-sample-app/</loc>
         <lastmod>2020-12-20T04:09:05.950Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://yy1111yang.github.io/2020/12/19/20201220-azure-sample-app05/</loc>
-        <lastmod>2020-12-20T04:07:50.939Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

@@ -9,7 +9,7 @@
     <atom:link href="https://yy1111yang.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>Azure Cloud Blog</description>
-    <pubDate>Sun, 20 Dec 2020 04:07:50 GMT</pubDate>
+    <pubDate>Sun, 20 Dec 2020 08:57:35 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -20,14 +20,12 @@
       
         
         
-      <description>&lt;img src=&quot;/2020/12/19/20201220-azure-sample-app05/02.step05.png&quot; class=&quot;&quot;&gt;
-
-&lt;h3 id=&quot;Related-Posts&quot;&gt;&lt;a href=&quot;#Related-Posts&quot; class=&quot;headerlin</description>
+      <description>&lt;h3 id=&quot;deploy-Vue-js-to-Azure-Static-Web&quot;&gt;&lt;a href=&quot;#deploy-Vue-js-to-Azure-Static-Web&quot; class=&quot;headerlink&quot; title=&quot;deploy Vue.js to Azure Sta</description>
         
       
       
       
-      <content:encoded><![CDATA[<img src="/2020/12/19/20201220-azure-sample-app05/02.step05.png" class=""><h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3><a href="/2020/12/19/20201220-azure-sample-app/" title="Azure app architecure - Summary">Azure app architecure - Summary</a> <br><a href="/2020/12/19/20201220-azure-sample-app01/" title="Azure app architecure - step01">Azure app architecure - step01</a> <br>  <a href="/2020/12/19/20201220-azure-sample-app02/" title="Azure app architecure - step02">Azure app architecure - step02</a> <br><a href="/2020/12/19/20201220-azure-sample-app03/" title="Azure app architecure - step03">Azure app architecure - step03</a> <br><a href="/2020/12/19/20201220-azure-sample-app04/" title="Azure app architecure - step04">Azure app architecure - step04</a>]]></content:encoded>
+      <content:encoded><![CDATA[<h3 id="deploy-Vue-js-to-Azure-Static-Web"><a href="#deploy-Vue-js-to-Azure-Static-Web" class="headerlink" title="deploy Vue.js to Azure Static Web."></a>deploy Vue.js to Azure Static Web.</h3><img src="/2020/12/19/20201220-azure-sample-app05/02.step05.png" class=""><p><strong>Create empty azure storage account.</strong></p><img src="/2020/12/19/20201220-azure-sample-app05/01.create_storage.png" class=""><p><strong>Enable Static Web Site</strong></p><img src="/2020/12/19/20201220-azure-sample-app05/02.set_web_static.png" class=""><p><strong>Get Endpoint URL</strong></p><img src="/2020/12/19/20201220-azure-sample-app05/03.get_endpoint.png" class=""><p><strong>Build Vue project</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure><p>After build, create <code>\dist</code> folder.<br>And we move this folder to $web container in storage account.</p><p>We can use <strong>Storage Explorer</strong>.<br><a href="https://azure.microsoft.com/ko-kr/features/storage-explorer/">Storage Explorer Download</a></p><p>After install Explorer, connect your storage before you created.<br>Then move <strong>Blob container &gt; $web</strong></p><img src="/2020/12/19/20201220-azure-sample-app05/04.storage_explorer.png" class=""><p>And  <strong>drag and drop</strong> all files in build path <code>dist\</code> to right panel.</p><img src="/2020/12/19/20201220-azure-sample-app05/05.storage_explorer_02.png" class=""><p>Then open the browser, then move the endpoint at storage static web.<br>But when we click the button <strong>Search User</strong>, we return <strong>error message about CORS.</strong></p><img src="/2020/12/19/20201220-azure-sample-app05/06.test_web.png" class=""><p>So, we added web endpoint in Azure Function.</p><img src="/2020/12/19/20201220-azure-sample-app05/07.add_cors.png" class=""><p><strong>Finall, we connect successfully.</strong></p><img src="/2020/12/19/20201220-azure-sample-app05/08.test_success.png" class=""><p><strong>Thanks</strong></p><h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3><a href="/2020/12/19/20201220-azure-sample-app/" title="Azure app architecure - Summary">Azure app architecure - Summary</a> <br><a href="/2020/12/19/20201220-azure-sample-app01/" title="Azure app architecure - step01">Azure app architecure - step01</a> <br>  <a href="/2020/12/19/20201220-azure-sample-app02/" title="Azure app architecure - step02">Azure app architecure - step02</a> <br><a href="/2020/12/19/20201220-azure-sample-app03/" title="Azure app architecure - step03">Azure app architecure - step03</a> <br><a href="/2020/12/19/20201220-azure-sample-app04/" title="Azure app architecure - step04">Azure app architecure - step04</a>]]></content:encoded>
       
       
       <category domain="https://yy1111yang.github.io/categories/Azure/">Azure</category>
