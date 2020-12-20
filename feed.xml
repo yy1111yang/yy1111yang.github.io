@@ -9,8 +9,235 @@
     <atom:link href="https://yy1111yang.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>Azure Cloud Blog</description>
-    <pubDate>Wed, 16 Dec 2020 05:44:44 GMT</pubDate>
+    <pubDate>Sun, 20 Dec 2020 04:07:50 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Azure app architecure - step05</title>
+      <link>https://yy1111yang.github.io/2020/12/19/20201220-azure-sample-app05/</link>
+      <guid>https://yy1111yang.github.io/2020/12/19/20201220-azure-sample-app05/</guid>
+      <pubDate>Sat, 19 Dec 2020 18:54:09 GMT</pubDate>
+      
+        
+        
+      <description>&lt;img src=&quot;/2020/12/19/20201220-azure-sample-app05/02.step05.png&quot; class=&quot;&quot;&gt;
+
+&lt;h3 id=&quot;Related-Posts&quot;&gt;&lt;a href=&quot;#Related-Posts&quot; class=&quot;headerlin</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<img src="/2020/12/19/20201220-azure-sample-app05/02.step05.png" class=""><h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3><a href="/2020/12/19/20201220-azure-sample-app/" title="Azure app architecure">Azure app architecure</a> <br><a href="/2020/12/19/20201220-azure-sample-app01/" title="Azure app architecure - step01">Azure app architecure - step01</a> <br>  <a href="/2020/12/19/20201220-azure-sample-app02/" title="Azure app architecure - step02">Azure app architecure - step02</a> <br><a href="/2020/12/19/20201220-azure-sample-app03/" title="Azure app architecure - step03">Azure app architecure - step03</a> <br><a href="/2020/12/19/20201220-azure-sample-app04/" title="Azure app architecure - step04">Azure app architecure - step04</a>]]></content:encoded>
+      
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/Function/">Function</category>
+      
+      
+      <category domain="https://yy1111yang.github.io/tags/Cloud/">Cloud</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/StaticWeb/">StaticWeb</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Function/">Function</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Cosmos/">Cosmos</category>
+      
+      
+      <comments>https://yy1111yang.github.io/2020/12/19/20201220-azure-sample-app05/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Azure app architecure - step04</title>
+      <link>https://yy1111yang.github.io/2020/12/19/20201220-azure-sample-app04/</link>
+      <guid>https://yy1111yang.github.io/2020/12/19/20201220-azure-sample-app04/</guid>
+      <pubDate>Sat, 19 Dec 2020 18:54:03 GMT</pubDate>
+      
+        
+        
+      <description>&lt;img src=&quot;/2020/12/19/20201220-azure-sample-app04/02.step04.png&quot; class=&quot;&quot;&gt;
+
+&lt;h3 id=&quot;Related-Posts&quot;&gt;&lt;a href=&quot;#Related-Posts&quot; class=&quot;headerlin</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<img src="/2020/12/19/20201220-azure-sample-app04/02.step04.png" class=""><h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3><a href="/2020/12/19/20201220-azure-sample-app/" title="Azure app architecure">Azure app architecure</a> <br><a href="/2020/12/19/20201220-azure-sample-app01/" title="Azure app architecure - step01">Azure app architecure - step01</a> <br>  <a href="/2020/12/19/20201220-azure-sample-app02/" title="Azure app architecure - step02">Azure app architecure - step02</a> <br><a href="/2020/12/19/20201220-azure-sample-app03/" title="Azure app architecure - step03">Azure app architecure - step03</a> <br><a href="/2020/12/19/20201220-azure-sample-app05/" title="Azure app architecure - step05">Azure app architecure - step05</a>]]></content:encoded>
+      
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/Function/">Function</category>
+      
+      
+      <category domain="https://yy1111yang.github.io/tags/Cloud/">Cloud</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/StaticWeb/">StaticWeb</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Function/">Function</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Cosmos/">Cosmos</category>
+      
+      
+      <comments>https://yy1111yang.github.io/2020/12/19/20201220-azure-sample-app04/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Azure app architecure - step03</title>
+      <link>https://yy1111yang.github.io/2020/12/19/20201220-azure-sample-app03/</link>
+      <guid>https://yy1111yang.github.io/2020/12/19/20201220-azure-sample-app03/</guid>
+      <pubDate>Sat, 19 Dec 2020 18:53:55 GMT</pubDate>
+      
+        
+        
+      <description>&lt;img src=&quot;/2020/12/19/20201220-azure-sample-app03/02.step03.png&quot; class=&quot;&quot;&gt;
+
+&lt;h3 id=&quot;Related-Posts&quot;&gt;&lt;a href=&quot;#Related-Posts&quot; class=&quot;headerlin</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<img src="/2020/12/19/20201220-azure-sample-app03/02.step03.png" class=""><h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3><a href="/2020/12/19/20201220-azure-sample-app/" title="Azure app architecure">Azure app architecure</a> <br><a href="/2020/12/19/20201220-azure-sample-app01/" title="Azure app architecure - step01">Azure app architecure - step01</a> <br>  <a href="/2020/12/19/20201220-azure-sample-app02/" title="Azure app architecure - step02">Azure app architecure - step02</a> <br><a href="/2020/12/19/20201220-azure-sample-app04/" title="Azure app architecure - step04">Azure app architecure - step04</a> <br><a href="/2020/12/19/20201220-azure-sample-app05/" title="Azure app architecure - step05">Azure app architecure - step05</a>]]></content:encoded>
+      
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/Function/">Function</category>
+      
+      
+      <category domain="https://yy1111yang.github.io/tags/Cloud/">Cloud</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/StaticWeb/">StaticWeb</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Function/">Function</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Cosmos/">Cosmos</category>
+      
+      
+      <comments>https://yy1111yang.github.io/2020/12/19/20201220-azure-sample-app03/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Azure app architecure - step02</title>
+      <link>https://yy1111yang.github.io/2020/12/19/20201220-azure-sample-app02/</link>
+      <guid>https://yy1111yang.github.io/2020/12/19/20201220-azure-sample-app02/</guid>
+      <pubDate>Sat, 19 Dec 2020 18:53:47 GMT</pubDate>
+      
+        
+        
+      <description>&lt;img src=&quot;/2020/12/19/20201220-azure-sample-app02/02.step02.png&quot; class=&quot;&quot;&gt;
+
+&lt;h3 id=&quot;Related-Posts&quot;&gt;&lt;a href=&quot;#Related-Posts&quot; class=&quot;headerlin</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<img src="/2020/12/19/20201220-azure-sample-app02/02.step02.png" class=""><h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3><a href="/2020/12/19/20201220-azure-sample-app/" title="Azure app architecure">Azure app architecure</a> <br><a href="/2020/12/19/20201220-azure-sample-app01/" title="Azure app architecure - step01">Azure app architecure - step01</a> <br>  <a href="/2020/12/19/20201220-azure-sample-app03/" title="Azure app architecure - step03">Azure app architecure - step03</a> <br><a href="/2020/12/19/20201220-azure-sample-app04/" title="Azure app architecure - step04">Azure app architecure - step04</a> <br><a href="/2020/12/19/20201220-azure-sample-app05/" title="Azure app architecure - step05">Azure app architecure - step05</a>]]></content:encoded>
+      
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/Function/">Function</category>
+      
+      
+      <category domain="https://yy1111yang.github.io/tags/Cloud/">Cloud</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/StaticWeb/">StaticWeb</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Function/">Function</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Cosmos/">Cosmos</category>
+      
+      
+      <comments>https://yy1111yang.github.io/2020/12/19/20201220-azure-sample-app02/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Azure app architecure - step01</title>
+      <link>https://yy1111yang.github.io/2020/12/19/20201220-azure-sample-app01/</link>
+      <guid>https://yy1111yang.github.io/2020/12/19/20201220-azure-sample-app01/</guid>
+      <pubDate>Sat, 19 Dec 2020 18:53:40 GMT</pubDate>
+      
+        
+        
+      <description>&lt;img src=&quot;/2020/12/19/20201220-azure-sample-app01/02.step01.png&quot; class=&quot;&quot;&gt;
+
+&lt;h3 id=&quot;Related-Posts&quot;&gt;&lt;a href=&quot;#Related-Posts&quot; class=&quot;headerlin</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<img src="/2020/12/19/20201220-azure-sample-app01/02.step01.png" class=""><h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3><a href="/2020/12/19/20201220-azure-sample-app/" title="Azure app architecure">Azure app architecure</a> <br><a href="/2020/12/19/20201220-azure-sample-app02/" title="Azure app architecure - step02">Azure app architecure - step02</a> <br><a href="/2020/12/19/20201220-azure-sample-app03/" title="Azure app architecure - step03">Azure app architecure - step03</a> <br><a href="/2020/12/19/20201220-azure-sample-app04/" title="Azure app architecure - step04">Azure app architecure - step04</a> <br><a href="/2020/12/19/20201220-azure-sample-app05/" title="Azure app architecure - step05">Azure app architecure - step05</a>]]></content:encoded>
+      
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/Function/">Function</category>
+      
+      
+      <category domain="https://yy1111yang.github.io/tags/Cloud/">Cloud</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/StaticWeb/">StaticWeb</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Function/">Function</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Cosmos/">Cosmos</category>
+      
+      
+      <comments>https://yy1111yang.github.io/2020/12/19/20201220-azure-sample-app01/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Azure app architecure - Summary</title>
+      <link>https://yy1111yang.github.io/2020/12/19/20201220-azure-sample-app/</link>
+      <guid>https://yy1111yang.github.io/2020/12/19/20201220-azure-sample-app/</guid>
+      <pubDate>Sat, 19 Dec 2020 18:36:27 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;I recently made a simple application for study.&lt;br&gt;and i share this post.&lt;/p&gt;
+&lt;h5 id=&quot;Final-Architecture&quot;&gt;&lt;a href=&quot;#Final-Architecture&quot; c</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>I recently made a simple application for study.<br>and i share this post.</p><h5 id="Final-Architecture"><a href="#Final-Architecture" class="headerlink" title="Final Architecture"></a>Final Architecture</h5><img src="/2020/12/19/20201220-azure-sample-app/02.final_arch.png" class=""><hr><p><strong>Price per month at koreacentral.</strong> <a href="https://azure.microsoft.com/en-us/pricing/calculator/">Azure Calculator</a></p><img src="/2020/12/19/20201220-azure-sample-app/01.azure_price.png" class=""><hr><p><strong>There is 5 step</strong></p><img src="/2020/12/19/20201220-azure-sample-app/02.step01.png" class=""><hr><img src="/2020/12/19/20201220-azure-sample-app/02.step02.png" class=""><hr><img src="/2020/12/19/20201220-azure-sample-app/02.step03.png" class=""><hr><img src="/2020/12/19/20201220-azure-sample-app/02.step04.png" class=""><hr><img src="/2020/12/19/20201220-azure-sample-app/02.step05.png" class=""><h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3><a href="/2020/12/19/20201220-azure-sample-app01/" title="Azure app architecure - step01">Azure app architecure - step01</a> <br>  <a href="/2020/12/19/20201220-azure-sample-app02/" title="Azure app architecure - step02">Azure app architecure - step02</a> <br><a href="/2020/12/19/20201220-azure-sample-app03/" title="Azure app architecure - step03">Azure app architecure - step03</a> <br><a href="/2020/12/19/20201220-azure-sample-app04/" title="Azure app architecure - step04">Azure app architecure - step04</a> <br><a href="/2020/12/19/20201220-azure-sample-app05/" title="Azure app architecure - step05">Azure app architecure - step05</a>]]></content:encoded>
+      
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/Function/">Function</category>
+      
+      
+      <category domain="https://yy1111yang.github.io/tags/Cloud/">Cloud</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/StaticWeb/">StaticWeb</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Function/">Function</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Cosmos/">Cosmos</category>
+      
+      
+      <comments>https://yy1111yang.github.io/2020/12/19/20201220-azure-sample-app/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Latency Check bentween  Azure VM</title>
