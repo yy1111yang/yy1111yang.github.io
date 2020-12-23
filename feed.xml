@@ -9,8 +9,44 @@
     <atom:link href="https://yy1111yang.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>Azure Cloud Blog</description>
-    <pubDate>Tue, 22 Dec 2020 01:57:21 GMT</pubDate>
+    <pubDate>Wed, 23 Dec 2020 06:45:30 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Chocolatey install, configure</title>
+      <link>https://yy1111yang.github.io/2020/12/22/20201223-install-chocolatey/</link>
+      <guid>https://yy1111yang.github.io/2020/12/22/20201223-install-chocolatey/</guid>
+      <pubDate>Tue, 22 Dec 2020 18:54:09 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h5 id=&quot;Set-Tls-1-2&quot;&gt;&lt;a href=&quot;#Set-Tls-1-2&quot; class=&quot;headerlink&quot; title=&quot;Set Tls 1.2&quot;&gt;&lt;/a&gt;Set Tls 1.2&lt;/h5&gt;&lt;figure class=&quot;highlight powershell&quot;&gt;</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h5 id="Set-Tls-1-2"><a href="#Set-Tls-1-2" class="headerlink" title="Set Tls 1.2"></a>Set Tls 1.2</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[<span class="type">Enum</span>]::GetNames([<span class="type">Net.SecurityProtocolType</span>]) <span class="operator">-contains</span> <span class="string">&#x27;Tls12&#x27;</span></span><br><span class="line"></span><br><span class="line">[<span class="type">System.Net.ServicePointManager</span>]::SecurityProtocol.HasFlag([<span class="type">Net.SecurityProtocolType</span>]::Tls12)</span><br><span class="line"></span><br><span class="line">[<span class="type">Net.ServicePointManager</span>]::SecurityProtocol = [<span class="type">Net.ServicePointManager</span>]::SecurityProtocol <span class="operator">-bor</span> [<span class="type">Net.SecurityProtocolType</span>]::Tls12</span><br></pre></td></tr></table></figure><h5 id="Install-Choco"><a href="#Install-Choco" class="headerlink" title="Install Choco"></a>Install Choco</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> Bypass <span class="literal">-Scope</span> <span class="keyword">Process</span> <span class="literal">-Force</span>; <span class="built_in">iex</span> ((<span class="built_in">New-Object</span> System.Net.WebClient).DownloadString(<span class="string">&#x27;https://chocolatey.org/install.ps1&#x27;</span>))</span><br></pre></td></tr></table></figure><h5 id="Example-Install-Tool-using-choco"><a href="#Example-Install-Tool-using-choco" class="headerlink" title="[Example] Install Tool using choco"></a>[Example] Install Tool using choco</h5><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">choco install nodejs-lts -y</span><br><span class="line"></span><br><span class="line">choco install googlechrome -y</span><br><span class="line"></span><br><span class="line">choco install git -y</span><br><span class="line"></span><br><span class="line">choco install vscode -y</span><br><span class="line"></span><br><span class="line">choco install notepadplusplus -y</span><br><span class="line"></span><br><span class="line">choco install android-sdk -y</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/Function/">Function</category>
+      
+      
+      <category domain="https://yy1111yang.github.io/tags/Cloud/">Cloud</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/StaticWeb/">StaticWeb</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Function/">Function</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Cosmos/">Cosmos</category>
+      
+      
+      <comments>https://yy1111yang.github.io/2020/12/22/20201223-install-chocolatey/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Azure StaticWeb, Function, CosmosDB architecure - step05</title>
