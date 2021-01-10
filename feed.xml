@@ -9,8 +9,43 @@
     <atom:link href="https://yy1111yang.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>Azure Cloud Blog</description>
-    <pubDate>Sun, 10 Jan 2021 11:59:34 GMT</pubDate>
+    <pubDate>Sun, 10 Jan 2021 12:18:10 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>How can I get json value in azure CLI?</title>
+      <link>https://yy1111yang.github.io/2021/01/10/20210110-cli-to-json/</link>
+      <guid>https://yy1111yang.github.io/2021/01/10/20210110-cli-to-json/</guid>
+      <pubDate>Sun, 10 Jan 2021 03:09:01 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;We use script for manage resource in Azure.&lt;br&gt;I usally use powershell and Azure CLI.&lt;/p&gt;
+&lt;p&gt;In the beginning I didn’t know how can i get</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>We use script for manage resource in Azure.<br>I usally use powershell and Azure CLI.</p><p>In the beginning I didn’t know how can i get the value return Azure CLI.</p><p><strong>For example,if you execute under command, you get first vm name.</strong></p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$vm</span> = <span class="built_in">Get-AzVM</span></span><br><span class="line"><span class="variable">$vm</span>[<span class="number">0</span>].name </span><br></pre></td></tr></table></figure><p><strong>But, if you execute under command, you can’t get anything.</strong></p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$vm</span> = az vm list</span><br><span class="line"><span class="variable">$vm</span>[<span class="number">0</span>].name </span><br></pre></td></tr></table></figure><p><strong>In order to get the value, you convert to json like this.</strong><br>then, you get the first vm name.</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$vm</span> = az vm list | <span class="built_in">ConvertFrom-Json</span></span><br><span class="line"><span class="variable">$vm</span>[<span class="number">0</span>].name </span><br></pre></td></tr></table></figure><p>thanks.</p>]]></content:encoded>
+      
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/CLI/">CLI</category>
+      
+      
+      <category domain="https://yy1111yang.github.io/tags/Cloud/">Cloud</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/CLI/">CLI</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Powreshell/">Powreshell</category>
+      
+      
+      <comments>https://yy1111yang.github.io/2021/01/10/20210110-cli-to-json/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Enable BGInfo in Windows</title>
