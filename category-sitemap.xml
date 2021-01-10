@@ -9,14 +9,21 @@
 
 
     <url>
-        <loc>https://yy1111yang.github.io/categories/Azure/Function/</loc>
-        <lastmod>2020-12-27T01:38:07.032Z</lastmod>
+        <loc>https://yy1111yang.github.io/categories/Azure/Windows/</loc>
+        <lastmod>2021-01-10T11:59:34.499Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://yy1111yang.github.io/categories/Azure/</loc>
+        <lastmod>2021-01-10T11:59:34.499Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yy1111yang.github.io/categories/Azure/Function/</loc>
         <lastmod>2020-12-27T01:38:07.032Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -25,13 +32,6 @@
     <url>
         <loc>https://yy1111yang.github.io/categories/Azure/VM/</loc>
         <lastmod>2020-12-27T01:37:08.523Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yy1111yang.github.io/categories/Azure/Windows/</loc>
-        <lastmod>2020-12-15T07:58:19.212Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

@@ -9,8 +9,43 @@
     <atom:link href="https://yy1111yang.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>Azure Cloud Blog</description>
-    <pubDate>Wed, 23 Dec 2020 06:45:30 GMT</pubDate>
+    <pubDate>Sun, 10 Jan 2021 11:59:34 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Enable BGInfo in Windows</title>
+      <link>https://yy1111yang.github.io/2021/01/10/20210110-bginfoenable/</link>
+      <guid>https://yy1111yang.github.io/2021/01/10/20210110-bginfoenable/</guid>
+      <pubDate>Sun, 10 Jan 2021 02:48:54 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;Hello. Today post is about BGInfo Enable. it’s very simple, but it’s useful function.&lt;/p&gt;
+&lt;p&gt;Bginfo Helps identify the currently connecte</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>Hello. Today post is about BGInfo Enable. it’s very simple, but it’s useful function.</p><p>Bginfo Helps identify the currently connected vm.</p><a href="https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/set-azurermvmbginfoextension?view=azurermps-6.13.0" title="" target="">BG Info Official Site</a><p>First, we check right top screen in vm.<br>Nothing is displayed like this picture.</p><img src="/2021/01/10/20210110-bginfoenable/01.window_empty.png" class=""><p>And, you execute under command usind Azure CLI or powershell.</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$vmName</span> = <span class="string">&#x27;yy1111-bastion-vm&#x27;</span> <span class="comment"># change name you have.</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$vmInfo</span> = <span class="built_in">Get-AzVM</span> <span class="literal">-name</span> <span class="variable">$vmName</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Set-AzureRmVMBgInfoExtension</span> `</span><br><span class="line"><span class="literal">-ResourceGroupName</span> <span class="variable">$vmInfo</span>.resourceGroupName `</span><br><span class="line"><span class="literal">-VMName</span> <span class="variable">$vmInfo</span>.name `</span><br><span class="line"><span class="literal">-Name</span> <span class="string">&quot;ExtensionName&quot;</span> `</span><br><span class="line"><span class="literal">-TypeHandlerVersion</span> <span class="string">&quot;2.1&quot;</span> `</span><br><span class="line"><span class="literal">-Location</span> <span class="variable">$vmInfo</span>.location</span><br></pre></td></tr></table></figure><p>then, you checked install extenstion like this.</p><img src="/2021/01/10/20210110-bginfoenable/02.check_extension.png" class=""><p>and you should restart vm.<br>then you reconnect vm, you find the BGInfo, right top of screen in vm.</p><img src="/2021/01/10/20210110-bginfoenable/03.enable_bginfo.png" class=""><p>thanks.</p>]]></content:encoded>
+      
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/Windows/">Windows</category>
+      
+      
+      <category domain="https://yy1111yang.github.io/tags/Cloud/">Cloud</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Windows/">Windows</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/BGInfo/">BGInfo</category>
+      
+      
+      <comments>https://yy1111yang.github.io/2021/01/10/20210110-bginfoenable/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Chocolatey install, configure</title>

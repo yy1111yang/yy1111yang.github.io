@@ -6,23 +6,32 @@
     
 
     
-    <title>Tag: Subscription | Azure Cloud Blog</title>
+    <title>Enable BGInfo in Windows | Azure Cloud Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="description" content="Azure Cloud Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Azure Cloud Blog">
-<meta property="og:url" content="https://yy1111yang.github.io/tags/Subscription/index.html">
+    <meta name="keywords" content="Cloud,Azure,Windows,BGInfo">
+    
+    <meta name="description" content="Hello. Today post is about BGInfo Enable. it’s very simple, but it’s useful function. Bginfo Helps identify the currently connected vm. BG Info Official Site  First, we check right top screen in vm.No">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Enable BGInfo in Windows">
+<meta property="og:url" content="https://yy1111yang.github.io/2021/01/10/20210110-bginfoenable/index.html">
 <meta property="og:site_name" content="Azure Cloud Blog">
-<meta property="og:description" content="Azure Cloud Blog">
+<meta property="og:description" content="Hello. Today post is about BGInfo Enable. it’s very simple, but it’s useful function. Bginfo Helps identify the currently connected vm. BG Info Official Site  First, we check right top screen in vm.No">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yy1111yang.github.io/2021/01/10/20210110-bginfoenable/01.window_empty.png">
+<meta property="article:published_time" content="2021-01-10T02:48:54.000Z">
+<meta property="article:modified_time" content="2021-01-10T11:59:34.499Z">
 <meta property="article:author" content="Yong Yang">
-<meta property="article:tag" content="Cloud Azure Powershell">
+<meta property="article:tag" content="Cloud">
+<meta property="article:tag" content="Azure">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="BGInfo">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yy1111yang.github.io/2021/01/10/20210110-bginfoenable/01.window_empty.png">
     
 	<!-- 대표 URL -->
-	<link rel="canonical" href="https://yy1111yang.github.io/tags/subscription/">
+	<link rel="canonical" href="https://yy1111yang.github.io/2021/01/10/20210110-bginfoenable/">
 
     
 
@@ -165,56 +174,188 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-tag"></i>Tag: <em>Subscription</em>
+    <a class="page-title-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Azure/Windows/">Windows</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-							
-
-    
-    
+							<article id="post-20210110-bginfoenable" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2020" class="archive-year"><i class="icon fa fa-calendar-o"></i>2020</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Azure/Powershell/">Powershell</a>
-            </div>
-            <div class="date"><time datetime="2020-12-10T02:37:02.000Z" itemprop="datePublished">2020-12-10</time></div>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2020/12/10/20201210-az-account-cli/">Azure Subscription change, check in CLI and powershell</a>
+        Enable BGInfo in Windows
         </h1>
     
 
-        <p class="article-excerpt">
-            Change Current Subscription.1234567$subName = &quot;&quot;# powershell Set-AzureRmContext -Subscription $subName# azure CLIaz account set -s $subName
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/01/10/20210110-bginfoenable/" class="article-date">
+       <time datetime="2021-01-10T02:48:54.000Z" itemprop="datePublished">2021-01-10</time>
+    </a>
+  </div>
 
-Show Current Subscription.12345# azure CLIaz acco
-        </p>
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/01/10/20210110-bginfoenable/" class="article-date">
+     <time datetime="2021-01-10T11:59:34.499Z" itemprop="dateModified">2021-01-10</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Azure/" rel="tag">Azure</a>, <a class="tag-link-link" href="/tags/BGInfo/" rel="tag">BGInfo</a>, <a class="tag-link-link" href="/tags/Cloud/" rel="tag">Cloud</a>, <a class="tag-link-link" href="/tags/Windows/" rel="tag">Windows</a>
     </div>
-</article>
-    
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>Hello. Today post is about BGInfo Enable. it’s very simple, but it’s useful function.</p>
+<p>Bginfo Helps identify the currently connected vm.</p>
+<a href="https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/set-azurermvmbginfoextension?view=azurermps-6.13.0" title target="_blank" rel="external nofollow noopener noreferrer">BG Info Official Site</a>
+
+<p>First, we check right top screen in vm.<br>Nothing is displayed like this picture.</p>
+<img src="/2021/01/10/20210110-bginfoenable/01.window_empty.png" class>
+
+<p>And, you execute under command usind Azure CLI or powershell.</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$vmName</span> = <span class="string">&#x27;yy1111-bastion-vm&#x27;</span> <span class="comment"># change name you have.</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$vmInfo</span> = <span class="built_in">Get-AzVM</span> <span class="literal">-name</span> <span class="variable">$vmName</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Set-AzureRmVMBgInfoExtension</span> `</span><br><span class="line">	<span class="literal">-ResourceGroupName</span> <span class="variable">$vmInfo</span>.resourceGroupName `</span><br><span class="line">	<span class="literal">-VMName</span> <span class="variable">$vmInfo</span>.name `</span><br><span class="line">	<span class="literal">-Name</span> <span class="string">&quot;ExtensionName&quot;</span> `</span><br><span class="line">	<span class="literal">-TypeHandlerVersion</span> <span class="string">&quot;2.1&quot;</span> `</span><br><span class="line">	<span class="literal">-Location</span> <span class="variable">$vmInfo</span>.location</span><br></pre></td></tr></table></figure>
+
+<p>then, you checked install extenstion like this.</p>
+<img src="/2021/01/10/20210110-bginfoenable/02.check_extension.png" class>
+
+<p>and you should restart vm.<br>then you reconnect vm, you find the BGInfo, right top of screen in vm.</p>
+<img src="/2021/01/10/20210110-bginfoenable/03.enable_bginfo.png" class>
+
+<p>thanks.</p>
+
         </div>
+		<footer class="article-footer">
+            
+
+
+
+    <a data-url="https://yy1111yang.github.io/2021/01/10/20210110-bginfoenable/" data-id="ckjr2vvbf0000engda48cfb3y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Yong Yang"
+        },
+        "headline": "Enable BGInfo in Windows",
+        "image": "https://yy1111yang.github.io/2021/01/10/20210110-bginfoenable/01.window_empty.png",
+        "keywords": "Cloud Azure Windows BGInfo",
+        "genre": "Azure Windows",
+        "datePublished": "2021-01-10",
+        "dateCreated": "2021-01-10",
+        "dateModified": "2021-01-10",
+        "url": "https://yy1111yang.github.io/2021/01/10/20210110-bginfoenable/",
+        "description": "Hello. Today post is about BGInfo Enable. it’s very simple, but it’s useful function.
+Bginfo Helps identify the currently connected vm.
+BG Info Official Site
+
+First, we check right top screen in vm.No",
+        "wordCount": 139
+    }
+</script>
+
+</article>
+
+    <section id="comments">
     
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
 
 
-    </div></section>
+    
+    </section>
 
 
 
@@ -238,6 +379,19 @@ Show Current Subscription.12345# azure CLIaz acco
     </div>
 	
 	
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2020/12/22/20201223-install-chocolatey/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Chocolatey install, configure</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
     <div class="widgets-container">
         
             
@@ -393,11 +547,13 @@ Show Current Subscription.12345# azure CLIaz acco
     var disqus_shortname = 'hexo-theme-hueman';
     
     
+    var disqus_url = 'https://yy1111yang.github.io/2021/01/10/20210110-bginfoenable/';
+    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>
