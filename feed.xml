@@ -9,8 +9,40 @@
     <atom:link href="https://yy1111yang.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>Azure Cloud Blog</description>
-    <pubDate>Sun, 10 Jan 2021 12:18:10 GMT</pubDate>
+    <pubDate>Tue, 12 Jan 2021 14:20:27 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Copy NSG using Custom Deployment</title>
+      <link>https://yy1111yang.github.io/2021/01/12/20210112-nsg-copy/</link>
+      <guid>https://yy1111yang.github.io/2021/01/12/20210112-nsg-copy/</guid>
+      <pubDate>Tue, 12 Jan 2021 05:10:27 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;During Operate Project, we create many NSG.&lt;br&gt;But, Security rules vary depending on the project.&lt;br&gt;Usually, we add custom default rule </description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>During Operate Project, we create many NSG.<br>But, Security rules vary depending on the project.<br>Usually, we add custom default rule like ‘all-deny-rule’</p><img src="/2021/01/12/20210112-nsg-copy/01.nsg_setting.png" class=""><p>It’s annoying to add custom rule every time you make it.<br>So, we can use ‘Custom Deploy Template’.<br>In NSG panel, click the ‘Export Tempalte’.<br>and Click ‘deploy’ button.</p><img src="/2021/01/12/20210112-nsg-copy/02.nsg_deploy_pre.png" class=""><p>And, input the name.<br>then, Click the button named ‘purchase’.</p><img src="/2021/01/12/20210112-nsg-copy/03.nsg_deploy_setting.png" class=""><p>Aftger deploy finish, we check nsg that have custom rule.</p><img src="/2021/01/12/20210112-nsg-copy/04.nsg_deploy_done.png" class=""><p>thanks.</p><h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3>]]></content:encoded>
+      
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/NSG/">NSG</category>
+      
+      
+      <category domain="https://yy1111yang.github.io/tags/Cloud/">Cloud</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/NSG/">NSG</category>
+      
+      
+      <comments>https://yy1111yang.github.io/2021/01/12/20210112-nsg-copy/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>How can I get json value in azure CLI?</title>

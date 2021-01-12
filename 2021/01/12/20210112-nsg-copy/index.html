@@ -6,23 +6,31 @@
     
 
     
-    <title>Tag: Snapshot | Azure Cloud Blog</title>
+    <title>Copy NSG using Custom Deployment | Azure Cloud Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="description" content="Azure Cloud Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Azure Cloud Blog">
-<meta property="og:url" content="https://yy1111yang.github.io/tags/Snapshot/index.html">
+    <meta name="keywords" content="Cloud,Azure,NSG">
+    
+    <meta name="description" content="During Operate Project, we create many NSG.But, Security rules vary depending on the project.Usually, we add custom default rule like ‘all-deny-rule’   It’s annoying to add custom rule every time you">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Copy NSG using Custom Deployment">
+<meta property="og:url" content="https://yy1111yang.github.io/2021/01/12/20210112-nsg-copy/index.html">
 <meta property="og:site_name" content="Azure Cloud Blog">
-<meta property="og:description" content="Azure Cloud Blog">
+<meta property="og:description" content="During Operate Project, we create many NSG.But, Security rules vary depending on the project.Usually, we add custom default rule like ‘all-deny-rule’   It’s annoying to add custom rule every time you">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yy1111yang.github.io/2021/01/12/20210112-nsg-copy/01.nsg_setting.png">
+<meta property="article:published_time" content="2021-01-12T05:10:27.000Z">
+<meta property="article:modified_time" content="2021-01-12T14:20:27.499Z">
 <meta property="article:author" content="Yong Yang">
-<meta property="article:tag" content="Cloud Azure Powershell">
+<meta property="article:tag" content="Cloud">
+<meta property="article:tag" content="Azure">
+<meta property="article:tag" content="NSG">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yy1111yang.github.io/2021/01/12/20210112-nsg-copy/01.nsg_setting.png">
     
 	<!-- 대표 URL -->
-	<link rel="canonical" href="https://yy1111yang.github.io/tags/snapshot/">
+	<link rel="canonical" href="https://yy1111yang.github.io/2021/01/12/20210112-nsg-copy/">
 
     
 
@@ -165,60 +173,183 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-tag"></i>Tag: <em>Snapshot</em>
+    <a class="page-title-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Azure/NSG/">NSG</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-							
-
-    
-    
+							<article id="post-20210112-nsg-copy" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2020" class="archive-year"><i class="icon fa fa-calendar-o"></i>2020</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Azure/VM/">VM</a>
-            </div>
-            <div class="date"><time datetime="2020-12-11T16:14:00.000Z" itemprop="datePublished">2020-12-12</time></div>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2020/12/11/20201212-az-vm-copy-01/">Azure VM Copy using Snapshot</a>
+        Copy NSG using Custom Deployment
         </h1>
     
 
-        <p class="article-excerpt">
-            This post about Azure VM Copy using snapshot.
-The total process is as follow.
-OsDisk, Datadisk =&gt; snapshot
-snapshot =&gt; OsDisk_copy, Datadisk_copy
-OsDisk_copy, Datadisk_copy =&gt; VM_copy  
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/01/12/20210112-nsg-copy/" class="article-date">
+       <time datetime="2021-01-12T05:10:27.000Z" itemprop="datePublished">2021-01-12</time>
+    </a>
+  </div>
 
-1. C
-        </p>
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/01/12/20210112-nsg-copy/" class="article-date">
+     <time datetime="2021-01-12T14:20:27.499Z" itemprop="dateModified">2021-01-12</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Azure/" rel="tag">Azure</a>, <a class="tag-link-link" href="/tags/Cloud/" rel="tag">Cloud</a>, <a class="tag-link-link" href="/tags/NSG/" rel="tag">NSG</a>
     </div>
-</article>
-    
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>During Operate Project, we create many NSG.<br>But, Security rules vary depending on the project.<br>Usually, we add custom default rule like ‘all-deny-rule’</p>
+<img src="/2021/01/12/20210112-nsg-copy/01.nsg_setting.png" class>
+
+<p>It’s annoying to add custom rule every time you make it.<br>So, we can use ‘Custom Deploy Template’.<br>In NSG panel, click the ‘Export Tempalte’.<br>and Click ‘deploy’ button.</p>
+<img src="/2021/01/12/20210112-nsg-copy/02.nsg_deploy_pre.png" class>
+
+<p>And, input the name.<br>then, Click the button named ‘purchase’.</p>
+<img src="/2021/01/12/20210112-nsg-copy/03.nsg_deploy_setting.png" class>
+
+<p>Aftger deploy finish, we check nsg that have custom rule.</p>
+<img src="/2021/01/12/20210112-nsg-copy/04.nsg_deploy_done.png" class>
+
+<p>thanks.</p>
+<h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3>
         </div>
+		<footer class="article-footer">
+            
+
+
+
+    <a data-url="https://yy1111yang.github.io/2021/01/12/20210112-nsg-copy/" data-id="ckju2wwnu0000f9gdedf348wn" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Yong Yang"
+        },
+        "headline": "Copy NSG using Custom Deployment",
+        "image": "https://yy1111yang.github.io/2021/01/12/20210112-nsg-copy/01.nsg_setting.png",
+        "keywords": "Cloud Azure NSG",
+        "genre": "Azure NSG",
+        "datePublished": "2021-01-12",
+        "dateCreated": "2021-01-12",
+        "dateModified": "2021-01-12",
+        "url": "https://yy1111yang.github.io/2021/01/12/20210112-nsg-copy/",
+        "description": "During Operate Project, we create many NSG.But, Security rules vary depending on the project.Usually, we add custom default rule like ‘all-deny-rule’
+
+
+It’s annoying to add custom rule every time you ",
+        "wordCount": 77
+    }
+</script>
+
+</article>
+
+    <section id="comments">
     
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
 
 
-    </div></section>
+    
+    </section>
 
 
 
@@ -242,6 +373,19 @@ OsDisk_copy, Datadisk_copy =&gt; VM_copy
     </div>
 	
 	
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2021/01/10/20210110-cli-to-json/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">How can I get json value in azure CLI?</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
     <div class="widgets-container">
         
             
@@ -397,11 +541,13 @@ OsDisk_copy, Datadisk_copy =&gt; VM_copy
     var disqus_shortname = 'hexo-theme-hueman';
     
     
+    var disqus_url = 'https://yy1111yang.github.io/2021/01/12/20210112-nsg-copy/';
+    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>
