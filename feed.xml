@@ -9,8 +9,42 @@
     <atom:link href="https://yy1111yang.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>Azure Cloud Blog</description>
-    <pubDate>Tue, 12 Jan 2021 14:20:27 GMT</pubDate>
+    <pubDate>Fri, 22 Jan 2021 01:35:48 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Azure DMA error about auth</title>
+      <link>https://yy1111yang.github.io/2021/01/21/20210122-dma-auth-error/</link>
+      <guid>https://yy1111yang.github.io/2021/01/21/20210122-dma-auth-error/</guid>
+      <pubDate>Thu, 21 Jan 2021 16:31:53 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;&lt;strong&gt;Authentication Error using DMA.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;1.Execute this command in source SQL.&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p><strong>Authentication Error using DMA.</strong></p><p>1.Execute this command in source SQL.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">-- To allow advanced options to be changed.  </span><br><span class="line">EXECUTE sp_configure &#39;show advanced options&#39;, 1;  </span><br><span class="line">GO  </span><br><span class="line">-- To update the currently configured value for advanced options.  </span><br><span class="line">RECONFIGURE;  </span><br><span class="line">GO  </span><br><span class="line">-- To enable the feature.  </span><br><span class="line">EXECUTE sp_configure &#39;xp_cmdshell&#39;, 1;  </span><br><span class="line">GO  </span><br><span class="line">-- To update the currently configured value for this feature.  </span><br><span class="line">RECONFIGURE;  </span><br><span class="line">GO</span><br></pre></td></tr></table></figure><p>2.add share folder user ‘NT SERVICE\MSSQLSERVER’</p><h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3>]]></content:encoded>
+      
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/Migration/">Migration</category>
+      
+      
+      <category domain="https://yy1111yang.github.io/tags/Cloud/">Cloud</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/DMA/">DMA</category>
+      
+      
+      <comments>https://yy1111yang.github.io/2021/01/21/20210122-dma-auth-error/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Copy NSG using Custom Deployment</title>
