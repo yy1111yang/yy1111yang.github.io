@@ -9,8 +9,41 @@
     <atom:link href="https://yy1111yang.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>Azure Cloud Blog</description>
-    <pubDate>Fri, 22 Jan 2021 01:35:48 GMT</pubDate>
+    <pubDate>Mon, 25 Jan 2021 05:14:50 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Azure Container Tutorial.</title>
+      <link>https://yy1111yang.github.io/2021/01/21/20210123-azure-container-01/</link>
+      <guid>https://yy1111yang.github.io/2021/01/21/20210123-azure-container-01/</guid>
+      <pubDate>Thu, 21 Jan 2021 19:02:22 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;I config 2 Container.&lt;br&gt;DB is CosmosDB using mongoDB.&lt;br&gt;Backend is Node express.&lt;br&gt;Frontend is vue.js&lt;/p&gt;
+&lt;h3 id=&quot;Backend-Service-Node</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>I config 2 Container.<br>DB is CosmosDB using mongoDB.<br>Backend is Node express.<br>Frontend is vue.js</p><h3 id="Backend-Service-Node-Express"><a href="#Backend-Service-Node-Express" class="headerlink" title="Backend Service - Node Express"></a>Backend Service - Node Express</h3><p><strong>Create Cosmos DB</strong><br>API: Azure Cosmos DB for MongoDB API.</p><img src="/2021/01/21/20210123-azure-container-01/01.create_cosmos.png" class=""><p><strong>Create Database:conduit</strong></p><img src="/2021/01/21/20210123-azure-container-01/02.create_database.png" class=""><p><strong>Get Connection String in CosmosDB</strong></p><img src="/2021/01/21/20210123-azure-container-01/03.get_connection_string.png" class=""><p><strong>Git Clone</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;yy1111yang&#x2F;node-express-realworld-azure.git</span><br></pre></td></tr></table></figure><img src="/2021/01/21/20210123-azure-container-01/04.git_clone.png" class=""><p><strong>Modify Code at /src/config/index.js</strong></p><img src="/2021/01/21/20210123-azure-container-01/05.modify_code.png" class=""><p><strong>Create Container Registry</strong></p><img src="/2021/01/21/20210123-azure-container-01/06.create_con_registry.png" class=""><p><strong>Push Image</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Execute command at root</span><br><span class="line">az acr build --registry eastconregistry.azurecr.io --image demo&#x2F;node-express-realworld-image-demo:v1 .</span><br></pre></td></tr></table></figure><p><strong>Check Image</strong></p><img src="/2021/01/21/20210123-azure-container-01/07.check_node_image.png" class=""><p><strong>Create Container</strong><br>Select Azure Container Registry.</p><img src="/2021/01/21/20210123-azure-container-01/08.create_node_container.png" class=""><p><strong>Select Private Network, 3000 Ports</strong></p><img src="/2021/01/21/20210123-azure-container-01/09.set_private_network.png" class=""><p><strong>Check Container IP</strong></p><img src="/2021/01/21/20210123-azure-container-01/10.get_container_ip.png" class=""><p><strong>Check Container Logs</strong></p><img src="/2021/01/21/20210123-azure-container-01/11.get_log.png" class=""><p><strong>Check Container Test Connection</strong></p><img src="/2021/01/21/20210123-azure-container-01/12.test-connection.png" class=""><h3 id="FrontEnd-Service-Vue-js"><a href="#FrontEnd-Service-Vue-js" class="headerlink" title="FrontEnd Service - Vue.js"></a>FrontEnd Service - Vue.js</h3><p><strong>Git Clone</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;yy1111yang&#x2F;vue-express-realworld-azure.git</span><br></pre></td></tr></table></figure><img src="/2021/01/21/20210123-azure-container-01/13.git_clone.png" class=""><p><strong>Modify Code</strong><br>/src/common/config =&gt; API_URL to node-express container private IP.</p><img src="/2021/01/21/20210123-azure-container-01/14.modify_code.png" class=""><p><strong>Push Image</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">az acr build --registry eastconregistry.azurecr.io --image demo&#x2F;vue-express-realworld-image-demo:v1 .</span><br></pre></td></tr></table></figure><p><strong>Check Image</strong></p><img src="/2021/01/21/20210123-azure-container-01/15.check_vue_image.png" class=""><p><strong>Create Container</strong><br>Ports using 8080</p><img src="/2021/01/21/20210123-azure-container-01/16.create_vue_container.png" class=""><p><strong>Get Private IP</strong></p><img src="/2021/01/21/20210123-azure-container-01/17.get_vue_private_ip.png" class=""><p><strong>Check Connection in Chrome</strong></p><img src="/2021/01/21/20210123-azure-container-01/18.check_website.png" class=""><p><strong>Data Insert and select</strong><br>Sign up, create article and select exeucte well.</p><img src="/2021/01/21/20210123-azure-container-01/19.create_get_query.png" class=""><h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3>]]></content:encoded>
+      
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/categories/Azure/Container/">Container</category>
+      
+      
+      <category domain="https://yy1111yang.github.io/tags/Cloud/">Cloud</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Azure/">Azure</category>
+      
+      <category domain="https://yy1111yang.github.io/tags/Container/">Container</category>
+      
+      
+      <comments>https://yy1111yang.github.io/2021/01/21/20210123-azure-container-01/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Azure DMA error about auth</title>
@@ -27,7 +60,7 @@
       
       
       
-      <content:encoded><![CDATA[<p><strong>Authentication Error using DMA.</strong></p><p>1.Execute this command in source SQL.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">-- To allow advanced options to be changed.  </span><br><span class="line">EXECUTE sp_configure &#39;show advanced options&#39;, 1;  </span><br><span class="line">GO  </span><br><span class="line">-- To update the currently configured value for advanced options.  </span><br><span class="line">RECONFIGURE;  </span><br><span class="line">GO  </span><br><span class="line">-- To enable the feature.  </span><br><span class="line">EXECUTE sp_configure &#39;xp_cmdshell&#39;, 1;  </span><br><span class="line">GO  </span><br><span class="line">-- To update the currently configured value for this feature.  </span><br><span class="line">RECONFIGURE;  </span><br><span class="line">GO</span><br></pre></td></tr></table></figure><p>2.add share folder user ‘NT SERVICE\MSSQLSERVER’</p><h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3>]]></content:encoded>
+      <content:encoded><![CDATA[<p><strong>Authentication Error using DMA.</strong></p><p>1.Execute this command in source SQL.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">-- To allow advanced options to be changed.  </span><br><span class="line">EXECUTE sp_configure &#39;show advanced options&#39;, 1;  </span><br><span class="line">GO  </span><br><span class="line">-- To update the currently configured value for advanced options.  </span><br><span class="line">RECONFIGURE;  </span><br><span class="line">GO  </span><br><span class="line">-- To enable the feature.  </span><br><span class="line">EXECUTE sp_configure &#39;xp_cmdshell&#39;, 1;  </span><br><span class="line">GO  </span><br><span class="line">-- To update the currently configured value for this feature.  </span><br><span class="line">RECONFIGURE;  </span><br><span class="line">GO</span><br><span class="line"></span><br><span class="line">exec xp_cmdshell &#39;net use \\&lt;remote_address&gt; &lt;user password&gt; &#x2F;USER:&lt;username&gt;&#39;</span><br><span class="line">go;</span><br></pre></td></tr></table></figure><p>2.add share folder user ‘NT SERVICE\MSSQLSERVER’</p><h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3>]]></content:encoded>
       
       
       <category domain="https://yy1111yang.github.io/categories/Azure/">Azure</category>
