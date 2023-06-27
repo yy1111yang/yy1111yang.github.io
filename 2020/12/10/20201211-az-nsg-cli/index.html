@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>Useful CLI about Azure NSG | Azure Cloud Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Cloud,Azure,Powershell,NSG">
+    
+    <meta name="description" content="Search Rule include ‘Any Port’123456789101112131415161718192021222324$inbound &#x3D; @();$outbound &#x3D; @();$nsgList &#x3D; az network nsg list | convertFrom-Jsonforeach($nsg in $nsgList) &amp;#123;        foreach($ru">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Useful CLI about Azure NSG">
+<meta property="og:url" content="https://yy1111yang.github.io/2020/12/10/20201211-az-nsg-cli/index.html">
+<meta property="og:site_name" content="Azure Cloud Blog">
+<meta property="og:description" content="Search Rule include ‘Any Port’123456789101112131415161718192021222324$inbound &#x3D; @();$outbound &#x3D; @();$nsgList &#x3D; az network nsg list | convertFrom-Jsonforeach($nsg in $nsgList) &amp;#123;        foreach($ru">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-10T20:29:24.000Z">
+<meta property="article:modified_time" content="2023-06-27T06:56:54.123Z">
+<meta property="article:author" content="Yong Yang">
+<meta property="article:tag" content="Cloud">
+<meta property="article:tag" content="Azure">
+<meta property="article:tag" content="Powershell">
+<meta property="article:tag" content="NSG">
+<meta name="twitter:card" content="summary">
+    
+
+    
+        <link rel="alternate" href="/" title="Azure Cloud Blog" type="application/atom+xml">
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Azure/">Azure</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Azure/Function/">Function</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Azure/Powershell/">Powershell</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Azure/VM/">VM</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Azure/Windows/">Windows</a></li></ul></li></ul>
+                                
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Azure/Powershell/">Powershell</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-20201211-az-nsg-cli" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Useful CLI about Azure NSG
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2020/12/10/20201211-az-nsg-cli/" class="article-date">
+       <time datetime="2020-12-10T20:29:24.000Z" itemprop="datePublished">2020-12-11</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2020/12/10/20201211-az-nsg-cli/" class="article-date">
+     <time datetime="2023-06-27T06:56:54.123Z" itemprop="dateModified">2023-06-27</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Azure/" rel="tag">Azure</a>, <a class="tag-link-link" href="/tags/Cloud/" rel="tag">Cloud</a>, <a class="tag-link-link" href="/tags/NSG/" rel="tag">NSG</a>, <a class="tag-link-link" href="/tags/Powershell/" rel="tag">Powershell</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h2 id="Search-Rule-include-‘Any-Port’"><a href="#Search-Rule-include-‘Any-Port’" class="headerlink" title="Search Rule include ‘Any Port’"></a>Search Rule include ‘Any Port’</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$inbound</span> = <span class="selector-tag">@</span>();</span><br><span class="line"><span class="variable">$outbound</span> = <span class="selector-tag">@</span>();</span><br><span class="line"><span class="variable">$nsgList</span> = az network nsg list | <span class="built_in">convertFrom-Json</span></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$nsg</span> <span class="keyword">in</span> <span class="variable">$nsgList</span>) &#123;</span><br><span class="line">        <span class="keyword">foreach</span>(<span class="variable">$rule</span> <span class="keyword">in</span> <span class="variable">$nsg</span>.securityRules) &#123;</span><br><span class="line">                <span class="keyword">if</span>( <span class="variable">$rule</span>.destinationPortRange <span class="operator">-eq</span> <span class="string">&#x27;*&#x27;</span> ) &#123;</span><br><span class="line">                        <span class="variable">$details</span> = <span class="selector-tag">@</span>&#123;</span><br><span class="line">                                        nsgName=<span class="variable">$nsg</span>.name</span><br><span class="line">                                        direction=<span class="variable">$rule</span>.direction</span><br><span class="line">                                        priority=<span class="variable">$rule</span>.priority</span><br><span class="line">                                        ruleName=<span class="variable">$rule</span>.name</span><br><span class="line">                                        source=<span class="string">&#x27;&#x27;</span></span><br><span class="line">                                        dest=<span class="string">&#x27;&#x27;</span></span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">if</span>(<span class="variable">$rule</span>.direction <span class="operator">-eq</span> <span class="string">&#x27;Inbound&#x27;</span>) &#123;</span><br><span class="line">                                <span class="variable">$inbound</span> += <span class="built_in">New-Object</span> PSObject <span class="literal">-Property</span> <span class="variable">$details</span></span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                                <span class="variable">$outbound</span> += <span class="built_in">New-Object</span> PSObject <span class="literal">-Property</span> <span class="variable">$details</span></span><br><span class="line">                        &#125;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$inbound</span> | <span class="built_in">select-object</span> nsgName, direction, ruleName, priority, source, dest | <span class="built_in">sort-object</span> <span class="literal">-property</span> nsgName, priority | <span class="built_in">format-table</span></span><br><span class="line"><span class="variable">$outbound</span> | <span class="built_in">select-object</span> nsgName, direction, ruleName, priority, source, dest | <span class="built_in">sort-Object</span> <span class="literal">-property</span> nsgName, priority | <span class="built_in">format-table</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Search-NSG-Rule-include-‘Any-Source-Any-Destination’"><a href="#Search-NSG-Rule-include-‘Any-Source-Any-Destination’" class="headerlink" title="Search NSG Rule include ‘Any Source, Any Destination’"></a>Search NSG Rule include ‘Any Source, Any Destination’</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$inbound</span> = <span class="selector-tag">@</span>();</span><br><span class="line"><span class="variable">$outbound</span> = <span class="selector-tag">@</span>();</span><br><span class="line"><span class="variable">$nsgList</span> = az network nsg list | <span class="built_in">convertFrom-Json</span></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$nsg</span> <span class="keyword">in</span> <span class="variable">$nsgList</span>) &#123;</span><br><span class="line">        <span class="keyword">foreach</span>(<span class="variable">$rule</span> <span class="keyword">in</span> <span class="variable">$nsg</span>.securityRules) &#123;</span><br><span class="line">                <span class="keyword">if</span>( <span class="variable">$rule</span>.sourceAddressPrefix <span class="operator">-eq</span> <span class="string">&#x27;*&#x27;</span> <span class="operator">-OR</span> <span class="variable">$rule</span>.destinationAddressPrefix <span class="operator">-eq</span> <span class="string">&#x27;*&#x27;</span> ) &#123;</span><br><span class="line">                        <span class="variable">$details</span> = <span class="selector-tag">@</span>&#123;</span><br><span class="line">                                        nsgName=<span class="variable">$nsg</span>.name</span><br><span class="line">                                        direction=<span class="variable">$rule</span>.direction</span><br><span class="line">                                        priority=<span class="variable">$rule</span>.priority</span><br><span class="line">                                        ruleName=<span class="variable">$rule</span>.name</span><br><span class="line">                                        source=<span class="string">&#x27;&#x27;</span></span><br><span class="line">                                        dest=<span class="string">&#x27;&#x27;</span></span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">if</span>(<span class="variable">$rule</span>.direction <span class="operator">-eq</span> <span class="string">&#x27;Inbound&#x27;</span>) &#123;</span><br><span class="line">                                <span class="variable">$inbound</span> += <span class="built_in">New-Object</span> PSObject <span class="literal">-Property</span> <span class="variable">$details</span></span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                                <span class="variable">$outbound</span> += <span class="built_in">New-Object</span> PSObject <span class="literal">-Property</span> <span class="variable">$details</span></span><br><span class="line">                        &#125;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$inbound</span> | <span class="built_in">select-object</span> nsgName, direction, ruleName, priority, source, dest | <span class="built_in">sort-object</span> <span class="literal">-property</span> nsgName, priority | <span class="built_in">format-table</span></span><br><span class="line"><span class="variable">$outbound</span> | <span class="built_in">select-object</span> nsgName, direction, ruleName, priority, source, dest | <span class="built_in">sort-Object</span> <span class="literal">-property</span> nsgName, priority | <span class="built_in">format-table</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Export-NSG-to-CSV-by-resourceGroup"><a href="#Export-NSG-to-CSV-by-resourceGroup" class="headerlink" title="Export NSG to CSV by resourceGroup"></a>Export NSG to CSV by resourceGroup</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">param</span>(<span class="variable">$rgName</span>)</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$rgName</span> <span class="operator">-eq</span> <span class="variable">$null</span>) &#123;</span><br><span class="line">  <span class="variable">$rgName</span> = <span class="built_in">read-host</span> <span class="literal">-Prompt</span> <span class="string">&quot;please enter a rgName&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$nsgs</span> = <span class="built_in">Get-AzureRmNetworkSecurityGroup</span> <span class="literal">-ResourceGroupName</span> <span class="variable">$rgName</span></span><br><span class="line"><span class="variable">$exportPath</span> = <span class="string">&#x27;.&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#backup nsgs to csv</span></span><br><span class="line"><span class="keyword">Foreach</span> (<span class="variable">$nsg</span> <span class="keyword">in</span> <span class="variable">$nsgs</span>) &#123;</span><br><span class="line">    <span class="built_in">New-Item</span> <span class="literal">-ItemType</span> file <span class="literal">-Path</span> <span class="string">&quot;<span class="variable">$exportPath</span>\<span class="variable">$</span>(<span class="variable">$nsg</span>.Name).csv&quot;</span> <span class="literal">-Force</span></span><br><span class="line"></span><br><span class="line">    <span class="variable">$nsgRules</span> = <span class="variable">$nsg</span>.SecurityRules | <span class="built_in">Sort-Object</span> <span class="selector-tag">@</span>&#123; e = <span class="string">&#x27;Direction&#x27;</span>; a = <span class="variable">$true</span> &#125;, <span class="selector-tag">@</span>&#123; e = <span class="string">&#x27;Priority&#x27;</span>; a = <span class="variable">$true</span> &#125;</span><br><span class="line">    <span class="keyword">foreach</span> (<span class="variable">$nsgRule</span> <span class="keyword">in</span> <span class="variable">$nsgRules</span>) &#123;</span><br><span class="line">        <span class="variable">$nsgRule</span> | <span class="built_in">Select-Object</span> Name,Direction,Access,Priority,Protocol,<span class="selector-tag">@</span>&#123;Name=’SourceAddressPrefix’;Expression=&#123;[<span class="built_in">string</span>]::join(“ ”, (<span class="variable">$_</span>.SourceAddressPrefix))&#125;&#125;,<span class="selector-tag">@</span>&#123;Name=’SourcePortRange’;Expression=&#123;[<span class="built_in">string</span>]::join(“ ”, (<span class="variable">$_</span>.SourcePortRange))&#125;&#125;,<span class="selector-tag">@</span>&#123;Name=’DestinationAddressPrefix’;Expression=&#123;[<span class="built_in">string</span>]::join(“ ”, (<span class="variable">$_</span>.DestinationAddressPrefix))&#125;&#125;,<span class="selector-tag">@</span>&#123;Name=’DestinationPortRange’;Expression=&#123;[<span class="built_in">string</span>]::join(“ ”, (<span class="variable">$_</span>.DestinationPortRange))&#125;&#125;,Description `</span><br><span class="line">        | <span class="built_in">Export-Csv</span> <span class="string">&quot;<span class="variable">$exportPath</span>\<span class="variable">$</span>(<span class="variable">$nsg</span>.Name).csv&quot;</span> <span class="literal">-NoTypeInformation</span> <span class="literal">-Encoding</span> UTF<span class="literal">-8</span> <span class="literal">-Append</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Get-Nsg-rule-include-specific-IP"><a href="#Get-Nsg-rule-include-specific-IP" class="headerlink" title="Get Nsg rule include specific IP"></a>Get Nsg rule include specific IP</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">param</span>(<span class="variable">$checkIp</span>, <span class="variable">$rgName</span>)</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$checkIp</span> <span class="operator">-eq</span> <span class="variable">$null</span>) &#123;</span><br><span class="line">  <span class="variable">$checkIp</span> = <span class="built_in">read-host</span> <span class="literal">-Prompt</span> <span class="string">&quot;please enter a checkIp&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$rgName</span> <span class="operator">-eq</span> <span class="variable">$null</span>) &#123;</span><br><span class="line">  <span class="variable">$rgName</span> = <span class="built_in">read-host</span> <span class="literal">-Prompt</span> <span class="string">&quot;please enter a rgName&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$inbound</span> = <span class="selector-tag">@</span>();</span><br><span class="line"><span class="variable">$outbound</span> = <span class="selector-tag">@</span>();</span><br><span class="line"><span class="variable">$nsgList</span> = az network nsg list | <span class="built_in">convertFrom-Json</span></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$nsg</span> <span class="keyword">in</span> <span class="variable">$nsgList</span>) &#123;</span><br><span class="line">        <span class="keyword">foreach</span>(<span class="variable">$rule</span> <span class="keyword">in</span> <span class="variable">$nsg</span>.securityRules) &#123;</span><br><span class="line">                <span class="keyword">if</span>( <span class="variable">$rule</span>.sourceAddressPrefix <span class="operator">-eq</span> <span class="variable">$checkIp</span> <span class="operator">-or</span> <span class="variable">$rule</span>.destinationAddressPrefix <span class="operator">-eq</span> <span class="variable">$checkIp</span> `</span><br><span class="line">                        <span class="operator">-or</span> <span class="variable">$rule</span>.sourceAddressPrefixes <span class="operator">-contains</span> <span class="variable">$checkIp</span> <span class="operator">-or</span> <span class="variable">$rule</span>.destinationAddressPrefixes <span class="operator">-contains</span> <span class="variable">$checkIp</span>) &#123;</span><br><span class="line">                        <span class="variable">$details</span> = <span class="selector-tag">@</span>&#123;</span><br><span class="line">                                        nsgName=<span class="variable">$nsg</span>.name</span><br><span class="line">                                        direction=<span class="variable">$rule</span>.direction</span><br><span class="line">                                        priority=<span class="variable">$rule</span>.priority</span><br><span class="line">                                        ruleName=<span class="variable">$rule</span>.name</span><br><span class="line">                                        source=<span class="string">&#x27;&#x27;</span></span><br><span class="line">                                        dest=<span class="string">&#x27;&#x27;</span></span><br><span class="line">                        &#125;</span><br><span class="line"></span><br><span class="line">                        <span class="keyword">if</span>(<span class="variable">$sourceAddressPrefix</span> <span class="operator">-eq</span> <span class="variable">$checkIp</span> <span class="operator">-or</span> <span class="variable">$rule</span>.sourceAddressPrefixes <span class="operator">-contains</span> <span class="variable">$checkIp</span> ) &#123;</span><br><span class="line">                                <span class="variable">$details</span>.source = <span class="string">&#x27;true&#x27;</span></span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">if</span>(<span class="variable">$rule</span>.destinationAddressPrefix <span class="operator">-eq</span> <span class="variable">$checkIp</span> <span class="operator">-or</span> <span class="variable">$rule</span>.destinationAddressPrefixes <span class="operator">-contains</span> <span class="variable">$checkIp</span>) &#123;</span><br><span class="line">                                <span class="variable">$details</span>.dest = <span class="string">&#x27;true&#x27;</span></span><br><span class="line">                        &#125;</span><br><span class="line"></span><br><span class="line">                        <span class="keyword">if</span>(<span class="variable">$rule</span>.direction <span class="operator">-eq</span> <span class="string">&#x27;Inbound&#x27;</span>) &#123;</span><br><span class="line">                                <span class="variable">$inbound</span> += <span class="built_in">New-Object</span> PSObject <span class="literal">-Property</span> <span class="variable">$details</span></span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                                <span class="variable">$outbound</span> += <span class="built_in">New-Object</span> PSObject <span class="literal">-Property</span> <span class="variable">$details</span></span><br><span class="line">                        &#125;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$inbound</span> | <span class="built_in">select-object</span> nsgName, direction, ruleName, priority, source, dest | <span class="built_in">sort-object</span> <span class="literal">-property</span> nsgName, priority | <span class="built_in">format-table</span></span><br><span class="line"><span class="variable">$outbound</span> | <span class="built_in">select-object</span> nsgName, direction, ruleName, priority, source, dest | <span class="built_in">sort-Object</span> <span class="literal">-property</span> nsgName, priority | <span class="built_in">format-table</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Related-Posts"><a href="#Related-Posts" class="headerlink" title="Related Posts"></a>Related Posts</h3>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://yy1111yang.github.io/2020/12/10/20201211-az-nsg-cli/" data-id="cljdxt3jt0005qigddpn09cb0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Yong Yang"
+        },
+        "headline": "Useful CLI about Azure NSG",
+        "image": "https://yy1111yang.github.io",
+        "keywords": "Cloud Azure Powershell NSG",
+        "genre": "Azure Powershell",
+        "datePublished": "2020-12-11",
+        "dateCreated": "2020-12-11",
+        "dateModified": "2023-06-27",
+        "url": "https://yy1111yang.github.io/2020/12/10/20201211-az-nsg-cli/",
+        "description": "Search Rule include ‘Any Port’123456789101112131415161718192021222324$inbound = @();$outbound = @();$nsgList = az network nsg list | convertFrom-Jsonforeach($nsg in $nsgList) &#123;        foreach($ru",
+        "wordCount": 2530
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="external nofollow noopener noreferrer">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/12/10/20201211-az-vm-network-connect/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            How can we check network connection between Azure VM
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2020/12/10/20201211-az-no-associated-resource-cli/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Search Unused Resource in Azure using CLI</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/12/19/20201220-azure-sample-app05/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2020/12/19/20201220-azure-sample-app05/02.step05.png)" alt="Azure app architecure - step05" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Azure/Function/">Function</a></p>
+                            <p class="item-title"><a href="/2020/12/19/20201220-azure-sample-app05/" class="title">Azure app architecure - step05</a></p>
+                            <p class="item-date"><time datetime="2020-12-19T18:54:09.000Z" itemprop="datePublished">2020-12-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/12/19/20201220-azure-sample-app04/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2020/12/19/20201220-azure-sample-app04/02.step04.png)" alt="Azure app architecure - step04" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Azure/Function/">Function</a></p>
+                            <p class="item-title"><a href="/2020/12/19/20201220-azure-sample-app04/" class="title">Azure app architecure - step04</a></p>
+                            <p class="item-date"><time datetime="2020-12-19T18:54:03.000Z" itemprop="datePublished">2020-12-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/12/19/20201220-azure-sample-app03/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2020/12/19/20201220-azure-sample-app03/02.step03.png)" alt="Azure app architecure - step03" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Azure/Function/">Function</a></p>
+                            <p class="item-title"><a href="/2020/12/19/20201220-azure-sample-app03/" class="title">Azure app architecure - step03</a></p>
+                            <p class="item-date"><time datetime="2020-12-19T18:53:55.000Z" itemprop="datePublished">2020-12-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/12/19/20201220-azure-sample-app02/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2020/12/19/20201220-azure-sample-app02/02.step02.png)" alt="Azure app architecure - step02" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Azure/Function/">Function</a></p>
+                            <p class="item-title"><a href="/2020/12/19/20201220-azure-sample-app02/" class="title">Azure app architecure - step02</a></p>
+                            <p class="item-date"><time datetime="2020-12-19T18:53:47.000Z" itemprop="datePublished">2020-12-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/12/19/20201220-azure-sample-app01/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2020/12/19/20201220-azure-sample-app01/02.step01.png)" alt="Azure app architecure - step01" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Azure/">Azure</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Azure/Function/">Function</a></p>
+                            <p class="item-title"><a href="/2020/12/19/20201220-azure-sample-app01/" class="title">Azure app architecure - step01</a></p>
+                            <p class="item-date"><time datetime="2020-12-19T18:53:40.000Z" itemprop="datePublished">2020-12-20</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Azure/">Azure</a><span class="category-list-count">16</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Azure/Function/">Function</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Azure/Powershell/">Powershell</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Azure/VM/">VM</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Azure/VM/NSG/">NSG</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Azure/Windows/">Windows</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">16</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure/" rel="tag">Azure</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud/" rel="tag">Cloud</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Copy/" rel="tag">Copy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cosmos/" rel="tag">Cosmos</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Function/" rel="tag">Function</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Graph/" rel="tag">Graph</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LB/" rel="tag">LB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Latency/" rel="tag">Latency</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Log-Analytics/" rel="tag">Log Analytics</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Move/" rel="tag">Move</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NAT/" rel="tag">NAT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSG/" rel="tag">NSG</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/" rel="tag">Network</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Powershell/" rel="tag">Powershell</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Snapshot/" rel="tag">Snapshot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/StaticWeb/" rel="tag">StaticWeb</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Subscription/" rel="tag">Subscription</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unused-Resource/" rel="tag">Unused Resource</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VM/" rel="tag">VM</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Azure/" style="font-size: 20px;">Azure</a> <a href="/tags/Cloud/" style="font-size: 20px;">Cloud</a> <a href="/tags/Copy/" style="font-size: 12.5px;">Copy</a> <a href="/tags/Cosmos/" style="font-size: 17.5px;">Cosmos</a> <a href="/tags/Function/" style="font-size: 17.5px;">Function</a> <a href="/tags/Graph/" style="font-size: 10px;">Graph</a> <a href="/tags/LB/" style="font-size: 10px;">LB</a> <a href="/tags/Latency/" style="font-size: 10px;">Latency</a> <a href="/tags/Log-Analytics/" style="font-size: 10px;">Log Analytics</a> <a href="/tags/Move/" style="font-size: 10px;">Move</a> <a href="/tags/NAT/" style="font-size: 10px;">NAT</a> <a href="/tags/NSG/" style="font-size: 12.5px;">NSG</a> <a href="/tags/Network/" style="font-size: 12.5px;">Network</a> <a href="/tags/Powershell/" style="font-size: 15px;">Powershell</a> <a href="/tags/Resource/" style="font-size: 10px;">Resource</a> <a href="/tags/Snapshot/" style="font-size: 10px;">Snapshot</a> <a href="/tags/StaticWeb/" style="font-size: 17.5px;">StaticWeb</a> <a href="/tags/Subscription/" style="font-size: 10px;">Subscription</a> <a href="/tags/Unused-Resource/" style="font-size: 10px;">Unused Resource</a> <a href="/tags/VM/" style="font-size: 12.5px;">VM</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="external nofollow noopener noreferrer" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 Yong Yang</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank" rel="external nofollow noopener noreferrer">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://yy1111yang.github.io/2020/12/10/20201211-az-nsg-cli/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
